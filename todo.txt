@@ -1,5 +1,5 @@
 :=: GEMSCRAFT TODO :=:
-- Saving logs
+- Saving logs (DONE!)
 - Config (xml/json/ or property style)
 - Setting up the server (TCP or UDP)
 - Enabling Query

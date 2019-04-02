@@ -42,7 +42,7 @@ namespace GemsCraft.Players
 #if DEBUG 
                 Console.WriteLine(e);
 #endif
-                Logger.Log(LogType.PlayerDBError, Player.Console, $"Unable to save player to db ({p.UUID}).");
+                Logger.Log(LogType.PlayerDBError, $"Unable to save player to db ({p.UUID}).");
                 return false;
             }
         }
@@ -67,7 +67,7 @@ namespace GemsCraft.Players
 #if DEBUG
                 Console.WriteLine(e);
 #endif
-                Logger.Log(LogType.PlayerDBError, Player.Console, $"Unable to save the Player Database.");
+                Logger.Log(LogType.PlayerDBError, $"Unable to save the Player Database.");
                 return false;
             }
         }

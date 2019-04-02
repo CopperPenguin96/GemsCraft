@@ -23,11 +23,11 @@ namespace GemsCraft
         private static void ServerThread()
         {
             Player.Console = new Player {Username = "Console"};
-            Logger.Log(LogType.ServerStartup, Player.Console, "Starting the Server...");
+            Logger.Log(LogType.ServerStartup, "Starting the Server...", Player.Console);
             CheckDirs();
-            Logger.Log(LogType.ServerStartup, Player.Console, "Loading Player Database...");
+            Logger.Log(LogType.ServerStartup, "Loading Player Database...");
             PlayerDB.LoadPlayerDB();
-            Logger.Log(LogType.ServerStartup, Player.Console, "Saving Console Player...");
+            Logger.Log(LogType.ServerStartup, "Saving Console Player...");
             PlayerDB.SavePlayer(Player.Console);
         }
 

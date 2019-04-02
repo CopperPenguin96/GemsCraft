@@ -34,7 +34,7 @@ namespace GemsCraft.Players
                     {
                         throw new InvalidOperationException("Player's UUID has already been set.");
                     }
-                    Logger.Log(LogType.SystemActivity, Player.Console, $"{Username}'s UUID was invalid. Generating them a new one.");
+                    Logger.Log(LogType.SystemActivity, $"{Username}'s UUID was invalid. Generating them a new one.", Player.Console);
                     identifier = Guid.NewGuid().ToString("D");
                 }
                 else
