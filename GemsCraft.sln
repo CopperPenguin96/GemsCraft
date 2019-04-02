@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GemsCraft", "GemsCraft\GemsCraft.csproj", "{D8129117-2620-4079-8772-2C82888139CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GemsCraftGUI", "GemsCraftGUI\GemsCraftGUI.csproj", "{9A0B84F1-37E5-43D5-BF6F-EBABD582BD8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerCLI", "ServerCLI\ServerCLI.csproj", "{210C2B37-2967-4E78-B926-E3C2F4C95D60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8129117-2620-4079-8772-2C82888139CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8129117-2620-4079-8772-2C82888139CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8129117-2620-4079-8772-2C82888139CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8129117-2620-4079-8772-2C82888139CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0B84F1-37E5-43D5-BF6F-EBABD582BD8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0B84F1-37E5-43D5-BF6F-EBABD582BD8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0B84F1-37E5-43D5-BF6F-EBABD582BD8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0B84F1-37E5-43D5-BF6F-EBABD582BD8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{210C2B37-2967-4E78-B926-E3C2F4C95D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{210C2B37-2967-4E78-B926-E3C2F4C95D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{210C2B37-2967-4E78-B926-E3C2F4C95D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{210C2B37-2967-4E78-B926-E3C2F4C95D60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1CD1E8D-86C2-47A1-9D4E-C86F49871904}
+	EndGlobalSection
+EndGlobal
