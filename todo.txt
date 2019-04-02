@@ -1,0 +1,14 @@
+:=: GEMSCRAFT TODO :=:
+- Saving logs
+- Config (xml/json/ or property style)
+- Setting up the server (TCP or UDP)
+- Enabling Query
+- Enabling RIcon
+- World Loading
+-- Default World, AutoSave
+- Security
+-- Grief Detection
+-- Spam
+-- Fake Accounts
+-- Max Accounts per IP
+-- Checking Bans
