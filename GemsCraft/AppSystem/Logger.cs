@@ -17,9 +17,24 @@ namespace GemsCraft.AppSystem
         {
             if (player == null) player = Player.Console;
             if (message == null) throw new ArgumentNullException(nameof(message));
+
+#if DEBUG
+            if (type == LogType.Debug)
+            {
+                Log lDebug = new Log { Sender = player, Time = DateTime.Now, Message = message };
+                Console.WriteLine(lDebug.ToString());
+                Logs.Add(lDebug);
+                return;
+            }
+#endif
             Log l = new Log {Sender = player, Time = DateTime.Now, Message = message};
             Console.WriteLine(l.ToString());
             Logs.Add(l);
+        }
+
+        public static void Log(LogType type, string message, params object[] args)
+        {
+            Log(type, string.Format(message, args));
         }
 
         public static void Log(string message, Player player)
@@ -50,6 +65,11 @@ namespace GemsCraft.AppSystem
             }
 
             return logs.ToArray();
+        }
+
+        public static void LogAndReportCrash(string message, string assembly, Exception e, bool ShuttingDown)
+        {
+            // TODO - Handle Crash reports
         }
         public static LogSaveType SaveType;
         public static void Save()
@@ -91,7 +111,8 @@ namespace GemsCraft.AppSystem
 
     public enum LogType
     {
-        Normal, SystemActivity, ServerStartup, Error, PlayerDBError
+        Normal, SystemActivity, ServerStartup, Error, PlayerDBError,
+        Warning, Debug
     }
 
     public struct Log

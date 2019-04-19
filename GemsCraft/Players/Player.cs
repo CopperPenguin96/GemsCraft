@@ -1,16 +1,25 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using GemsCraft.AppSystem;
+using GemsCraft.Configuration;
+using GemsCraft.Utils;
+using JetBrains.Annotations;
 
 namespace GemsCraft.Players
 {
     public class Player
     {
-        public static Player Console = new Player();
+        public static Player Console;
+        public bool IsConsole => this == Console;
+        public TcpClient Client;
         /// <summary>
         /// The player's minecraft name, unchanged
         /// </summary>
@@ -64,20 +73,23 @@ namespace GemsCraft.Players
                 if (value != null) displayed = value;
             }
         }
-
-        public Player()
+        
+        public DateTime LoginTime { get; private set; }
+        /// <summary>
+        /// Used to create Console like players
+        /// </summary>
+        public Player(string name)
         {
+            if (name == null) throw new ArgumentNullException(nameof(name));
             UUID = Guid.NewGuid().ToString("D");
         }
 
-        public void Connection()
-        {
-            if (Server.PauseConnections) Kick(Player.Console, "Connections paused...", false);
-        }
-
+        
         public void Kick(Player kicker, string reason, bool countKick)
         {
             // TODO - Implement kicking
         }
+
+
     }
 }

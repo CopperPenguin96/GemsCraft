@@ -1,7 +1,8 @@
 :=: GEMSCRAFT TODO :=:
 - Saving logs (DONE!)
-- Config (xml/json/ or property style)
-- Setting up the server (TCP or UDP)
+- Config (xml/json/ or property style) (semi-in progress, basic setup done)
+- Setting up the server (TCP)
+-- Packet sending/receiving
 - Enabling Query
 - Enabling RIcon
 - World Loading

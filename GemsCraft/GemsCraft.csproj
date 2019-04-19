@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,13 +30,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JetBrains.Annotations, Version=2019.1.1.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.2019.1.1\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,11 +51,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSystem\Files.cs" />
+    <Compile Include="AppSystem\GameStream.cs" />
     <Compile Include="AppSystem\Logger.cs" />
+    <Compile Include="AppSystem\VarInt.cs" />
+    <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\ConfigSection.cs" />
+    <Compile Include="Network\Packets\PlayPackets\ClientPlayPacket.cs" />
+    <Compile Include="Network\Packets\Packet.cs" />
+    <Compile Include="Network\Packets\StatusPackets\ClientStatusPacket.cs" />
+    <Compile Include="Network\Packets\StatusPackets\ServerStatusPacket.cs" />
+    <Compile Include="Network\Protocol.cs" />
+    <Compile Include="Network\Packets\PlayPackets\ServerPlayPacket.cs" />
+    <Compile Include="Network\SessionState.cs" />
+    <Compile Include="Players\Permission.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PlayerDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="Utils\Color.cs" />
+    <Compile Include="Utils\ExtensionMethods.cs" />
+    <Compile Include="Utils\IClassy.cs" />
+    <Compile Include="Utils\MonoCompat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
