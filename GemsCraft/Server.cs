@@ -5,10 +5,12 @@ using System.Net;
 using System.Net.Sockets;
 using System.Security.Claims;
 using System.Threading;
+using System.Windows.Forms;
 using GemsCraft.AppSystem;
 using GemsCraft.Configuration;
 using GemsCraft.Network;
 using GemsCraft.Network.Packets;
+using GemsCraft.Network.Packets.StatusPackets;
 using GemsCraft.Players;
 
 namespace GemsCraft
@@ -43,45 +45,42 @@ namespace GemsCraft
             try
             {
                 IPAddress ip = IPAddress.Parse("0.0.0.0");
-                TcpListener listener = new TcpListener(ip, 25565);
+                TcpListener listener = new TcpListener(ip, 12948);
                 listener.Start();
                 Logger.Log(LogType.ServerStartup, "Now accepting connections.");
-                while (listen)
+                while (true)
                 {
-                    
-                    if (listener.Pending())
+                    if (!listener.Pending()) continue;
+                    Thread tmpThread = new Thread(() =>
                     {
-                        Thread tmpThread = new Thread(() =>
+                        
+                        TcpClient client = listener.AcceptTcpClient();
+                        SessionState state = SessionState.Handshaking;
+                        using (NetworkStream ns = client.GetStream())
                         {
-                            string msg = null;
-                            TcpClient client = listener.AcceptTcpClient();
-                            using (NetworkStream ns = client.GetStream())
+                            GameStream gameStream = new GameStream(ns);
+                            bool startedStatus = false;
+                            using (StreamReader sr = new StreamReader(gameStream))
                             {
-                                GameStream gameStream = new GameStream(ns);
-                                using (StreamReader sr = new StreamReader(gameStream))
+                                
+                                while (ns.DataAvailable)
                                 {
-                                    while (ns.DataAvailable)
+                                    VarInt length = gameStream.ReadVarInt(); // Always read the length first
+                                    VarInt id = gameStream.ReadVarInt();
+                                    state = DataMethod(state, id, gameStream, startedStatus);
+                                    if (state == SessionState.Status && !startedStatus && id == 0x00)
                                     {
-                                        VarInt length = gameStream.ReadVarInt();
-                                        VarInt id = gameStream.ReadVarInt();
-                                        VarInt mode = gameStream.ReadVarInt();
-                                        Logger.Log("" + mode);
+                                        /* When the client fails to read the server status json,
+                                             it attempts to do a legacy ping. This bool will tell the server
+                                             to send the legacy ping or not.
+                                         */
+                                        startedStatus = true;
                                     }
                                 }
                             }
-
-                            
-
-
-                            //Logger.Log($"Received new message ({msg.Length} bytes):\n{msg}");
-                            
-                        });
-                        tmpThread.Start();
-                    }
-                    else
-                    {
-                        Thread.Sleep(100);
-                    }
+                        }
+                    });
+                    tmpThread.Start();
                 }
             }
             catch (Exception e)
@@ -90,7 +89,70 @@ namespace GemsCraft
             }
         }
 
+        /// <summary>
+        /// Handle all packets to and from
+        /// </summary>
+        private static SessionState DataMethod(SessionState currentState, VarInt vid, GameStream gameStream, bool redoStatus)
+        {
+            byte id = (byte) vid.Value;
+            bool outdated = false;
+            switch (currentState)
+            { 
+                case SessionState.Handshaking:
+                    {
+                        if (id == 0x00)
+                        {
+                            VarInt pro = gameStream.ReadVarInt();
+                            string address = gameStream.ReadString();
+                            ushort port = gameStream.ReadUInt16();
+                            VarInt state = gameStream.ReadVarInt();
+                            string response = Protocol.Handshake(
+                                gameStream, // Stream to allow continuing other packets
+                                pro, // Minecraft version protocol
+                                address, // Server's IP Address used to connect
+                                port, // Port used to connect
+                                state); // State to continue to (1 for Server Status [On the server list] or 2 to login)
+                            switch (response)
+                            {
+                                case "continue":
+                                    return SessionState.Status;
+                                case "Outdated Client":
+                                    return SessionState.Status;
+                            }
+                        }
 
+                        break;
+                    }
+                case SessionState.Status:
+                    {
+                        if (id == 0x00) // Request Packet
+                        {
+                            if (redoStatus)
+                            {
+                                Protocol.ResponsePacket.Send(gameStream, outdated); // Response with Response Packet
+                            }
+                            else
+                            {
+                                
+                            }
+                        }
+                        else if (id == 0x01) // Ping Packet
+                        {
+                            long payload = gameStream.ReadInt64(); // ping
+                            VarInt pckId = 0x01;
+                            VarInt length = pckId.Length + DataLength.Long;
+                            gameStream.WriteVarInt(length);
+                            gameStream.WriteVarInt(pckId);
+                            gameStream.WriteInt64(payload); // pong
+                        }
+                        break;
+                    }
+            }
+
+            return currentState;
+        }
+
+        private static bool firstAttemptAtPing = true;
         private static void CheckDirs()
         {
             if (!Directory.Exists(Files.BaseDir)) Directory.CreateDirectory(Files.BaseDir);

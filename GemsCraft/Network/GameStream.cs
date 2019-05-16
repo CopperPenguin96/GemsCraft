@@ -1,17 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using GemsCraft.AppSystem;
 
-namespace GemsCraft.AppSystem
+namespace GemsCraft.Network
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// Based on Craft.NET's Minecraft Stream class
+    /// </summary>
     internal class GameStream : Stream
     {
         static GameStream()
         {
-            StringEncoding = Encoding.UTF8;
+            StringEncoding = Encoding.BigEndianUnicode;
         }
 
         public GameStream(Stream baseStream)
@@ -47,8 +49,17 @@ namespace GemsCraft.AppSystem
             BaseStream.SetLength(value);
         }
 
+        private const string NetworkLog = AppSystem.Files.BaseDir + "NetworkLog.txt";
+
+        private int number = 0;
         public override void Write(byte[] buffer, int offset, int count)
         {
+            string fileText = "";
+            BinaryWriter writer = new BinaryWriter(new FileStream("mydata" + number, FileMode.Create));
+            number++;
+            writer.Write(buffer, offset, count);
+            writer.Flush();
+            writer.Close();
             BaseStream.Write(buffer, offset, count);
         }
 
@@ -69,7 +80,7 @@ namespace GemsCraft.AppSystem
                 result |= (current & 0x7Fu) << length++ * 7;
                 if (length > 5)
                 {
-                    throw new InvalidDataException("VarInt may not be longer than 28 bits.");
+                    if (length > 5) current--;
                 }
 
                 if ((current & 0x80) != 128)
@@ -111,7 +122,8 @@ namespace GemsCraft.AppSystem
             {
                 if ((value & 0xFFFFFF80u) == 0)
                 {
-                    WriteUInt8((byte)value);
+                    byte terror = (byte) value;
+                    WriteUInt8(terror);
                     break;
                 }
                 WriteUInt8((byte)(value & 0x7F | 0x80));
@@ -156,7 +168,7 @@ namespace GemsCraft.AppSystem
         public byte ReadUInt8()
         {
             int value = BaseStream.ReadByte();
-            if (value == -1) throw new EndOfStreamException();
+            //if (value == -1) throw new EndOfStreamException();
             return (byte) value;
         }
 
@@ -340,8 +352,8 @@ namespace GemsCraft.AppSystem
 
         public void WriteUInt32Array(uint[] value)
         {
-            for (int i = 0; i < value.Length; i++)
-                WriteUInt32(value[i]);
+            foreach (var t in value)
+                WriteUInt32(t);
         }
 
         public int[] ReadInt32Array(int length)
@@ -365,8 +377,8 @@ namespace GemsCraft.AppSystem
 
         public void WriteUInt64Array(ulong[] value)
         {
-            for (int i = 0; i < value.Length; i++)
-                WriteUInt64(value[i]);
+            foreach (var t in value)
+                WriteUInt64(t);
         }
 
         public long[] ReadInt64Array(int length)
@@ -421,9 +433,10 @@ namespace GemsCraft.AppSystem
 
         public void WriteString(string value)
         {
-            WriteVarInt(StringEncoding.GetByteCount(value));
+            byte[] bytes = StringEncoding.GetBytes(value);
+            WriteVarInt(bytes.Length + 1); // Writing length is required for strings
             if (value.Length > 0)
-                WriteUInt8Array(StringEncoding.GetBytes(value));
+                WriteUInt8Array(bytes);
         }
     }
 }

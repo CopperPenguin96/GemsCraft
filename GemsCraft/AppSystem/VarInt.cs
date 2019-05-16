@@ -1,4 +1,5 @@
 ﻿using System;
+using GemsCraft.Network;
 
 namespace GemsCraft.AppSystem
 {
@@ -15,6 +16,26 @@ namespace GemsCraft.AppSystem
             Value = value;
         }
 
+        public int Length
+        {
+            get
+            {
+                uint result = 0;
+                int length = 0;
+                while (true)
+                {
+                    byte current = (byte) Value;
+                    result |= (current & 0x7Fu) << length++ * 7;
+                    if (length > 5)
+                    {
+                        throw new FormatException("VarInt cannot be longer than 5");
+                    }
+
+                    return length;
+                }
+            }
+        }
+
         public static explicit operator VarInt(int val)
         {
             return new VarInt(val);
@@ -24,7 +45,7 @@ namespace GemsCraft.AppSystem
         {
             return new VarInt(val);
         }
-
+        
         public static VarInt operator +(VarInt first, VarInt second)
         {
             return new VarInt(first.Value + second.Value);

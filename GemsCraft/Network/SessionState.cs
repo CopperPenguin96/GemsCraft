@@ -9,6 +9,7 @@ namespace GemsCraft.Network
     internal enum SessionState
     {
         Handshaking,
-        Status
+        Status,
+        StatusPing
     }
 }

@@ -49,10 +49,22 @@ namespace GemsCraft.Configuration
 
         public void LoadDefaults()
         {
+            GeneralDefaults();
+            AdvancedDefaults();
+        }
+
+        private void GeneralDefaults()
+        {
             Name = "[GemsCraft] Default";
             MOTD = "Welcome to the server!";
             FileVersion = CurrentVersion;
             Port = 25565;
+            MaxPlayers = 20;
+        }
+
+        private void AdvancedDefaults()
+        {
+            PacketLogs = false;
         }
 
         public void Save()
@@ -83,5 +95,9 @@ namespace GemsCraft.Configuration
         public string MOTD;
         public string FileVersion;
         public int Port;
+        public int MaxPlayers;
+
+        // Advanced Configuration
+        public bool PacketLogs;
     }
 }

@@ -12,6 +12,7 @@ using GemsCraft.AppSystem;
 using GemsCraft.Configuration;
 using GemsCraft.Utils;
 using JetBrains.Annotations;
+using Newtonsoft.Json;
 
 namespace GemsCraft.Players
 {
@@ -20,11 +21,12 @@ namespace GemsCraft.Players
         public static Player Console;
         public bool IsConsole => this == Console;
         public TcpClient Client;
+
         /// <summary>
         /// The player's minecraft name, unchanged
         /// </summary>
         public string Username { get; set; }
-
+       
         private bool jsonLoad = false;
         private string identifier;
 
