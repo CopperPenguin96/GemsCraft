@@ -8,8 +8,8 @@ namespace GemsCraft.Network
 {
     internal enum SessionState
     {
-        Handshaking,
-        Status,
-        StatusPing
+        Handshaking, // Determining protocol version (Are we on the right MC version?)
+        Status, // Sending the Server List Information to the client
+        Login // Connecting the user
     }
 }

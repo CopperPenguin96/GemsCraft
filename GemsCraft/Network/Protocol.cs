@@ -17,36 +17,20 @@ namespace GemsCraft.Network
     {
         public static readonly MinecraftVersion MCVersion = new MinecraftVersion("1.13.2", 404);
         
-        public static string Handshake(GameStream stream, VarInt protVer, string ip, ushort port, VarInt nextState)
+        public static ProtocolResponse Handshake(GameStream stream, VarInt protVer, string ip, ushort port, VarInt nextState)
         {
-            int Version = MCVersion.Protocol;
-            if (protVer.Value > Version) // Check to see if client is on new version
+            int version = MCVersion.Protocol;
+            if (protVer.Value > version) // Check to see if client is on new version
             {
-                return "Server is still on Minecraft Version " + MCVersion;
+                return ProtocolResponse.OutdatedServer;
             }
-            else if (protVer.Value < Version) // Check to see if client in on older version
-            {
-                return "Outdated Client.";
-            }
-            else // If both client and server match, go for it!
-            {
-                if (IPAddress.TryParse(ip + ":" + port, out _))
-                {
-                    return "Invalid IP Address";
-                }
 
-                NextState state = (NextState) nextState.Value;
-                switch (state)
-                {
-                    case NextState.Status:
-                        return "continue";
-                    case NextState.Login:
-                        // TODO handle
-                        return null;
-                    default:
-                        throw new Exception("Unrecognized NextState");
-                }
+            if (protVer.Value < version) // Check to see if client in on older version
+            {
+                return ProtocolResponse.OutdatedClient;
             }
+
+            return IPAddress.TryParse(ip + ":" + port, out _) ? ProtocolResponse.InvalidInternetAddress : ProtocolResponse.Updated;
         }
 
         //TODO - Add packets here as they come along
@@ -66,9 +50,15 @@ namespace GemsCraft.Network
             this.Protocol = pro;
         }
     }
+
     public enum NextState
     {
         Status = 1,
         Login = 2
+    }
+
+    public enum ProtocolResponse
+    { 
+        Updated, OutdatedClient, OutdatedServer, InvalidInternetAddress
     }
 }

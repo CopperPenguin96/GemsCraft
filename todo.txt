@@ -1,8 +1,8 @@
 :=: GEMSCRAFT TODO :=:
 - Saving logs (DONE!)
 - Config (xml/json/ or property style) (semi-in progress, basic setup done)
-- Setting up the server (TCP)
--- Packet sending/receiving
+- Setting up the server (TCP) (DONE!)
+-- Packet sending/receiving ( IN PROGRESS )
 - Enabling Query
 - Enabling RIcon
 - World Loading
@@ -13,3 +13,7 @@
 -- Fake Accounts
 -- Max Accounts per IP
 -- Checking Bans
+- Plugins
+-- Custom commands
+-- Custom blocks
+-- Custom configs

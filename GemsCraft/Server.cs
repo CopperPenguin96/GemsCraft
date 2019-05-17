@@ -66,7 +66,7 @@ namespace GemsCraft
                                 {
                                     VarInt length = gameStream.ReadVarInt(); // Always read the length first
                                     VarInt id = gameStream.ReadVarInt();
-                                    state = DataMethod(state, id, gameStream);
+                                    state = HandleData(state, id, gameStream);
                                 }
                             }
                         }
@@ -83,60 +83,84 @@ namespace GemsCraft
         /// <summary>
         /// Handle all packets to and from
         /// </summary>
-        private static SessionState DataMethod(SessionState currentState, VarInt vid, GameStream gameStream)
+        private static SessionState HandleData(SessionState currentState, VarInt vid, GameStream gameStream)
         {
             byte id = (byte) vid.Value;
             bool outdated = false;
             switch (currentState)
             { 
                 case SessionState.Handshaking:
-                    {
-                        if (id == 0x00)
-                        {
-                            VarInt pro = gameStream.ReadVarInt();
-                            string address = gameStream.ReadString();
-                            ushort port = gameStream.ReadUInt16();
-                            VarInt state = gameStream.ReadVarInt();
-                            string response = Protocol.Handshake(
-                                gameStream, // Stream to allow continuing other packets
-                                pro, // Minecraft version protocol
-                                address, // Server's IP Address used to connect
-                                port, // Port used to connect
-                                state); // State to continue to (1 for Server Status [On the server list] or 2 to login)
-                            switch (response)
-                            {
-                                case "continue":
-                                    return SessionState.Status;
-                                case "Outdated Client":
-                                    return SessionState.Status;
-                            }
-                        }
-
-                        break;
-                    }
+                    return HandshakingState(gameStream, vid);
                 case SessionState.Status:
-                    {
-                        if (id == 0x00) // Request Packet
-                        {
-                            Protocol.ResponsePacket.Send(gameStream, outdated); // Response with Response Packet
-                        }
-                        else if (id == 0x01) // Ping Packet
-                        {
-                            long payload = gameStream.ReadInt64(); // ping
-                            VarInt pckId = 0x01;
-                            VarInt length = pckId.Length + DataLength.Long;
-                            gameStream.WriteVarInt(length);
-                            gameStream.WriteVarInt(pckId);
-                            gameStream.WriteInt64(payload); // pong
-                        }
-                        break;
-                    }
+                    return StatusState(gameStream, vid, outdated);
+                case SessionState.Login:
+                    return LoginState(gameStream, vid);
             }
 
             return currentState;
         }
 
-        private static bool firstAttemptAtPing = true;
+        private static SessionState HandshakingState(GameStream gameStream, VarInt id)
+        {
+            if (id == 0x00)
+            {
+                VarInt pro = gameStream.ReadVarInt();
+                string address = gameStream.ReadString();
+                ushort port = gameStream.ReadUInt16();
+                VarInt state = gameStream.ReadVarInt();
+                ProtocolResponse response = Protocol.Handshake(
+                    gameStream, // Stream to allow continuing other packets
+                    pro, // Minecraft version protocol
+                    address, // Server's IP Address used to connect
+                    port, // Port used to connect
+                    state); // State to continue to (1 for Server Status [On the server list] or 2 to login)
+
+                switch (response)
+                {
+                    case ProtocolResponse.InvalidInternetAddress:
+                        Logger.Log(LogType.Error, "Unable to start server. Invalid IP Address");
+                        Console.ReadLine();
+                        break;
+                    default:
+                        if (state == 1) return SessionState.Status;
+                        else if (state == 2) return SessionState.Login;
+                        else
+                        {
+                            Logger.Log(LogType.Error,
+                                "Unable to start server. Something went wrong when communicating with the client.");
+                            break;
+                        }
+                }
+
+                throw new Exception("Something was miscommunicated with the client.");
+            }
+            else throw new Exception("Invalid ID for handshaking...");
+        }
+
+        private static SessionState StatusState(GameStream gameStream, VarInt id, bool outdated)
+        {
+            if (id == 0x00) // Request Packet
+            {
+                Protocol.ResponsePacket.Send(gameStream, outdated); // Response with Response Packet
+            }
+            else if (id == 0x01) // Ping Packet
+            {
+                long payload = gameStream.ReadInt64(); // ping
+                VarInt pckId = 0x01;
+                VarInt length = pckId.Length + DataLength.Long;
+                gameStream.WriteVarInt(length);
+                gameStream.WriteVarInt(pckId);
+                gameStream.WriteInt64(payload); // pong
+            }
+
+            throw new Exception("INvalid ID for status...");
+        }
+
+        private static SessionState LoginState(GameStream gameStream, VarInt id)
+        {
+            return 0;
+        }
+        
         private static void CheckDirs()
         {
             if (!Directory.Exists(Files.BaseDir)) Directory.CreateDirectory(Files.BaseDir);
