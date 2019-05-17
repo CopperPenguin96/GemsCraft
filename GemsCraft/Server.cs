@@ -59,23 +59,14 @@ namespace GemsCraft
                         using (NetworkStream ns = client.GetStream())
                         {
                             GameStream gameStream = new GameStream(ns);
-                            bool startedStatus = false;
                             using (StreamReader sr = new StreamReader(gameStream))
                             {
-                                
-                                while (ns.DataAvailable)
+
+                                while (true)
                                 {
                                     VarInt length = gameStream.ReadVarInt(); // Always read the length first
                                     VarInt id = gameStream.ReadVarInt();
-                                    state = DataMethod(state, id, gameStream, startedStatus);
-                                    if (state == SessionState.Status && !startedStatus && id == 0x00)
-                                    {
-                                        /* When the client fails to read the server status json,
-                                             it attempts to do a legacy ping. This bool will tell the server
-                                             to send the legacy ping or not.
-                                         */
-                                        startedStatus = true;
-                                    }
+                                    state = DataMethod(state, id, gameStream);
                                 }
                             }
                         }
@@ -92,7 +83,7 @@ namespace GemsCraft
         /// <summary>
         /// Handle all packets to and from
         /// </summary>
-        private static SessionState DataMethod(SessionState currentState, VarInt vid, GameStream gameStream, bool redoStatus)
+        private static SessionState DataMethod(SessionState currentState, VarInt vid, GameStream gameStream)
         {
             byte id = (byte) vid.Value;
             bool outdated = false;
@@ -127,14 +118,7 @@ namespace GemsCraft
                     {
                         if (id == 0x00) // Request Packet
                         {
-                            if (redoStatus)
-                            {
-                                Protocol.ResponsePacket.Send(gameStream, outdated); // Response with Response Packet
-                            }
-                            else
-                            {
-                                
-                            }
+                            Protocol.ResponsePacket.Send(gameStream, outdated); // Response with Response Packet
                         }
                         else if (id == 0x01) // Ping Packet
                         {

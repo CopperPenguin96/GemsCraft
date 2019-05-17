@@ -50,16 +50,9 @@ namespace GemsCraft.Network
         }
 
         private const string NetworkLog = AppSystem.Files.BaseDir + "NetworkLog.txt";
-
-        private int number = 0;
+        
         public override void Write(byte[] buffer, int offset, int count)
         {
-            string fileText = "";
-            BinaryWriter writer = new BinaryWriter(new FileStream("mydata" + number, FileMode.Create));
-            number++;
-            writer.Write(buffer, offset, count);
-            writer.Flush();
-            writer.Close();
             BaseStream.Write(buffer, offset, count);
         }
 

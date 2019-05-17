@@ -56,7 +56,6 @@ namespace GemsCraft.Network.Packets.StatusPackets
             stream.WriteVarInt(id); // Then the ID
             stream.WriteVarInt(detsLength); // String length must be sent before the string :|
             stream.WriteUInt8Array(detsBytes); // Sending the string
-            stream.Flush();
         }
 
         public void SendLegacy(GameStream stream, bool outdated)
