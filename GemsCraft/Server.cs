@@ -12,6 +12,7 @@ using GemsCraft.Network;
 using GemsCraft.Network.Packets;
 using GemsCraft.Network.Packets.StatusPackets;
 using GemsCraft.Players;
+using JetBrains.Annotations;
 
 namespace GemsCraft
 {
@@ -122,26 +123,22 @@ namespace GemsCraft
                         Console.ReadLine();
                         break;
                     default:
-                        if (state == 1) return SessionState.Status;
-                        else if (state == 2) return SessionState.Login;
-                        else
-                        {
-                            Logger.Log(LogType.Error,
-                                "Unable to start server. Something went wrong when communicating with the client.");
-                            break;
-                        }
+                        return state == 1 ? SessionState.Status : SessionState.Login;
+                      
                 }
 
-                throw new Exception("Something was miscommunicated with the client.");
+                return 0;
             }
             else throw new Exception("Invalid ID for handshaking...");
         }
 
-        private static SessionState StatusState(GameStream gameStream, VarInt id, bool outdated)
+        private static SessionState StatusState(GameStream gameStream, VarInt vid, bool outdated)
         {
+            byte id = (byte) vid.Value;
             if (id == 0x00) // Request Packet
             {
                 Protocol.ResponsePacket.Send(gameStream, outdated); // Response with Response Packet
+                return SessionState.Status;
             }
             else if (id == 0x01) // Ping Packet
             {
@@ -151,13 +148,21 @@ namespace GemsCraft
                 gameStream.WriteVarInt(length);
                 gameStream.WriteVarInt(pckId);
                 gameStream.WriteInt64(payload); // pong
+                return SessionState.Status;
             }
-
-            throw new Exception("INvalid ID for status...");
+            else
+            {
+                throw new Exception("Invalid Packet for Status State");
+            }
         }
 
         private static SessionState LoginState(GameStream gameStream, VarInt id)
         {
+            if (id == 0x00)
+            {
+                Protocol.LoginStartPacket.Receive(gameStream); // Get username
+            }
+
             return 0;
         }
         
@@ -174,5 +179,20 @@ namespace GemsCraft
         }
 
         public static bool PauseConnections { get; internal set; }
+
+        public static void Message(Player player, string message)
+        {
+            Player.Console.Message(player, message);
+            foreach (Player p in OnlinePlayers)
+            {
+                p.Message(player, message);
+            }
+        }
+ 
+        [StringFormatMethod("message")]
+        public static void Message(Player player, string message, params object[] formatArgs)
+        {
+            Message(player, string.Format(message, formatArgs));
+        }
     }
 }

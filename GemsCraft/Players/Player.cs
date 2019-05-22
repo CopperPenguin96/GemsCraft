@@ -77,21 +77,46 @@ namespace GemsCraft.Players
         }
         
         public DateTime LoginTime { get; private set; }
-        /// <summary>
-        /// Used to create Console like players
-        /// </summary>
-        public Player(string name)
-        {
-            if (name == null) throw new ArgumentNullException(nameof(name));
-            UUID = Guid.NewGuid().ToString("D");
-        }
 
+        private Player() { } // Default Constructor made private so forced to use CreateInstance()
+
+        public static Player CreateInstance(string username)
+        {
+            if (username == null) throw new ArgumentNullException(nameof(username));
+
+            Player player = null;
+            foreach (Player p in PlayerDB.AllPlayers())
+            {
+                if (p.Username == username)
+                {
+                    player = p;
+                }
+            }
+
+            // ReSharper disable once ConvertIfStatementToNullCoalescingExpression
+            if (player == null)
+            {
+                player = new Player {UUID = Guid.NewGuid().ToString("D")};
+            }
+
+            PlayerDB.LoadPlayerDB();
+            return player;
+        }
         
         public void Kick(Player kicker, string reason, bool countKick)
         {
-            // TODO - Implement kicking
+            throw new NotImplementedException();
         }
 
+        public void Message(Player player, string message)
+        {
+            throw new NotImplementedException();
+        }
 
+        [StringFormatMethod("message")]
+        public void Message(Player player, string message, params object[] formatArgs)
+        {
+            Message(player, string.Format(message, formatArgs));
+        }
     }
 }

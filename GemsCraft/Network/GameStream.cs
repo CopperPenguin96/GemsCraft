@@ -13,7 +13,7 @@ namespace GemsCraft.Network
     {
         static GameStream()
         {
-            StringEncoding = Encoding.BigEndianUnicode;
+            StringEncoding = Encoding.UTF8; // Make sure this is set to UTF8, Do not change it
         }
 
         public GameStream(Stream baseStream)

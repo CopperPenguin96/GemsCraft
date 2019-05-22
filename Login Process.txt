@@ -1,0 +1,8 @@
+C?S: Handshake with Next State set to 2 (login) (DONE)
+C?S: Login Start (DONE)
+S?C: Encryption Request
+Client auth
+C?S: Encryption Response
+Server auth, both enable encryption
+S?C: Set Compression (optional)
+S?C: Login Success
