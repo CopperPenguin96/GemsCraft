@@ -26,7 +26,7 @@ namespace GemsCraft.Network.Packets.StatusPackets
             return SessionState.Status;
         }
 
-        public void Receive(GameStream stream)
+        public void Receive(GameStream stream, Player client)
         {
             // Not implemented
         }
@@ -36,11 +36,11 @@ namespace GemsCraft.Network.Packets.StatusPackets
             return 0;
         }
 
-        public void Send(GameStream stream)
+        public void Send(GameStream stream, Player client)
         {
             throw new NotImplementedException();
         }
-
+        
         public void Send(GameStream stream, bool outdated)
         {
             VarInt id = GetID();

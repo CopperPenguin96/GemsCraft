@@ -35,6 +35,9 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>C:\Users\super\OneDrive\Pictures\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="JetBrains.Annotations, Version=2019.1.1.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.2019.1.1\lib\net20\JetBrains.Annotations.dll</HintPath>
     </Reference>
@@ -53,7 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSystem\Cryptography.cs" />
     <Compile Include="AppSystem\Files.cs" />
+    <Compile Include="Network\AesStream.cs" />
     <Compile Include="Network\GameStream.cs" />
     <Compile Include="AppSystem\Logger.cs" />
     <Compile Include="AppSystem\VarInt.cs" />
@@ -63,6 +68,7 @@
     <Compile Include="Network\Packets\DataLength.cs" />
     <Compile Include="Network\Packets\LoginPackets\ClientLoginPacket.cs" />
     <Compile Include="Network\Packets\LoginPackets\EncryptionRequestPacket.cs" />
+    <Compile Include="Network\Packets\LoginPackets\EncryptionResponsePacket.cs" />
     <Compile Include="Network\Packets\LoginPackets\LoginStartPacket.cs" />
     <Compile Include="Network\Packets\LoginPackets\ServerLoginPacket.cs" />
     <Compile Include="Network\Packets\PlayPackets\ClientPlayPacket.cs" />
@@ -86,6 +92,7 @@
     <Compile Include="Utils\Color.cs" />
     <Compile Include="Utils\ExtensionMethods.cs" />
     <Compile Include="Utils\IClassy.cs" />
+    <Compile Include="Utils\JavaUUID.cs" />
     <Compile Include="Utils\MonoCompat.cs" />
   </ItemGroup>
   <ItemGroup>

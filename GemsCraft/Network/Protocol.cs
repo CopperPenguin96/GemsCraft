@@ -104,6 +104,9 @@ namespace GemsCraft.Network
         
         // Login Packets
         public static LoginStartPacket LoginStartPacket =  new LoginStartPacket(); // Serverbound
+        public static EncryptionRequestPacket EncryptionRequestPacket = new EncryptionRequestPacket(); // Clientbound
+        public static EncryptionResponsePacket EncryptionResponsePacket = new EncryptionResponsePacket(); // Serverbound
+        public static LoginSuccessPacket LoginSuccessPacket = new LoginSuccessPacket(); // Clientbound
     }
 
     public struct MinecraftVersion

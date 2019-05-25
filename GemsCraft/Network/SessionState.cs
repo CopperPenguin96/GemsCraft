@@ -10,6 +10,7 @@ namespace GemsCraft.Network
     {
         Handshaking, // Determining protocol version (Are we on the right MC version?)
         Status, // Sending the Server List Information to the client
-        Login // Connecting the user
+        Login, // Connecting the user
+        Play // Play time!
     }
 }

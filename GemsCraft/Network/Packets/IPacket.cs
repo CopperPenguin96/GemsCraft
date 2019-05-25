@@ -1,15 +1,17 @@
-﻿using System.Text;
+﻿using System.Runtime.InteropServices;
+using System.Text;
 using GemsCraft.AppSystem;
 using GemsCraft.Configuration;
+using GemsCraft.Players;
 using Newtonsoft.Json;
 
 namespace GemsCraft.Network.Packets
 {
     internal interface IPacket
     {
-        void Receive(GameStream stream);
+        void Receive(GameStream stream, Player client);
 
-        void Send(GameStream stream);
+        void Send(GameStream stream, Player client);
 
         byte GetID();
 

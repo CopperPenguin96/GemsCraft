@@ -9,7 +9,7 @@ namespace GemsCraft.Network
     /// <summary>
     /// Based on Craft.NET's Minecraft Stream class
     /// </summary>
-    internal class GameStream : Stream
+    public class GameStream : Stream
     {
         static GameStream()
         {

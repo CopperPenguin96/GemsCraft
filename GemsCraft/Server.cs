@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Windows.Forms;
 using GemsCraft.AppSystem;
@@ -25,12 +26,15 @@ namespace GemsCraft
         public static void Start()
         {
             // Create console player
-            Player.Console = new Player("Console");
+            Player.Console = Player.CreateInstance("Console");
             // Server thread
             Thread serverThread = new Thread(ServerThread);
             serverThread.Start();
         }
 
+        protected internal static RSACryptoServiceProvider CryptoServiceProvider { get; set; }
+        protected internal static RSAParameters ServerKey { get; set; }
+        
         private static void ServerThread()
         {
             Logger.Log(LogType.ServerStartup, "Starting the Server...", Player.Console);
@@ -45,6 +49,9 @@ namespace GemsCraft
             bool listen = true;
             try
             {
+                CryptoServiceProvider = new RSACryptoServiceProvider(1024);
+                ServerKey = CryptoServiceProvider.ExportParameters(true);
+                
                 IPAddress ip = IPAddress.Parse("0.0.0.0");
                 TcpListener listener = new TcpListener(ip, 12948);
                 listener.Start();
@@ -67,7 +74,7 @@ namespace GemsCraft
                                 {
                                     VarInt length = gameStream.ReadVarInt(); // Always read the length first
                                     VarInt id = gameStream.ReadVarInt();
-                                    state = HandleData(state, id, gameStream);
+                                    state = HandleData(state, id, gameStream, (Player) client);
                                 }
                             }
                         }
@@ -84,7 +91,7 @@ namespace GemsCraft
         /// <summary>
         /// Handle all packets to and from
         /// </summary>
-        private static SessionState HandleData(SessionState currentState, VarInt vid, GameStream gameStream)
+        private static SessionState HandleData(SessionState currentState, VarInt vid, GameStream gameStream, Player client)
         {
             byte id = (byte) vid.Value;
             bool outdated = false;
@@ -95,7 +102,7 @@ namespace GemsCraft
                 case SessionState.Status:
                     return StatusState(gameStream, vid, outdated);
                 case SessionState.Login:
-                    return LoginState(gameStream, vid);
+                    return LoginState(gameStream, vid, client);
             }
 
             return currentState;
@@ -156,14 +163,23 @@ namespace GemsCraft
             }
         }
 
-        private static SessionState LoginState(GameStream gameStream, VarInt id)
+        private static SessionState LoginState(GameStream gameStream, VarInt id, Player client)
         {
             if (id == 0x00)
             {
-                Protocol.LoginStartPacket.Receive(gameStream); // Get username
+                Protocol.LoginStartPacket.Receive(gameStream, client); // Get username
+            }
+            else if (id == 0x01)
+            {
+                Protocol.EncryptionResponsePacket.Receive(gameStream, client); // Get encryption response from client
             }
 
-            return 0;
+            while (!client.LoginCompleted)
+            {
+                
+            }
+
+            return SessionState.Play;
         }
         
         private static void CheckDirs()
@@ -193,6 +209,11 @@ namespace GemsCraft
         public static void Message(Player player, string message, params object[] formatArgs)
         {
             Message(player, string.Format(message, formatArgs));
+        }
+
+        public static void LoginPlayer(GameStream stream, Player player)
+        {
+            Protocol.LoginSuccessPacket.Send(stream, player);
         }
     }
 }

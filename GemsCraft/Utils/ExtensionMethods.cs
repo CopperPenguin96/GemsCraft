@@ -10,6 +10,10 @@ using GemsCraft.AppSystem;
 
 namespace GemsCraft.Utils
 {
+    public static class UuidUtil
+    {
+    }
+
     public static class MathUtil
     {
     }
