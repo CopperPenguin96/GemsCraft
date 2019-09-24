@@ -2,18 +2,45 @@
 using System.IO;
 using System.Text;
 using GemsCraft.AppSystem;
+using GemsCraft.AppSystem.Types;
 
 namespace GemsCraft.Network
 {
-    /// <inheritdoc />
-    /// <summary>
-    /// Based on Craft.NET's Minecraft Stream class
-    /// </summary>
+    /*
+Copyright (c) 2011-2013 Drew DeVault
+
+Permission is hereby granted, free of charge, 
+to any person obtaining a copy of this software 
+and associated documentation files (the "Software"), 
+to deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, 
+merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom 
+the Software is furnished to do so, subject to the following 
+conditions:
+
+The above copyright notice and this permission notice shall be 
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     */
+     
     public class GameStream : Stream
     {
         static GameStream()
         {
             StringEncoding = Encoding.UTF8; // Make sure this is set to UTF8, Do not change it
+        }
+
+        public GameStream()
+        {
+
         }
 
         public GameStream(Stream baseStream)
@@ -23,16 +50,22 @@ namespace GemsCraft.Network
 
         public Stream BaseStream { get; set; }
 
+        public long Payload;
+        public byte[] SharedKey;
+        public SessionState State;
+        internal byte[] VerifyToken;
+        public string Username;
+
         public override bool CanRead => BaseStream.CanRead;
         public override bool CanSeek => BaseStream.CanSeek;
         public override bool CanWrite => BaseStream.CanWrite;
         public override long Length => BaseStream.Length;
 
-        public override long Position
+        /*public override long Position
         {
             get => BaseStream.Position;
             set => BaseStream.Position = value;
-        }
+        }*/
 
         public override int Read(byte[] buffer, int offset, int count)
         {
@@ -49,11 +82,16 @@ namespace GemsCraft.Network
             BaseStream.SetLength(value);
         }
 
-        private const string NetworkLog = AppSystem.Files.BaseDir + "NetworkLog.txt";
-        
         public override void Write(byte[] buffer, int offset, int count)
         {
-            BaseStream.Write(buffer, offset, count);
+            try
+            {
+                BaseStream.Write(buffer, offset, count);
+            }
+            catch (Exception e)
+            {
+                Logger.Write(e.ToString());
+            }
         }
 
         public override void Flush()
@@ -82,7 +120,7 @@ namespace GemsCraft.Network
                 }
             }
 
-            return (int) result;
+            return (int)result;
         }
 
         public VarInt ReadVarInt(out int length)
@@ -104,18 +142,18 @@ namespace GemsCraft.Network
                 }
             }
 
-            return (int) result;
+            return (int)result;
         }
 
-        public void WriteVarInt(VarInt v)
+        public void WriteVarInt(int v)
         {
-            long _value = v.Value;
+            long _value = v;
             uint value = (uint)_value;
             while (true)
             {
                 if ((value & 0xFFFFFF80u) == 0)
                 {
-                    byte terror = (byte) value;
+                    byte terror = (byte)value;
                     WriteUInt8(terror);
                     break;
                 }
@@ -124,9 +162,14 @@ namespace GemsCraft.Network
             }
         }
 
-        public void WriteVarInt(VarInt v, out int length)
+        public void WriteVarInt(VarInt v)
         {
-            long _value = v.Value;
+            WriteVarInt((int) v.Value);
+        }
+
+        public void WriteVarInt(int v, out int length)
+        {
+            long _value = v;
             uint value = (uint)_value;
             Console.WriteLine(value.ToString("X"));
             length = 0;
@@ -143,9 +186,16 @@ namespace GemsCraft.Network
             }
         }
 
-        public static int GetVarIntLength(VarInt v)
+        public void WriteVarInt(VarInt v, out int length)
         {
-            long _value = v.Value;
+            int i;
+            WriteVarInt((int) v.Value, out i);
+            length = i;
+        }
+
+        public static int GetVarIntLength(int v)
+        {
+            long _value = v;
             uint value = (uint)_value;
             int length = 0;
             while (true)
@@ -162,7 +212,7 @@ namespace GemsCraft.Network
         {
             int value = BaseStream.ReadByte();
             //if (value == -1) throw new EndOfStreamException();
-            return (byte) value;
+            return (byte)value;
         }
 
         public void WriteUInt8(byte value)
@@ -172,14 +222,14 @@ namespace GemsCraft.Network
 
         public sbyte ReadInt8()
         {
-            return (sbyte) ReadUInt8();
+            return (sbyte)ReadUInt8();
         }
 
         public void WriteInt8(sbyte value)
         {
-            WriteUInt8((byte) value);
+            WriteUInt8((byte)value);
         }
-        
+
         public ushort ReadUInt16()
         {
             return (ushort)(
@@ -320,8 +370,8 @@ namespace GemsCraft.Network
 
         public void WriteUInt16Array(ushort[] value)
         {
-            for (int i = 0; i < value.Length; i++)
-                WriteUInt16(value[i]);
+            foreach (var t in value)
+                WriteUInt16(t);
         }
 
         public short[] ReadInt16Array(int length)
@@ -426,10 +476,11 @@ namespace GemsCraft.Network
 
         public void WriteString(string value)
         {
-            byte[] bytes = StringEncoding.GetBytes(value);
-            WriteVarInt(bytes.Length + 1); // Writing length is required for strings
+            WriteVarInt(StringEncoding.GetByteCount(value));
             if (value.Length > 0)
-                WriteUInt8Array(bytes);
+                WriteUInt8Array(StringEncoding.GetBytes(value));
         }
+
+        public override long Position { get; set; }
     }
 }

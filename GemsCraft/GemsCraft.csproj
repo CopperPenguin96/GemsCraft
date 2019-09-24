@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D8129117-2620-4079-8772-2C82888139CD}</ProjectGuid>
+    <ProjectGuid>{72881457-1613-40C1-AD2E-143B272EEA74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GemsCraft</RootNamespace>
@@ -22,7 +22,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,22 +30,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto">
-      <HintPath>C:\Users\super\OneDrive\Pictures\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="JetBrains.Annotations, Version=2019.1.1.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
-      <HintPath>..\packages\JetBrains.Annotations.2019.1.1\lib\net20\JetBrains.Annotations.dll</HintPath>
+    <Reference Include="LightJson">
+      <HintPath>D:\Downloads\LightJson_v0.3.0\LightJson.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,32 +51,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSystem\Cryptography.cs" />
+    <Compile Include="AppSystem\Crypto.cs" />
+    <Compile Include="AppSystem\Exceptions\ChatBuilderException.cs" />
     <Compile Include="AppSystem\Files.cs" />
-    <Compile Include="Network\AesStream.cs" />
-    <Compile Include="Network\GameStream.cs" />
     <Compile Include="AppSystem\Logger.cs" />
-    <Compile Include="AppSystem\VarInt.cs" />
-    <Compile Include="Configuration\Config.cs" />
-    <Compile Include="Configuration\ConfigSection.cs" />
+    <Compile Include="AppSystem\Types\Identifier.cs" />
+    <Compile Include="AppSystem\Types\VarInt.cs" />
+    <Compile Include="Chat\Chat.cs" />
+    <Compile Include="Chat\ChatBuilder.cs" />
+    <Compile Include="Chat\ChatColor.cs" />
     <Compile Include="Configuration\ServerIcon.cs" />
-    <Compile Include="Network\Packets\DataLength.cs" />
-    <Compile Include="Network\Packets\LoginPackets\ClientLoginPacket.cs" />
-    <Compile Include="Network\Packets\LoginPackets\EncryptionRequestPacket.cs" />
-    <Compile Include="Network\Packets\LoginPackets\EncryptionResponsePacket.cs" />
-    <Compile Include="Network\Packets\LoginPackets\LoginStartPacket.cs" />
-    <Compile Include="Network\Packets\LoginPackets\ServerLoginPacket.cs" />
-    <Compile Include="Network\Packets\PlayPackets\ClientPlayPacket.cs" />
-    <Compile Include="Network\Packets\IPacket.cs" />
-    <Compile Include="Network\Packets\StatusPackets\ClientStatusPacket.cs" />
-    <Compile Include="Network\Packets\StatusPackets\ResponsePacket.cs" />
-    <Compile Include="Network\Packets\StatusPackets\ServerStatusPacket.cs" />
+    <Compile Include="Network\GameStream.cs" />
+    <Compile Include="Network\Packets\HandshakePackets.cs" />
+    <Compile Include="Network\Packets\LoginPackets.cs" />
+    <Compile Include="Network\Packets\Packet.cs" />
+    <Compile Include="Network\Packets\PacketInfo.cs" />
     <Compile Include="Network\Protocol.cs" />
-    <Compile Include="Network\Packets\PlayPackets\ServerPlayPacket.cs" />
-    <Compile Include="Network\SessionState.cs" />
-    <Compile Include="Players\Permission.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PlayerDB.cs" />
+    <Compile Include="Players\PlayerList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -89,11 +77,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Server.cs" />
-    <Compile Include="Utils\Color.cs" />
     <Compile Include="Utils\ExtensionMethods.cs" />
-    <Compile Include="Utils\IClassy.cs" />
     <Compile Include="Utils\JavaUUID.cs" />
-    <Compile Include="Utils\MonoCompat.cs" />
+    <Compile Include="Utils\ResponseData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -105,17 +91,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\new_icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Layer 1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\server.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\server-icon.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

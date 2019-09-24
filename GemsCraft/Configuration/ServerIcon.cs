@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using GemsCraft.Utils;
 
 namespace GemsCraft.Configuration
@@ -19,7 +14,7 @@ namespace GemsCraft.Configuration
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((ServerIcon) obj);
+            return obj.GetType() == GetType() && Equals((ServerIcon)obj);
         }
 
         public override int GetHashCode()

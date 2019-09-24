@@ -1,85 +1,88 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GemsCraft.AppSystem;
+using GemsCraft.Network;
 using Newtonsoft.Json;
 
 namespace GemsCraft.Players
 {
-    internal class PlayerDB
+    class PlayerDB
     {
-        public static List<Player> OfflinePlayers = new List<Player>();
+        public static readonly PlayerList AllPlayers = new PlayerList();
 
-        public static List<Player> AllPlayers()
+        public static void Save()
         {
-            List<Player> newList = new List<Player>();
-            newList.AddRange(OfflinePlayers);
-            newList.AddRange(Server.OnlinePlayers);
-            return newList;
+            foreach (Player p in AllPlayers)
+            {
+                p.Save();
+            }
         }
 
-        public static void SavePlayer(Player p)
-        {
-            string path = Files.PlayerDatabaseDir + p.UUID + ".json";
-            var writer = File.CreateText(path);
-            writer.WriteLine(JsonConvert.SerializeObject(p, Formatting.Indented));
-            writer.Flush();
-            writer.Close();
-        }
-
-        public static bool TrySavePlayer(Player p)
+        public static void TrySave()
         {
             try
             {
-                SavePlayer(p);
-                return true;
+                Save();
             }
             catch (Exception e)
             {
-#if DEBUG 
-                Console.WriteLine(e);
-#endif
-                Logger.Log(LogType.PlayerDBError, $"Unable to save player to db ({p.UUID}).");
-                return false;
+                Logger.Write(e.ToString());
             }
         }
 
-        public static void SaveAll()
+        public static void LoadPlayer(string username, ref GameStream stream, out Player pl)
         {
-            foreach (Player p in AllPlayers())
+            bool exists = false;
+            Player found = null;
+            foreach (Player p in AllPlayers)
             {
-                SavePlayer(p);
+                if (p.Username == username)
+                {
+                    exists = true;
+                    found = p;
+                }
             }
+            if (!exists)
+            {
+                string uuid = Guid.NewGuid().ToString();
+                Player player = new Player(username, uuid);
+                player.SetStream(ref stream);
+                player.Save();
+                AllPlayers.Add(player);
+                Server.OnlinePlayers.Add(player);
+                pl = player;
+            }
+            else
+            {
+                found.SetStream(ref stream);
+                Server.OnlinePlayers.Add(found);
+                pl = found;
+            }
+
         }
 
-        public static bool TrySaveAll()
+        public static void LoadPlayer(string username, ref GameStream stream)
         {
-            try
-            {
-                SaveAll();
-                return false;
-            }
-            catch (Exception e)
-            {
-#if DEBUG
-                Console.WriteLine(e);
-#endif
-                Logger.Log(LogType.PlayerDBError, $"Unable to save the Player Database.");
-                return false;
-            }
+            LoadPlayer(username, ref stream, out _);
         }
 
-        public static void LoadPlayerDB()
+        /// <summary>
+        /// Reloads the PlayerDB, will kick all players
+        /// </summary>
+        public static void Load()
         {
-            Server.KickAll();
-            foreach (string file in Directory.GetFiles(Files.PlayerDatabaseDir))
+            foreach (Player p in Server.OnlinePlayers)
+            {
+                // TODO - kick
+            }
+            AllPlayers.Clear();
+            Server.OnlinePlayers.Clear();
+
+            foreach (string file in Directory.GetFiles(Files.PlayerDatabasePath))
             {
                 string json = File.ReadAllText(file);
-                Player p = JsonConvert.DeserializeObject<Player>(json);
-                OfflinePlayers.Add(p);
+                Player found = JsonConvert.DeserializeObject<Player>(json);
+                AllPlayers.Add(found); // I once was lost, but now I'm found
             }
         }
     }

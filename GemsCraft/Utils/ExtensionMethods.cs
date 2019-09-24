@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using GemsCraft.AppSystem;
 
 namespace GemsCraft.Utils
 {
@@ -39,5 +35,45 @@ namespace GemsCraft.Utils
             Image image = Image.FromStream(new MemoryStream(array));
             return image;
         }
+
+        public static byte[] ToBytes(this string str, [Optional] Encoding enc)
+        {
+            if (enc == null)
+            {
+                enc = Encoding.UTF8;
+            }
+
+            return enc.GetBytes(str);
+        }
+
+        public static byte[] ToBytes(this string str, [Optional] Encoding enc, out int length)
+        {
+            byte[] b = ToBytes(str, enc);
+            length = b.Length;
+            return b;
+        }
+
+        public static int GetByteLength(this string str, [Optional] Encoding enc)
+        {
+            if (enc == null)
+            {
+                enc = Encoding.UTF8;
+            }
+
+            ToBytes(str, enc, out int length);
+            return length;
+        }
+
+        public static bool IsValidURL(this string str)
+        {
+            bool result = Uri.TryCreate(str, UriKind.Absolute, out var uriResult)
+                          && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+            return result;
+        }
     }
+
+    public static class UrlUtil
+    {
+    }
+
 }
