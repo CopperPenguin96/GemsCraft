@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Net.Sockets;
 using GemsCraft.AppSystem;
+using GemsCraft.AppSystem.Logging;
 using GemsCraft.Network;
 using Newtonsoft.Json;
 
@@ -8,6 +10,8 @@ namespace GemsCraft.Players
 {
     public class Player
     {
+        public TcpClient Client;
+        public SessionState State;
         [JsonProperty("Username")]
         public string Username { get; }
         [JsonProperty("UUID")]
@@ -15,15 +19,15 @@ namespace GemsCraft.Players
 
         internal GameStream Stream;
 
+        public Player(TcpClient client)
+        {
+            Client = client;
+        }
+
         public Player(string username, string uuid)
         {
             Username = username;
             UUID = uuid;
-        }
-
-        public void SetStream(ref GameStream stream)
-        {
-            Stream = stream;
         }
 
         public void Save()

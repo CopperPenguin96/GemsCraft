@@ -10,15 +10,17 @@ namespace GemsCraft.Network.Packets
     internal enum Packet : byte
     {
         // Handshaking Packets
-        Handshake = 0x00,
-        Response = 0x00,
-        Ping = 0x01,
-        Pong = 0x01,
+        Handshake = 0x00, // Serverbound
+
+        // Status Packets
+        Response = 0x00, // Clientbound
+        Ping = 0x01, // Serverbound
+        Pong = 0x01, // Clientbound
 
         // Login Packets
-        LoginStart = 0x00,
-        EncryptionRequest = 0x01,
-        EncryptionResponse = 0x01,
-        LoginDisconnect = 0x00
+        LoginStart = 0x00, // Serverbound
+        EncryptionRequest = 0x01, // Clientbound
+        EncryptionResponse = 0x01, // Serverbound
+        LoginDisconnect = 0x00 // Clientbound
     }
 }

@@ -29,6 +29,11 @@ namespace GemsCraft.AppSystem.Types
         {
             return new VarInt(val);
         }
+
+        public static explicit operator VarInt(byte val)
+        {
+            return new VarInt(val);
+        }
         #endregion
 
         #region + Operator

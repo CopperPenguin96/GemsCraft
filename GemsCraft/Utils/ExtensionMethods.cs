@@ -3,9 +3,11 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using GemsCraft.AppSystem.Types;
 
 namespace GemsCraft.Utils
 {
+
     public static class UuidUtil
     {
     }

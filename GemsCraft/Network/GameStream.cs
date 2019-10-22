@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using GemsCraft.AppSystem;
+using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
 
 namespace GemsCraft.Network
@@ -55,6 +56,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         public SessionState State;
         internal byte[] VerifyToken;
         public string Username;
+        public string ServerId;
 
         public override bool CanRead => BaseStream.CanRead;
         public override bool CanSeek => BaseStream.CanSeek;

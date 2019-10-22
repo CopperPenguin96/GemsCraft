@@ -13,6 +13,7 @@ namespace GemsCraft.AppSystem
         public const string MainPath = "GemsCraft/";
         public const string PlayerDatabasePath = "GemsCraft/PlayerDB/";
         public const string ConfigurationPath = "GemsCraft/config.json";
+        public const string LogPath = "GemsCraft/Logs/";
 
         /// <summary>
         /// Checks to make sure the directories utilized by GemsCraft
@@ -20,8 +21,14 @@ namespace GemsCraft.AppSystem
         /// </summary>
         public static void CheckPaths()
         {
-            if (!Directory.Exists(MainPath)) Directory.CreateDirectory(MainPath);
-            if (!Directory.Exists(PlayerDatabasePath)) Directory.CreateDirectory(PlayerDatabasePath);
+            if (!Directory.Exists(MainPath)) CreateDir(MainPath);
+            if (!Directory.Exists(PlayerDatabasePath)) CreateDir(PlayerDatabasePath);
+            if (!Directory.Exists(LogPath)) CreateDir(LogPath);
+        }
+
+        private static void CreateDir(string dir)
+        {
+            Directory.CreateDirectory(dir);
         }
     }
 }

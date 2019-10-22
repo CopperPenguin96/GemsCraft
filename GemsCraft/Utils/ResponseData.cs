@@ -35,7 +35,7 @@ namespace GemsCraft.Utils
 
         public void Save()
         {
-            var writer = File.CreateText("json.txt");
+            var writer = File.CreateText("jsondata.txt");
             writer.WriteLine(GetJson());
             writer.Flush();
             writer.Close();

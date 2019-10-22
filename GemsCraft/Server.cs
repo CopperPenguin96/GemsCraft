@@ -9,10 +9,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using GemsCraft.AppSystem;
+using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Network;
 using GemsCraft.Network.Packets;
 using GemsCraft.Players;
+using GemsCraft.Utils;
+using RSA = System.Security.Cryptography.RSACryptoServiceProvider;
 
 namespace GemsCraft
 {
@@ -20,50 +23,70 @@ namespace GemsCraft
     public class Server
     {
         public static PlayerList OnlinePlayers = new PlayerList();
-
-        protected internal static RSACryptoServiceProvider CryptoService { get; set; }
-        protected internal static RSAParameters Key { get; set; }
+        protected internal static RSA Crypto;
+        protected internal static RSAParameters Params;
+        protected internal static byte[] PublicKey;
         public static void Start()
         {
+            Files.CheckPaths(); // Ensures all paths are ready for the server to start
+            Logger.AddToFull("-------------Started Session on " +
+                             DateTime.Now.ToLongDateString() + " @ " + DateTime.Now.ToLongTimeString() +
+                             "-------------", true);
             Logger.Write("GemsCraft is starting...");
-            Files.CheckPaths();
+            Crypto = new RSA(1024);
+            Params = Crypto.ExportParameters(true);
+
+            try
+            {
+                PublicKey = Crypto.Encrypt("".ToBytes(), RSAEncryptionPadding.Pkcs1);
+            }
+            catch (Exception e)
+            {
+                Logger.Write("Unable to create Public Key. Users will be able to connect without encryption.", LogType.Warning);
+                throw;
+            }
+
             Thread serverThread = new Thread(Run);
             serverThread.Start();
         }
 
         private static void Run()
         {
+
             IPAddress ip = IPAddress.Parse("0.0.0.0");
             int port = 25565;
             TcpListener server = new TcpListener(ip, port);
-            
+
             Logger.Write("Starting the server on " + ip + ":" + port);
-            CryptoService = new RSACryptoServiceProvider();
-            Key = CryptoService.ExportParameters(true);
-            server.Start();
 
             try
             {
+                server.Start();
+                Logger.Write("Now accepting connections.");
                 while (true)
                 {
                     if (!server.Pending()) continue;
                     Thread tmpThread = new Thread(() =>
                     {
-                        TcpClient client = server.AcceptTcpClient();
-                        
-                        using (NetworkStream ns = client.GetStream())
+                        Player client = new Player(server.AcceptTcpClient());
+
+                        using (NetworkStream ns = client.Client.GetStream())
                         {
-                            GameStream stream = new GameStream(ns) {State = SessionState.Handshaking};
+                            GameStream stream = new GameStream(ns)
+                            {
+                                State = SessionState.Handshaking
+                            };
                             using (StreamReader sr = new StreamReader(stream))
                             {
                                 while (true)
                                 {
                                     VarInt length = stream.ReadVarInt();
-                                    byte id = (byte) stream.ReadVarInt().Value;
-                                    Protocol.Receive((Packet) id, ref stream);
+                                    MemoryStream ms = new MemoryStream(stream.ReadUInt8Array((int) length.Value));
+                                    Protocol.Receive(client, new GameStream(ms));
                                 }
                             }
                         }
+
                     });
                     tmpThread.Start();
                 }

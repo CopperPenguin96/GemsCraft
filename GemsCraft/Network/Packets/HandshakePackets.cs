@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using GemsCraft.AppSystem;
+using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Configuration;
+using GemsCraft.Players;
 using GemsCraft.Properties;
 using GemsCraft.Utils;
 
@@ -15,27 +18,25 @@ namespace GemsCraft.Network.Packets
 {
     internal class HandshakePackets
     {
-        #region Info & Status
-
-        public static void ReceiveHandshake(ref GameStream stream)
+        public static void ReceiveHandshake(Player client, GameStream stream)
         {
             VarInt protocolVersion = stream.ReadVarInt();
             string serverAddress = stream.ReadString();
             ushort port = stream.ReadUInt16();
             VarInt next = stream.ReadVarInt();
-            
+
             if (!CheckHandshakeInfo(protocolVersion, serverAddress, port, next)) return;
 
             switch ((int) next.Value)
             {
                 case 1: // Status
-                    SendStatus(ref stream);
+                    client.State = SessionState.Status;
+                    StatusPackets.SendStatus(client);
                     break;
                 case 2: // Login
-                    stream.State = SessionState.Login;
+                    //TODO setup change
                     break;
             }
-
         }
 
         private static bool CheckHandshakeInfo(VarInt pro, string add, ushort port, VarInt next)
@@ -75,46 +76,6 @@ namespace GemsCraft.Network.Packets
             }
 
             return true;
-        }
-
-        public static void SendStatus(ref GameStream stream)
-        {
-            int id = (byte) Packet.Response;
-            ResponseData data = new ResponseData
-            {
-                Version = Protocol.Current,
-                Players = new PlayerStatusList(),
-                Icon = "data:image/png;base64," + new ServerIcon(Resources.server_icon)
-            };
-
-            data.Save(); // Save for debug purposes
-            string details = data.GetJson();
-            byte[] detsBytes = Encoding.UTF8.GetBytes(details);
-            VarInt detsLength = detsBytes.Length;
-            VarInt idLength = ((VarInt) id).Length + detsLength.Length;
-
-            stream.WriteVarInt(idLength + detsLength);
-            stream.WriteVarInt(id);
-            stream.WriteVarInt(detsLength);
-            stream.WriteUInt8Array(detsBytes);
-        }
-
-        #endregion
-
-        public static void ReceivePing(ref GameStream stream)
-        {
-            long payload = stream.ReadInt64();
-            stream.Payload = payload;
-            SendPing(ref stream);
-        }
-
-        public static void SendPing(ref GameStream stream)
-        {
-            VarInt id = (byte) Packet.Pong;
-            VarInt length = id.Length + 8; // 8 for Long length
-            stream.WriteVarInt(length);
-            stream.WriteVarInt(id);
-            stream.WriteInt64(stream.Payload);
         }
     }
 }

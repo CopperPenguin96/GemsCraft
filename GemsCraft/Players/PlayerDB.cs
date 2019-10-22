@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using GemsCraft.AppSystem;
+using GemsCraft.AppSystem.Logging;
 using GemsCraft.Network;
 using Newtonsoft.Json;
 
@@ -30,7 +31,7 @@ namespace GemsCraft.Players
             }
         }
 
-        public static void LoadPlayer(string username, ref GameStream stream, out Player pl)
+        public static void LoadPlayer(string username, GameStream stream, out Player pl)
         {
             bool exists = false;
             Player found = null;
@@ -46,7 +47,6 @@ namespace GemsCraft.Players
             {
                 string uuid = Guid.NewGuid().ToString();
                 Player player = new Player(username, uuid);
-                player.SetStream(ref stream);
                 player.Save();
                 AllPlayers.Add(player);
                 Server.OnlinePlayers.Add(player);
@@ -54,16 +54,15 @@ namespace GemsCraft.Players
             }
             else
             {
-                found.SetStream(ref stream);
                 Server.OnlinePlayers.Add(found);
                 pl = found;
             }
 
         }
 
-        public static void LoadPlayer(string username, ref GameStream stream)
+        public static void LoadPlayer(string username, GameStream stream)
         {
-            LoadPlayer(username, ref stream, out _);
+            LoadPlayer(username, stream, out _);
         }
 
         /// <summary>

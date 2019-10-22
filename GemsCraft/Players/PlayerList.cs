@@ -10,7 +10,7 @@ public class PlayerList : List<Player>
         {
             if (p.UUID == player.UUID)
             {
-                throw new Exception("duplicate player");
+                //throw new Exception("duplicate player");
             }
         }
         base.Add(player);
