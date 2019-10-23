@@ -13,7 +13,7 @@ namespace GemsCraft.Players
         public TcpClient Client;
         public SessionState State;
         [JsonProperty("Username")]
-        public string Username { get; }
+        public string Username { get; internal set; }
         [JsonProperty("UUID")]
         public string UUID { get; }
 
@@ -22,6 +22,7 @@ namespace GemsCraft.Players
         public Player(TcpClient client)
         {
             Client = client;
+            Stream = new GameStream(client.GetStream());
         }
 
         public Player(string username, string uuid)

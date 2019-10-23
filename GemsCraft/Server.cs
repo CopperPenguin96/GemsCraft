@@ -15,7 +15,6 @@ using GemsCraft.Network;
 using GemsCraft.Network.Packets;
 using GemsCraft.Players;
 using GemsCraft.Utils;
-using RSA = System.Security.Cryptography.RSACryptoServiceProvider;
 
 namespace GemsCraft
 {
@@ -23,9 +22,9 @@ namespace GemsCraft
     public class Server
     {
         public static PlayerList OnlinePlayers = new PlayerList();
-        protected internal static RSA Crypto;
-        protected internal static RSAParameters Params;
-        protected internal static byte[] PublicKey;
+        protected internal static RSACryptoServiceProvider CryptoServerProvider { get; set; }
+        protected internal static RSAParameters ServerKey { get; set; }
+        protected internal static string ID = " ";
         public static void Start()
         {
             Files.CheckPaths(); // Ensures all paths are ready for the server to start
@@ -33,18 +32,8 @@ namespace GemsCraft
                              DateTime.Now.ToLongDateString() + " @ " + DateTime.Now.ToLongTimeString() +
                              "-------------", true);
             Logger.Write("GemsCraft is starting...");
-            Crypto = new RSA(1024);
-            Params = Crypto.ExportParameters(true);
-
-            try
-            {
-                PublicKey = Crypto.Encrypt("".ToBytes(), RSAEncryptionPadding.Pkcs1);
-            }
-            catch (Exception e)
-            {
-                Logger.Write("Unable to create Public Key. Users will be able to connect without encryption.", LogType.Warning);
-                throw;
-            }
+            CryptoServerProvider = new RSACryptoServiceProvider(1024);
+            ServerKey = CryptoServerProvider.ExportParameters(true);
 
             Thread serverThread = new Thread(Run);
             serverThread.Start();

@@ -30,6 +30,12 @@ namespace GemsCraft.Network
                 case SessionState.Status:
                     if ((Packet) vi == Packet.Ping) StatusPackets.ReceivePing(client, stream);
                     break;
+                case SessionState.Login:
+                    if ((Packet) vi == Packet.LoginStart) LoginPackets.ReceiveLoginStart(client, stream);
+                    if ((Packet) vi == Packet.EncryptionResponse)
+                        LoginPackets.ReceiveEncryptionResponse(client, stream);
+                    break;
+
             }
         }
     }

@@ -212,9 +212,17 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         public byte ReadUInt8()
         {
-            int value = BaseStream.ReadByte();
-            //if (value == -1) throw new EndOfStreamException();
-            return (byte)value;
+            try
+            {
+                int value = BaseStream.ReadByte();
+                //if (value == -1) throw new EndOfStreamException();
+                return (byte)value;
+            }
+            catch (Exception e)
+            {
+                Logger.Write("Attempt to read data after disconnected.", LogType.Warning);
+                return 0x00;
+            }
         }
 
         public void WriteUInt8(byte value)

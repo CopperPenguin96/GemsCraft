@@ -18,15 +18,13 @@ namespace GemsCraft.Network.Packets
 {
     internal class LoginPackets
     {
-        public static void ReceiveLoginStart(GameStream stream)
+        public static void ReceiveLoginStart(Player client, GameStream stream)
         {
             string username = stream.ReadString();
             stream.ServerId = RandomServerId();
-            PlayerDB.LoadPlayer(username, stream, out Player player);
-            stream.Username = username;
+            client.Username = username;
             Logger.Write(username + " is connecting.");
-            SendEncryptionRequest(player);
-            Disconnect("Wut", stream);
+            SendEncryptionRequest(client, stream);
         }
 
         public static void Disconnect(string reason, GameStream stream)
@@ -39,40 +37,32 @@ namespace GemsCraft.Network.Packets
             stream.WriteString(reason);
         }
 
-        public static void SendEncryptionRequest(Player player)
+        public static void SendEncryptionRequest(Player player, GameStream stream)
         {
+            VarInt pck = (VarInt) (byte) Packet.EncryptionRequest;
             byte[] verifyToken = new byte[4];
-            var crypto = new RNGCryptoServiceProvider();
+            byte[] publicKey = AsnKeyBuilder.PublicKeyToX509(Server.ServerKey).GetBytes();
+
+            var crypto = RandomNumberGenerator.Create();
             crypto.GetBytes(verifyToken);
+            
             player.Stream.VerifyToken = verifyToken;
-            string serverid = RandomServerId(); // According to Protocol it appears to be empty, so let's leave it empty :/
-            var encodedKey = Convert.ToBase64String(Server.PublicKey).ToBytes();
 
-            VarInt id = (byte) Packet.EncryptionRequest; // Packet ID
-            VarInt strLength = serverid.Length; // Length of the server id 0.0
-            VarInt strLengthLength = strLength.Length;
-            VarInt publicKeyLength = encodedKey.Length; // 
-            VarInt verLength = verifyToken.Length;
-            VarInt total = strLength + publicKeyLength + verLength + strLength;
-                               
-            /*
-             * Lengths needed to be sent
-             * ID,
-             * ServerID,
-             * publicKeyLength
-             * publicKey
-             * verifyTokenLength
-             * verifyToken
-             */
+            VarInt vT = verifyToken.Length;
+            VarInt pk = publicKey.Length;
 
-            player.Stream.WriteVarInt(total); 
-            player.Stream.WriteVarInt(id); 
-            player.Stream.WriteString("");
-            player.Stream.WriteVarInt(encodedKey.Length);
-            player.Stream.WriteUInt8Array(encodedKey);
+            // IMPORTANT   ID Length    String ID Length   Verify Token     Public Key
+            VarInt total = pck.Length + Server.ID.Length + vT + vT.Length + pk + pk.Length + 1;
+            
+            player.Stream.WriteVarInt(total);
+            player.Stream.WriteVarInt(pck);
+            player.Stream.WriteString(Server.ID);
+
+            player.Stream.WriteVarInt(publicKey.Length);
+            player.Stream.WriteUInt8Array(publicKey);
+
             player.Stream.WriteVarInt(verifyToken.Length);
             player.Stream.WriteUInt8Array(verifyToken);
-            player.Stream.Flush();
         }
 
         private static string RandomServerId()
@@ -85,9 +75,9 @@ namespace GemsCraft.Network.Packets
 
         private const string sessionChecker = "https://sessionserver.mojang.com/session/minecraft/hasJoined?username={0}&serverId={1}";
         
-        public static void ReceiveEncryptionResponse(GameStream stream)
+        public static void ReceiveEncryptionResponse(Player player, GameStream stream)
         {
-            VarInt sharedLength = stream.ReadVarInt();
+           /* VarInt sharedLength = stream.ReadVarInt();
             byte[] sharedSecret = stream.ReadUInt8Array((int)sharedLength.Value);
             VarInt verifyLength = stream.ReadVarInt();
             byte[] verifyToken = stream.ReadUInt8Array((int) verifyLength.Value);
@@ -121,7 +111,7 @@ namespace GemsCraft.Network.Packets
             else
             {
                 Disconnect(response, stream);
-            }
+            }*/
             
         }
     }

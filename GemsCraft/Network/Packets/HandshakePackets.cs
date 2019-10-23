@@ -34,7 +34,7 @@ namespace GemsCraft.Network.Packets
                     StatusPackets.SendStatus(client);
                     break;
                 case 2: // Login
-                    //TODO setup change
+                    client.State = SessionState.Login;
                     break;
             }
         }
