@@ -19,8 +19,9 @@ namespace GemsCraft.Network.Packets
 
         // Login Packets
         LoginStart = 0x00, // Serverbound
+        LoginDisconnect = 0x00, // Clientbound
         EncryptionRequest = 0x01, // Clientbound
         EncryptionResponse = 0x01, // Serverbound
-        LoginDisconnect = 0x00 // Clientbound
+        LoginSuccess = 0x02 // Clientbound
     }
 }

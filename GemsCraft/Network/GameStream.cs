@@ -109,7 +109,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             int length = 0;
             while (true)
             {
-                byte current = ReadUInt8();
+                byte current = ReadByte();
                 result |= (current & 0x7Fu) << length++ * 7;
                 if (length > 5)
                 {
@@ -131,7 +131,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             length = 0;
             while (true)
             {
-                byte current = ReadUInt8();
+                byte current = ReadByte();
                 result |= (current & 0x7Fu) << length++ * 7;
                 if (length > 5)
                 {
@@ -210,7 +210,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             return length;
         }
 
-        public byte ReadUInt8()
+        public new byte ReadByte()
         {
             try
             {
@@ -232,7 +232,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         public sbyte ReadInt8()
         {
-            return (sbyte)ReadUInt8();
+            return (sbyte)ReadByte();
         }
 
         public void WriteInt8(sbyte value)
@@ -243,8 +243,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         public ushort ReadUInt16()
         {
             return (ushort)(
-                (ReadUInt8() << 8) |
-                ReadUInt8());
+                (ReadByte() << 8) |
+                ReadByte());
         }
 
         public void WriteUInt16(ushort value)
@@ -269,10 +269,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         public uint ReadUInt32()
         {
             return (uint)(
-                (ReadUInt8() << 24) |
-                (ReadUInt8() << 16) |
-                (ReadUInt8() << 8) |
-                 ReadUInt8());
+                (ReadByte() << 24) |
+                (ReadByte() << 16) |
+                (ReadByte() << 8) |
+                 ReadByte());
         }
 
         public void WriteUInt32(uint value)
@@ -299,14 +299,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         public ulong ReadUInt64()
         {
             return unchecked(
-                   ((ulong)ReadUInt8() << 56) |
-                   ((ulong)ReadUInt8() << 48) |
-                   ((ulong)ReadUInt8() << 40) |
-                   ((ulong)ReadUInt8() << 32) |
-                   ((ulong)ReadUInt8() << 24) |
-                   ((ulong)ReadUInt8() << 16) |
-                   ((ulong)ReadUInt8() << 8) |
-                    (ulong)ReadUInt8());
+                   ((ulong)ReadByte() << 56) |
+                   ((ulong)ReadByte() << 48) |
+                   ((ulong)ReadByte() << 40) |
+                   ((ulong)ReadByte() << 32) |
+                   ((ulong)ReadByte() << 24) |
+                   ((ulong)ReadByte() << 16) |
+                   ((ulong)ReadByte() << 8) |
+                    (ulong)ReadByte());
         }
 
         public void WriteUInt64(ulong value)
@@ -334,7 +334,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             WriteUInt64((ulong)value);
         }
 
-        public byte[] ReadUInt8Array(int length)
+        public byte[] ReadByteArray(int length)
         {
             var result = new byte[length];
             if (length == 0) return result;
@@ -361,7 +361,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         public sbyte[] ReadInt8Array(int length)
         {
-            return (sbyte[])(Array)ReadUInt8Array(length);
+            return (sbyte[])(Array)ReadByteArray(length);
         }
 
         public void WriteInt8Array(sbyte[] value)
@@ -468,7 +468,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         public bool ReadBoolean()
         {
-            return ReadUInt8() != 0;
+            return ReadByte() != 0;
         }
 
         public void WriteBoolean(bool value)
@@ -480,7 +480,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         {
             VarInt length = ReadVarInt();
             if (length == 0) return string.Empty;
-            var data = ReadUInt8Array((int) length.Value);
+            var data = ReadByteArray((int) length.Value);
             return StringEncoding.GetString(data);
         }
 

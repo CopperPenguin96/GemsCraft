@@ -70,7 +70,7 @@ namespace GemsCraft
                                 while (true)
                                 {
                                     VarInt length = stream.ReadVarInt();
-                                    MemoryStream ms = new MemoryStream(stream.ReadUInt8Array((int) length.Value));
+                                    MemoryStream ms = new MemoryStream(stream.ReadByteArray((int) length.Value));
                                     Protocol.Receive(client, new GameStream(ms));
                                 }
                             }

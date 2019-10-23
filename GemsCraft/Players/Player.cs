@@ -10,13 +10,49 @@ namespace GemsCraft.Players
 {
     public class Player
     {
-        public TcpClient Client;
+        /// <summary>
+        /// The Minecraft Client
+        /// </summary>
+        internal TcpClient Client;
+
+        /// <summary>
+        /// Used by the server to determine which state it is at when
+        /// communicating with the client
+        /// </summary>
         public SessionState State;
+
+        /// <summary>
+        /// Used during Encryption
+        /// </summary>
+        protected internal byte[] VerifyToken;
+
+        /// <summary>
+        /// Used during Encryption
+        /// </summary>
+        protected internal byte[] SharedToken;
+
+        /// <summary>
+        /// Will be set to true if encryption succeeds
+        /// </summary>
+        internal bool EncryptionEnabled = false;
+
+        /// <summary>
+        /// The unchanging username of the player
+        /// </summary>
         [JsonProperty("Username")]
         public string Username { get; internal set; }
-        [JsonProperty("UUID")]
-        public string UUID { get; }
 
+        /// <summary>
+        /// The fixed identifier of the player, used to id them
+        /// rather than their username in case the player changes
+        /// their username
+        /// </summary>
+        [JsonProperty("UUID")]
+        public string UUID { get; internal set; }
+
+        /// <summary>
+        /// Used by the server and client to communicate
+        /// </summary>
         internal GameStream Stream;
 
         public Player(TcpClient client)

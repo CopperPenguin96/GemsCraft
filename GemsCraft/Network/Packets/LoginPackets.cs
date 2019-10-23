@@ -29,7 +29,7 @@ namespace GemsCraft.Network.Packets
 
         public static void Disconnect(string reason, GameStream stream)
         {
-            VarInt id = (byte) Packet.LoginDisconnect;
+            VarInt id = (byte)Packet.LoginDisconnect;
             VarInt strLength = reason.Length;
             VarInt length = id.Length + reason.Length + strLength.Length;
             stream.WriteVarInt(length);
@@ -39,13 +39,13 @@ namespace GemsCraft.Network.Packets
 
         public static void SendEncryptionRequest(Player player, GameStream stream)
         {
-            VarInt pck = (VarInt) (byte) Packet.EncryptionRequest;
+            VarInt pck = (VarInt)(byte)Packet.EncryptionRequest;
             byte[] verifyToken = new byte[4];
             byte[] publicKey = AsnKeyBuilder.PublicKeyToX509(Server.ServerKey).GetBytes();
 
             var crypto = RandomNumberGenerator.Create();
             crypto.GetBytes(verifyToken);
-            
+
             player.Stream.VerifyToken = verifyToken;
 
             VarInt vT = verifyToken.Length;
@@ -53,7 +53,7 @@ namespace GemsCraft.Network.Packets
 
             // IMPORTANT   ID Length    String ID Length   Verify Token     Public Key
             VarInt total = pck.Length + Server.ID.Length + vT + vT.Length + pk + pk.Length + 1;
-            
+
             player.Stream.WriteVarInt(total);
             player.Stream.WriteVarInt(pck);
             player.Stream.WriteString(Server.ID);
@@ -61,6 +61,7 @@ namespace GemsCraft.Network.Packets
             player.Stream.WriteVarInt(publicKey.Length);
             player.Stream.WriteUInt8Array(publicKey);
 
+            player.VerifyToken = verifyToken;
             player.Stream.WriteVarInt(verifyToken.Length);
             player.Stream.WriteUInt8Array(verifyToken);
         }
@@ -74,45 +75,65 @@ namespace GemsCraft.Network.Packets
         }
 
         private const string sessionChecker = "https://sessionserver.mojang.com/session/minecraft/hasJoined?username={0}&serverId={1}";
-        
+
         public static void ReceiveEncryptionResponse(Player player, GameStream stream)
         {
-           /* VarInt sharedLength = stream.ReadVarInt();
-            byte[] sharedSecret = stream.ReadUInt8Array((int)sharedLength.Value);
-            VarInt verifyLength = stream.ReadVarInt();
-            byte[] verifyToken = stream.ReadUInt8Array((int) verifyLength.Value);
-            var decrypto = new byte[5];
-            for (int i = 0; i < decrypto.Length; i++)
+            VarInt secretLength = stream.ReadVarInt();
+            byte[] sharedSecret = stream.ReadByteArray((int)secretLength.Value);
+            VarInt tokenLength = stream.ReadVarInt();
+            byte[] verifyToken = stream.ReadByteArray((int)tokenLength.Value);
+
+            var decryptedToken = Server.CryptoServerProvider.Decrypt(verifyToken, false);
+            for (int i = 0; i < decryptedToken.Length; i++)
             {
-                if (decrypto[i] == stream.VerifyToken[i]) continue;
-                Disconnect("Unable to authenticate. :'(", stream);
-                return;
+                if (decryptedToken[i] != player.VerifyToken[i])
+                {
+                    Disconnect("Unable to authenticate", stream);
+                }
             }
 
-            stream.SharedKey = Server.Crypto.Decrypt(sharedSecret, false);
-            AsnKeyBuilder.AsnMessage encodedKey = AsnKeyBuilder.PublicKeyToX509(Server.Crypto.ExportParameters(false));
-            byte[] shaData = Encoding.UTF8.GetBytes("")
-                .Concat(stream.SharedKey)
+            player.SharedToken = Server.CryptoServerProvider.Decrypt(sharedSecret, false);
+            AsnKeyBuilder.AsnMessage encodedKey = AsnKeyBuilder.PublicKeyToX509(Server.ServerKey);
+            byte[] shaData = Encoding.UTF8.GetBytes(Server.ID)
+                .Concat(player.SharedToken)
                 .Concat(encodedKey.GetBytes()).ToArray();
             string hash = Cryptography.JavaHexDigest(shaData);
 
-            // Let's have a little chat with Mojang
-            WebClient cl = new WebClient();
-            StreamReader reader = new StreamReader(cl.OpenRead(
-                new Uri(string.Format(sessionChecker, stream.Username, hash)))); 
-            string response = reader.ReadToEnd();
-            reader.Close();
-            var json = JToken.Parse(response);
-            if (string.IsNullOrEmpty(response))
+            if (true) // Server is online mode, update with config
             {
-                Disconnect("Failed to verify username!", stream);
-                return;
+                WebClient webCLient = new WebClient();
+                StreamReader webReader = new StreamReader(webCLient.OpenRead(
+                    new Uri(string.Format(sessionChecker, player.Username, hash))
+                    ));
+                string response = webReader.ReadToEnd();
+                webReader.Close();
+                JToken json = JToken.Parse(response);
+                if (string.IsNullOrEmpty(response))
+                {
+                    Disconnect("Failed to verify username!", stream);
+                }
+
+                player.UUID = json["id"].Value<string>();
+                player.EncryptionEnabled = true;
+                SendSuccess(player, stream);
             }
-            else
-            {
-                Disconnect(response, stream);
-            }*/
-            
+        }
+
+        public static void SendSuccess(Player player, GameStream stream)
+        {
+            VarInt id = (VarInt)(byte)Packet.LoginSuccess;
+            string uuid = Guid.Parse(player.UUID).ToString();
+            string username = player.Username;
+            VarInt uLength = uuid.Length;
+            VarInt usLength = username.Length;
+            VarInt length = uLength.Length + usLength.Length + 
+                            id.Length + uuid.Length + username.Length;
+
+            player.Stream.WriteVarInt(length);
+            player.Stream.WriteVarInt(id);
+            player.Stream.WriteString(uuid);
+            player.Stream.WriteString(username);
+            player.State = SessionState.Play;
         }
     }
 }
