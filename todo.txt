@@ -1,5 +1,2 @@
 :=: GEMSCRAFT TODO :=:
-- TCP Server
-- Handshake
-- Status/Login
-- Encryption/Logging in
+- Join Game Packet (0x25)
