@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Security.Cryptography;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
+using GemsCraft.Configuration;
 using GemsCraft.Network;
-using GemsCraft.Network.Packets;
 using GemsCraft.Players;
-using GemsCraft.Utils;
+using Version = GemsCraft.AppSystem.Version;
 
 namespace GemsCraft
 {
@@ -31,9 +27,54 @@ namespace GemsCraft
             Logger.AddToFull("-------------Started Session on " +
                              DateTime.Now.ToLongDateString() + " @ " + DateTime.Now.ToLongTimeString() +
                              "-------------", true);
-            Logger.Write("GemsCraft is starting...");
-            CryptoServerProvider = new RSACryptoServiceProvider(1024);
-            ServerKey = CryptoServerProvider.ExportParameters(true);
+            Logger.Write("GemsCraft is starting...", LogType.System);
+            
+            // Load Config
+            Logger.Write("Loading Config...", LogType.System);
+            Config.Load();
+
+            // Encryption setup, and warning if not enabled.
+            if (Config.Current.EnableEncryption)
+            {
+                CryptoServerProvider = new RSACryptoServiceProvider(1024);
+                ServerKey = CryptoServerProvider.ExportParameters(true);
+            }
+            else
+            {
+                Logger.Write("Encryption is not enabled. For max security, it is recommended you enable encryption.",
+                    LogType.Warning);
+            }
+
+            // Version checking
+            if (Config.Current.AutoUpdateChecker)
+            {
+                Logger.Write("Checking for the latest GemsCraft updates...", LogType.System);
+                Version online = Version.CheckLatest();
+                int chk = Version.Compare(online, Version.LatestStable);
+                switch (chk)
+                {
+                    case 0: // Updated
+                        Logger.Write("Your GemsCraft is up-to-date!", LogType.System);
+                        break;
+                    case 1: // Outdated
+                        Logger.Write(
+                            "Your GemsCraft is outdated :( Type /update once the server starts to update your server.",
+                            LogType.Warning);
+                        break;
+                    case 2: // Unreleased/pre-release
+                        Logger.Write(
+                            "You are using an unreleased/pre-release version of GemsCraft. It is recommended that you tread lightly." +
+                            " We recommend you create a backup before doing anything else.",
+                            LogType.Warning);
+                        break;
+                }
+            }
+            else
+            {
+                Logger.Write("Update Checks are disabled in your conig. It is recommended you enable this feature " +
+                             "if you would like to be notified of future GemsCraft updates.", LogType.Warning);
+            }
+            
 
             Thread serverThread = new Thread(Run);
             serverThread.Start();
@@ -41,7 +82,6 @@ namespace GemsCraft
 
         private static void Run()
         {
-
             IPAddress ip = IPAddress.Parse("0.0.0.0");
             int port = 25565;
             TcpListener server = new TcpListener(ip, port);
@@ -69,6 +109,7 @@ namespace GemsCraft
                             {
                                 while (true)
                                 {
+                                    // Read packets here and transport them to their appropiate places
                                     VarInt length = stream.ReadVarInt();
                                     MemoryStream ms = new MemoryStream(stream.ReadByteArray((int) length.Value));
                                     Protocol.Receive(client, new GameStream(ms));

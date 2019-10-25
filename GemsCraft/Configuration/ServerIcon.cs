@@ -3,7 +3,7 @@ using GemsCraft.Utils;
 
 namespace GemsCraft.Configuration
 {
-    internal class ServerIcon
+    public class ServerIcon
     {
         protected bool Equals(ServerIcon other)
         {

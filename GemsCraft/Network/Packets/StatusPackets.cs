@@ -22,8 +22,12 @@ namespace GemsCraft.Network.Packets
             ResponseData data = new ResponseData
             {
                 Version = Protocol.Current,
+                Description = new NetworkText
+                {
+                    text = Config.Current.MOTD
+                },
                 Players = new PlayerStatusList(),
-                Icon = "data:image/png;base64," + new ServerIcon(Resources.server_icon)
+                Icon = "data:image/png;base64," + Config.Current.Icon
             };
 
             data.Save(); // Save for debug purposes

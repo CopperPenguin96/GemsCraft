@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using GemsCraft.Chat;
+using GemsCraft.Configuration;
 
 namespace GemsCraft.AppSystem.Logging
 {
@@ -60,7 +61,8 @@ namespace GemsCraft.AppSystem.Logging
         public static void AddToFull(string s, bool save)
         {
             FullLogs.Add(s);
-            string fileName = Files.LogPath + DateTime.Now.ToLongDateString() + ".txt";
+            if (!Config.Current.SaveLogs) return;
+            string fileName = Config.Current.LogDirectory + DateTime.Now.ToLongDateString() + ".txt";
             var writer = File.Exists(fileName) ? File.AppendText(fileName) : File.CreateText(fileName);
             writer.WriteLine(s);
             writer.Flush();
@@ -138,34 +140,44 @@ namespace GemsCraft.AppSystem.Logging
             switch (type)
             {
                 case LogType.System:
+                    return Config.Current.SystemColor;
                 case LogType.UserActivity:
+                    return Config.Current.UserActivityColor;
                 case LogType.UserCommand:
+                    return Config.Current.UserCommandColor;
                 case LogType.ConsoleInput:
+                    return Config.Current.ConsoleInputColor;
                 case LogType.ConsoleOutput:
+                    return Config.Current.ConsoleOutputColor;
                 case LogType.Trace:
+                    return Config.Current.TraceColor;
                 case LogType.Debug:
-                    return ChatColor.Gray;
+                    return Config.Current.DebugColor;
                 case LogType.ChangedWorld:
-                    return ChatColor.Lime;
+                    return Config.Current.ChangedWorldColor;
                 case LogType.Warning:
+                    return Config.Current.WarningColor;
                 case LogType.SuspiciousActivity:
-                    return ChatColor.Yellow;
+                    return Config.Current.SuspiciousActivityColor;
                 case LogType.IRC:
+                    return Config.Current.IRCColor;
                 case LogType.PrivateChat:
+                    return Config.Current.PrivateChatColor;
                 case LogType.Discord:
-                    return ChatColor.Purple;
+                    return Config.Current.DiscordColor;
                 case LogType.Error:
-                    return ChatColor.Red;
+                    return Config.Current.ErrorColor;
                 case LogType.SeriousError:
-                    return ChatColor.Maroon;
+                    return Config.Current.SeriousErrorColor;
                 case LogType.RankChat:
-                    return ChatColor.Navy;
+                    return Config.Current.RankChatColor;
                 case LogType.GlobalChat:
-                    return ChatColor.Green;
+                    return Config.Current.GlobalChatColor;
                 default:
-                    return ChatColor.White;
+                    return Config.Current.DefaultColor;
             }
 
         }
+        
     }
 }

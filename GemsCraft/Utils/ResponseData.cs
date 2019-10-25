@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GemsCraft.Configuration;
 using GemsCraft.Network;
 using Newtonsoft.Json;
 
@@ -72,7 +73,6 @@ namespace GemsCraft.Utils
 
         public PlayerStatusList()
         {
-            MaxPlayers = 100;
             OnlinePlayers = 1;
             SamplePlayer p = new SamplePlayer
             {
@@ -83,7 +83,8 @@ namespace GemsCraft.Utils
         }
 
         [JsonProperty("max")]
-        public int MaxPlayers { get; set; }
+        public int MaxPlayers => Config.Current.MaxPlayers;
+
         [JsonProperty("online")]
         public int OnlinePlayers { get; set; }
         [JsonProperty("sample")]

@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
+using GemsCraft.Configuration;
 using GemsCraft.Players;
-using GemsCraft.Utils;
 using Newtonsoft.Json.Linq;
 
 namespace GemsCraft.Network.Packets
@@ -24,7 +22,8 @@ namespace GemsCraft.Network.Packets
             stream.ServerId = RandomServerId();
             client.Username = username;
             Logger.Write(username + " is connecting.");
-            SendEncryptionRequest(client, stream);
+            if (Config.Current.EnableEncryption) SendEncryptionRequest(client, stream);
+            else SendSuccess(client, stream); 
         }
 
         public static void Disconnect(string reason, GameStream stream)
