@@ -14,7 +14,14 @@ namespace GemsCraft.Players
         /// The Minecraft Client
         /// </summary>
         internal TcpClient Client;
-
+        /// <summary>
+        /// Used to identify the player
+        /// </summary>
+        internal int Eid;
+        /// <summary>
+        /// Used for encryption
+        /// </summary>
+        internal AesStream AesStream;
         /// <summary>
         /// Used by the server to determine which state it is at when
         /// communicating with the client

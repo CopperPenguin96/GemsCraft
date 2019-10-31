@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -23,7 +22,7 @@ namespace GemsCraft.Network.Packets
             client.Username = username;
             Logger.Write(username + " is connecting.");
             if (Config.Current.EnableEncryption) SendEncryptionRequest(client, stream);
-            else SendSuccess(client, stream); 
+            else SendSuccess(client, stream);
         }
 
         public static void Disconnect(string reason, GameStream stream)
@@ -98,24 +97,22 @@ namespace GemsCraft.Network.Packets
                 .Concat(encodedKey.GetBytes()).ToArray();
             string hash = Cryptography.JavaHexDigest(shaData);
 
-            if (true) // Server is online mode, update with config
+            WebClient webCLient = new WebClient();
+            StreamReader webReader = new StreamReader(webCLient.OpenRead(
+                new Uri(string.Format(sessionChecker, player.Username, hash))
+                ));
+            string response = webReader.ReadToEnd();
+            webReader.Close();
+            JToken json = JToken.Parse(response);
+            if (string.IsNullOrEmpty(response))
             {
-                WebClient webCLient = new WebClient();
-                StreamReader webReader = new StreamReader(webCLient.OpenRead(
-                    new Uri(string.Format(sessionChecker, player.Username, hash))
-                    ));
-                string response = webReader.ReadToEnd();
-                webReader.Close();
-                JToken json = JToken.Parse(response);
-                if (string.IsNullOrEmpty(response))
-                {
-                    Disconnect("Failed to verify username!", stream);
-                }
-
-                player.UUID = json["id"].Value<string>();
-                player.EncryptionEnabled = true;
-                SendSuccess(player, stream);
+                Disconnect("Failed to verify username!", stream);
             }
+
+            player.Stream = new GameStream(new AesStream(player.Stream.BaseStream, player.SharedToken));
+            player.UUID = json["id"].Value<string>();
+            player.EncryptionEnabled = true;
+            SendSuccess(player, player.Stream);
         }
 
         public static void SendSuccess(Player player, GameStream stream)
@@ -125,14 +122,15 @@ namespace GemsCraft.Network.Packets
             string username = player.Username;
             VarInt uLength = uuid.Length;
             VarInt usLength = username.Length;
-            VarInt length = uLength.Length + usLength.Length + 
-                            id.Length + uuid.Length + username.Length;
+            VarInt length = id.Length + uuid.Length + 
+                            uLength.Length + usLength.Length + username.Length;
 
             player.Stream.WriteVarInt(length);
             player.Stream.WriteVarInt(id);
             player.Stream.WriteString(uuid);
             player.Stream.WriteString(username);
             player.State = SessionState.Play;
+            PlayPackets.JoinGame(player, stream);
         }
     }
 }

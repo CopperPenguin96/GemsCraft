@@ -34,6 +34,9 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="LightJson">
       <HintPath>D:\Downloads\LightJson_v0.3.0\LightJson.dll</HintPath>
     </Reference>
@@ -66,14 +69,17 @@
     <Compile Include="Chat\ChatColor.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Configuration\ServerIcon.cs" />
+    <Compile Include="Network\AesStream.cs" />
     <Compile Include="Network\GameStream.cs" />
     <Compile Include="Network\Packets\HandshakePackets.cs" />
     <Compile Include="Network\Packets\LoginPackets.cs" />
     <Compile Include="Network\Packets\Packet.cs" />
     <Compile Include="Network\Packets\PacketInfo.cs" />
+    <Compile Include="Network\Packets\PlayPackets.cs" />
     <Compile Include="Network\Packets\StatusPackets.cs" />
     <Compile Include="Network\Protocol.cs" />
     <Compile Include="Network\Tools.cs" />
+    <Compile Include="Players\GameMode.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PlayerList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +92,13 @@
     <Compile Include="Utils\ExtensionMethods.cs" />
     <Compile Include="Utils\JavaUUID.cs" />
     <Compile Include="Utils\ResponseData.cs" />
+    <Compile Include="Worlds\Blocks\Block.cs" />
+    <Compile Include="Worlds\Blocks\BlockRegistry.cs" />
+    <Compile Include="Worlds\Blocks\CustomBlock.cs" />
+    <Compile Include="Worlds\Dimension.cs" />
+    <Compile Include="Worlds\Generator.cs" />
+    <Compile Include="Worlds\LevelType.cs" />
+    <Compile Include="Worlds\World.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

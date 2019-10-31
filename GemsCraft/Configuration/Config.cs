@@ -28,12 +28,27 @@ namespace GemsCraft.Configuration
         public string MOTD { get; internal set; } = "Welcome to the Server!";
         public int MaxPlayers { get; internal set; } = 20;
 
+        // Worlds
+        private int _mWorld = Current.MaxPlayers;
+
+        public int MaxPerWorld
+        {
+            get => _mWorld;
+            internal set
+            {
+                if (value > MaxPlayers)
+                    throw new ArgumentOutOfRangeException(
+                        "Max players per world cannot be bigger than max server players!");
+                _mWorld = value;
+            }
+        }
         // Security
         public bool EnableEncryption { get; internal set; } = true;
 
         // Advanced
         public bool EnablePacketCompression { get; internal set; } = false;
         public string PlayerDBDirectory { get; internal set; } = Files.PlayerDatabasePath;
+        public bool ShowAdvancedDebugInfo { get; internal set; } = false;
 
         // Logging
         public string LogDirectory { get; internal set; } = Files.LogPath;
