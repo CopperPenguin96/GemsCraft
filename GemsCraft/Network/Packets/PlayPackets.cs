@@ -72,10 +72,42 @@ namespace GemsCraft.Network.Packets
                 });
         }
 
+        /// <summary>
+        /// Spawn one or more experience orbs
+        /// </summary>
+        /// <param name="entID">Entity ID</param>
+        /// <param name="loc">The location of the entity</param>
+        /// <param name="count">The amount of experience this orb will reward once collected</param>
         public static void SpawnExperienceOrb(Player player, GameStream stream,
             VarInt entID, Location loc, short count)
         {
+            Protocol.Send(player, stream, Packet.SpawnExperienceOrb,
+                new List<object>
+                {
+                    entID,
+                    loc.X,
+                    loc.Y,
+                    loc.Z,
+                    count
+                });
+        }
 
+        /// <summary>
+        /// With this packet, the server notifies the client of thunderbolts
+        /// striking within a 512 block radius around the player.
+        /// The coordinates specify where exactly the thunderbolt strikes.
+        /// BOOM
+        /// </summary>
+        /// <param name="entID">The EID of the thunderbolt</param>
+        /// <param name="enu">The global entity type, currently
+        /// always 1 for thunderbolt</param>
+        public static void SpawnGlobalEntity(Player player, GameStream stream,
+            VarInt entID, byte enu, Location location)
+        {
+            Protocol.Send(player, stream, Packet.SpawnGlobalEntity,
+                entID, enu,
+                location.X, location.Y, location.Z
+                );
         }
 
         public static void Gen()

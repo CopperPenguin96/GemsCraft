@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Network.Packets;
@@ -30,6 +31,12 @@ namespace GemsCraft.Network
                     break;
 
             }
+        }
+
+        public static void Send(Player client, GameStream stream,
+            Packet packet, params object[] contents)
+        {
+            Send(client, stream, packet, contents.ToList());
         }
 
         public static void Send(Player client, GameStream stream,
