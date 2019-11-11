@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -25,19 +26,13 @@ namespace GemsCraft.Network.Packets
             else SendSuccess(client, stream);
         }
 
-        public static void Disconnect(string reason, GameStream stream)
+        public static void Disconnect(Player client, GameStream stream, string reason)
         {
-            VarInt id = (byte)Packet.LoginDisconnect;
-            VarInt strLength = reason.Length;
-            VarInt length = id.Length + reason.Length + strLength.Length;
-            stream.WriteVarInt(length);
-            stream.WriteVarInt(id);
-            stream.WriteString(reason);
+            Protocol.Send(client, stream, Packet.LoginDisconnect, reason);
         }
 
         public static void SendEncryptionRequest(Player player, GameStream stream)
         {
-            VarInt pck = (VarInt)(byte)Packet.EncryptionRequest;
             byte[] verifyToken = new byte[4];
             byte[] publicKey = AsnKeyBuilder.PublicKeyToX509(Server.ServerKey).GetBytes();
 
@@ -45,23 +40,14 @@ namespace GemsCraft.Network.Packets
             crypto.GetBytes(verifyToken);
 
             player.Stream.VerifyToken = verifyToken;
-
-            VarInt vT = verifyToken.Length;
-            VarInt pk = publicKey.Length;
-
-            // IMPORTANT   ID Length    String ID Length   Verify Token     Public Key
-            VarInt total = pck.Length + Server.ID.Length + vT + vT.Length + pk + pk.Length + 1;
-
-            player.Stream.WriteVarInt(total);
-            player.Stream.WriteVarInt(pck);
-            player.Stream.WriteString(Server.ID);
-
-            player.Stream.WriteVarInt(publicKey.Length);
-            player.Stream.WriteUInt8Array(publicKey);
-
-            player.VerifyToken = verifyToken;
-            player.Stream.WriteVarInt(verifyToken.Length);
-            player.Stream.WriteUInt8Array(verifyToken);
+            Protocol.Send(player, stream, Packet.EncryptionRequest,
+                new List<object>
+                {
+                    (VarInt) publicKey.Length,
+                    publicKey,
+                    (VarInt) verifyToken.Length,
+                    verifyToken
+                });
         }
 
         private static string RandomServerId()
@@ -72,7 +58,7 @@ namespace GemsCraft.Network.Packets
             return data.Aggregate("", (current, b) => current + b.ToString("X2"));
         }
 
-        private const string sessionChecker = "https://sessionserver.mojang.com/session/minecraft/hasJoined?username={0}&serverId={1}";
+        private const string SessionChecker = "https://sessionserver.mojang.com/session/minecraft/hasJoined?username={0}&serverId={1}";
 
         public static void ReceiveEncryptionResponse(Player player, GameStream stream)
         {
@@ -86,7 +72,7 @@ namespace GemsCraft.Network.Packets
             {
                 if (decryptedToken[i] != player.VerifyToken[i])
                 {
-                    Disconnect("Unable to authenticate", stream);
+                    Disconnect(player, stream, "Unable to authenticate");
                 }
             }
 
@@ -99,14 +85,14 @@ namespace GemsCraft.Network.Packets
 
             WebClient webCLient = new WebClient();
             StreamReader webReader = new StreamReader(webCLient.OpenRead(
-                new Uri(string.Format(sessionChecker, player.Username, hash))
+                new Uri(string.Format(SessionChecker, player.Username, hash))
                 ));
             string response = webReader.ReadToEnd();
             webReader.Close();
             JToken json = JToken.Parse(response);
             if (string.IsNullOrEmpty(response))
             {
-                Disconnect("Failed to verify username!", stream);
+                Disconnect(player, stream, "Failed to verify username");
             }
 
             player.Stream = new GameStream(new AesStream(player.Stream.BaseStream, player.SharedToken));
@@ -117,20 +103,17 @@ namespace GemsCraft.Network.Packets
 
         public static void SendSuccess(Player player, GameStream stream)
         {
-            VarInt id = (VarInt)(byte)Packet.LoginSuccess;
             string uuid = Guid.Parse(player.UUID).ToString();
             string username = player.Username;
-            VarInt uLength = uuid.Length;
-            VarInt usLength = username.Length;
-            VarInt length = id.Length + uuid.Length + 
-                            uLength.Length + usLength.Length + username.Length;
-
-            player.Stream.WriteVarInt(length);
-            player.Stream.WriteVarInt(id);
-            player.Stream.WriteString(uuid);
-            player.Stream.WriteString(username);
+            Protocol.Send(player, stream, Packet.LoginSuccess,
+                new List<object>
+                {
+                    uuid,
+                    username
+                });
             player.State = SessionState.Play;
             PlayPackets.JoinGame(player, stream);
+            
         }
     }
 }

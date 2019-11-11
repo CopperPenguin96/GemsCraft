@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
-using GemsCraft.AppSystem;
-using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Network.Packets;
 using GemsCraft.Players;
@@ -17,7 +10,7 @@ namespace GemsCraft.Network
 {
     internal class Protocol
     {
-        public static MinecraftVersion Current = new MinecraftVersion("1.14.4", 498);
+        public static MinecraftVersion Current = new MinecraftVersion("1.13.2", 404); // Going back to 404 for now
 
         public static void Receive(Player client, GameStream stream)
         {
@@ -37,6 +30,79 @@ namespace GemsCraft.Network
                     break;
 
             }
+        }
+
+        public static void Send(Player client, GameStream stream,
+            Packet packet, object content)
+        {
+            if (content is string str)
+            {
+                byte[] bts = Encoding.UTF8.GetBytes(str);
+                Send(client, stream, packet, new List<object> {(VarInt) bts.Length, bts});
+            }
+            else
+            {
+                Send(client, stream, packet, new List<object> {content});
+            }
+        }
+
+        public static void Send(Player client, GameStream stream,
+            Packet packet, List<object> content)
+        {
+            if (client == null) throw new ArgumentNullException(nameof(client));
+            if (stream == null) throw new ArgumentNullException(nameof(stream));
+            if (content == null) throw new ArgumentNullException(nameof(content));
+            if (packet == Packet.Unknown)
+            {
+                throw new PacketException("Unknown packet: " + (byte) packet);
+            }
+
+            
+            VarInt id = (VarInt) (byte) packet;
+            VarInt length = id.Length;
+            foreach (object o in content)
+            {
+                length += GetItemLength(o);
+            }
+            
+            client.Stream.WriteVarInt(length);
+            client.Stream.WriteVarInt(id);
+
+            foreach (object o in content)
+            {
+                client.Stream.Write(o);
+            }
+            
+            client.Stream.Flush();
+        }
+
+        private static VarInt GetItemLength(object o)
+        {
+            if (o == null) throw new ArgumentNullException(nameof(o));
+            switch (o)
+            {
+                case bool _:
+                case sbyte _:
+                case byte _:
+                    return 1;
+                case short _:
+                case ushort _:
+                    return 2;
+                case int _:
+                case float _:
+                    return 4;
+                case long _:
+                case double _:
+                    return 8;
+                case string str:
+                    return str.Length;
+                case VarInt vI:
+                    return vI.Length;
+                case byte[] b:
+                    return b.Length;
+            }
+
+            throw new PacketException("Type not supported");
         }
     }
 

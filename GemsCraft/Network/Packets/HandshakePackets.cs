@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using GemsCraft.AppSystem;
+﻿using System.Net;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
-using GemsCraft.Configuration;
 using GemsCraft.Players;
-using GemsCraft.Properties;
-using GemsCraft.Utils;
 
 namespace GemsCraft.Network.Packets
 {
@@ -22,7 +11,7 @@ namespace GemsCraft.Network.Packets
         {
             VarInt protocolVersion = stream.ReadVarInt();
             string serverAddress = stream.ReadString();
-            ushort port = stream.ReadUInt16();
+            ushort port = stream.ReadShort();
             VarInt next = stream.ReadVarInt();
 
             if (!CheckHandshakeInfo(protocolVersion, serverAddress, port, next)) return;
@@ -31,7 +20,7 @@ namespace GemsCraft.Network.Packets
             {
                 case 1: // Status
                     client.State = SessionState.Status;
-                    StatusPackets.SendStatus(client);
+                    StatusPackets.SendStatus(client, stream);
                     break;
                 case 2: // Login
                     client.State = SessionState.Login;
@@ -41,7 +30,7 @@ namespace GemsCraft.Network.Packets
 
         private static bool CheckHandshakeInfo(VarInt pro, string add, ushort port, VarInt next)
         {
-            if (pro < 498) return false; // First GemsCraft version
+            if (pro < 404) return false; // First GemsCraft version
             if (add != "localhost")
             {
                 if (!IPAddress.TryParse(add, out _))

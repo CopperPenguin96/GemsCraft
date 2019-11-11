@@ -165,6 +165,9 @@ namespace GemsCraft.Network.Packets
         AnimationServerBound = 0x2A,
         Spectate = 0x2B,
         PlayerBlockPlacement = 0x2C,
-        UseItem = 0x2D
+        UseItem = 0x2D,
+        
+        // Other
+        Unknown
     }
 }

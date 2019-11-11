@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
+using GemsCraft.Network.Packets;
 
 namespace GemsCraft.Network
 {
@@ -240,14 +242,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             WriteUInt8((byte)value);
         }
 
-        public ushort ReadUInt16()
+        public ushort ReadShort()
         {
             return (ushort)(
                 (ReadByte() << 8) |
                 ReadByte());
         }
 
-        public void WriteUInt16(ushort value)
+        public void WriteUShort(ushort value)
         {
             Write(new[]
             {
@@ -256,17 +258,12 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             }, 0, 2);
         }
 
-        public short ReadInt16()
+        public void WriteShort(short value)
         {
-            return (short)ReadUInt16();
+            WriteUShort((ushort)value);
         }
 
-        public void WriteInt16(short value)
-        {
-            WriteUInt16((ushort)value);
-        }
-
-        public uint ReadUInt32()
+        public uint ReadUInt()
         {
             return (uint)(
                 (ReadByte() << 24) |
@@ -275,7 +272,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                  ReadByte());
         }
 
-        public void WriteUInt32(uint value)
+        public void WriteUInt(uint value)
         {
             Write(new[]
             {
@@ -286,14 +283,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             }, 0, 4);
         }
 
-        public int ReadInt32()
+        public int ReadInt()
         {
-            return (int)ReadUInt32();
+            return (int)ReadUInt();
         }
 
-        public void WriteInt32(int value)
+        public void WriteInt(int value)
         {
-            WriteUInt32((uint)value);
+            WriteUInt((uint)value);
         }
 
         public ulong ReadUInt64()
@@ -369,54 +366,49 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             Write((byte[])(Array)value, 0, value.Length);
         }
 
-        public ushort[] ReadUInt16Array(int length)
+        public ushort[] ReadShortArray(int length)
         {
             var result = new ushort[length];
             if (length == 0) return result;
             for (int i = 0; i < length; i++)
-                result[i] = ReadUInt16();
+                result[i] = ReadShort();
             return result;
         }
 
-        public void WriteUInt16Array(ushort[] value)
+        public void WriteUShortArray(ushort[] value)
         {
             foreach (var t in value)
-                WriteUInt16(t);
+                WriteUShort(t);
         }
 
-        public short[] ReadInt16Array(int length)
+        public void WriteShortArray(short[] value)
         {
-            return (short[])(Array)ReadUInt16Array(length);
+            WriteUShortArray((ushort[])(Array)value);
         }
 
-        public void WriteInt16Array(short[] value)
-        {
-            WriteUInt16Array((ushort[])(Array)value);
-        }
-
-        public uint[] ReadUInt32Array(int length)
+        public uint[] ReadUIntArray(int length)
         {
             var result = new uint[length];
             if (length == 0) return result;
             for (int i = 0; i < length; i++)
-                result[i] = ReadUInt32();
+                result[i] = ReadUInt();
             return result;
         }
 
-        public void WriteUInt32Array(uint[] value)
+        public void WriteUIntArray(uint[] value)
         {
             foreach (var t in value)
-                WriteUInt32(t);
+                WriteUInt(t);
         }
 
         public int[] ReadInt32Array(int length)
         {
-            return (int[])(Array)ReadUInt32Array(length);
+            return (int[])(Array)ReadUIntArray(length);
         }
 
         public void WriteInt32Array(int[] value)
         {
-            WriteUInt32Array((uint[])(Array)value);
+            WriteUIntArray((uint[])(Array)value);
         }
 
         public ulong[] ReadUInt64Array(int length)
@@ -446,13 +438,13 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         public unsafe float ReadSingle()
         {
-            uint value = ReadUInt32();
+            uint value = ReadUInt();
             return *(float*)&value;
         }
 
         public unsafe void WriteSingle(float value)
         {
-            WriteUInt32(*(uint*)&value);
+            WriteUInt(*(uint*)&value);
         }
 
         public unsafe double ReadDouble()
@@ -492,5 +484,53 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         }
 
         public override long Position { get; set; }
+        
+        public void Write(object o)
+        {
+            switch (o)
+            {
+                case bool value:
+                    WriteBoolean(value);
+                    break;
+                case sbyte sByte:
+                    WriteInt8(sByte);
+                    break;
+                case byte by:
+                    WriteByte(@by);
+                    break;
+                case short sh:
+                    WriteShort(sh);
+                    break;
+                case ushort ush:
+                    WriteUShort(ush);
+                    break;
+                case int i:
+                    WriteInt(i);
+                    break;
+                case long l:
+                    WriteInt64(l);
+                    break;
+                case double d:
+                    WriteDouble(d);
+                    break;
+                case string s:
+                    WriteString(s);
+                    break;
+                case VarInt vi:
+                    WriteVarInt(vi);
+                    break;
+                case byte[] bt:
+                    WriteUInt8Array(bt);
+                    break;
+            }
+            
+            if (o is float f) // TODO implement
+            {
+
+            }
+
+        }
+
+
     }
 }

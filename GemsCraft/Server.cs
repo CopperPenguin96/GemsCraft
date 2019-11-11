@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Threading;
+using GemBlocks.Blocks;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
@@ -15,6 +17,7 @@ using Version = GemsCraft.AppSystem.Version;
 namespace GemsCraft
 {
     public enum SessionState { Handshaking, Login, Status, Play }
+    
     public class Server
     {
         public static PlayerList OnlinePlayers = new PlayerList();
@@ -23,16 +26,15 @@ namespace GemsCraft
         protected internal static string ID = " ";
         public static void Start()
         {
+            Config.Load(); // The config must be the first thing loaded
             Files.CheckPaths(); // Ensures all paths are ready for the server to start
             Logger.AddToFull("-------------Started Session on " +
                              DateTime.Now.ToLongDateString() + " @ " + DateTime.Now.ToLongTimeString() +
                              "-------------", true);
             Logger.Write("GemsCraft is starting...", LogType.System);
-            
-            // Load Config
-            Logger.Write("Loading Config...", LogType.System);
-            Config.Load();
 
+            // Must be loaded before using any blocks :/
+            GemBlocks.Blocks.BlockRegistry.Load();
             // Encryption setup, and warning if not enabled.
             if (Config.Current.EnableEncryption)
             {

@@ -18,7 +18,7 @@ namespace GemsCraft.Configuration
     public class Config
     {
         public static Config Current = new Config();
-        public readonly string AppVersion = Version.LatestStable.ToString(true);
+        //public readonly string AppVersion = Version.LatestStable.ToString(true);
 
         // Basic
         public string ServerName { get; internal set; } = "[GemsCraft] Default";
@@ -28,8 +28,20 @@ namespace GemsCraft.Configuration
         public string MOTD { get; internal set; } = "Welcome to the Server!";
         public int MaxPlayers { get; internal set; } = 20;
 
+        private int _tWorld = 0;
         // Worlds
-        private int _mWorld = Current.MaxPlayers;
+        private int _mWorld
+        {
+            get => Current?.MaxPerWorld ?? _tWorld;
+            set
+            {
+                if (Current == null) return;
+                else
+                {
+                    _tWorld = value;
+                }
+            }
+        }
 
         public int MaxPerWorld
         {

@@ -37,6 +37,15 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="fNbt, Version=0.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\fNbt.0.6.4\lib\net35-client\fNbt.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBlocks, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GemBlocks.1.0.2.1\lib\netstandard2.0\GemBlocks.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="LightJson">
       <HintPath>D:\Downloads\LightJson_v0.3.0\LightJson.dll</HintPath>
     </Reference>
@@ -44,6 +53,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
@@ -74,12 +84,13 @@
     <Compile Include="Network\Packets\HandshakePackets.cs" />
     <Compile Include="Network\Packets\LoginPackets.cs" />
     <Compile Include="Network\Packets\Packet.cs" />
+    <Compile Include="Network\Packets\PacketException.cs" />
     <Compile Include="Network\Packets\PacketInfo.cs" />
+    <Compile Include="Network\Packets\PacketItem.cs" />
     <Compile Include="Network\Packets\PlayPackets.cs" />
     <Compile Include="Network\Packets\StatusPackets.cs" />
     <Compile Include="Network\Protocol.cs" />
     <Compile Include="Network\Tools.cs" />
-    <Compile Include="Players\GameMode.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PlayerList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,13 +103,10 @@
     <Compile Include="Utils\ExtensionMethods.cs" />
     <Compile Include="Utils\JavaUUID.cs" />
     <Compile Include="Utils\ResponseData.cs" />
-    <Compile Include="Worlds\Blocks\Block.cs" />
-    <Compile Include="Worlds\Blocks\BlockRegistry.cs" />
-    <Compile Include="Worlds\Blocks\CustomBlock.cs" />
+    <Compile Include="Utils\VariableValueArray.cs" />
     <Compile Include="Worlds\Dimension.cs" />
-    <Compile Include="Worlds\Generator.cs" />
-    <Compile Include="Worlds\LevelType.cs" />
-    <Compile Include="Worlds\World.cs" />
+    <Compile Include="Worlds\Location.cs" />
+    <Compile Include="Worlds\Velocity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -110,6 +118,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\blocks.json" />
     <None Include="Resources\server-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
