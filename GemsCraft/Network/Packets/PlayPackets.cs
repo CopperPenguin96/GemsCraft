@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using fNbt;
 using GemBlocks.Blocks;
 using GemBlocks.Levels;
 using GemBlocks.Levels.Generators;
 using GemBlocks.Worlds;
 using GemsCraft.AppSystem.Types;
+using GemsCraft.Chat;
 using GemsCraft.Configuration;
+using GemsCraft.Entities.Metadata;
 using GemsCraft.Players;
 using GemsCraft.Worlds;
 
@@ -110,6 +114,68 @@ namespace GemsCraft.Network.Packets
                 );
         }
 
+        public static void SpawnMob(Player player, GameStream stream,
+            VarInt eID, string uuid, Mob mob, Location loc, Velocity vel,
+            IEntityMetadata metadata)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void SpawnPainting(Player player, GameStream stream,
+            VarInt eID, string uuid, VarInt motive, Location loc, byte dir)
+        {
+            Protocol.Send(player, stream,
+                Packet.SpawnPainting, 
+                eID, uuid, motive, loc, dir);
+        }
+
+        /// <summary>
+        /// Sent when a player comes into visible range, not when a player joins!
+        /// </summary>
+        public static void SpawnPlayer(Player player, GameStream stream,
+            VarInt eID, string uuid, Location loc, IEntityMetadata metadata)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Animation(Player player, GameStream stream,
+            VarInt eID, Animation animation)
+        {
+            Protocol.Send(player, stream,
+                Packet.Animation, eID, (byte) animation);
+        }
+
+        public static void Statistics(Player player, GameStream stream,
+            VarInt count, VarInt[] statistic, VarInt value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void BlockBreakAnimation(Player player, GameStream stream,
+            VarInt eID, Location loc, byte destroyStage)
+        {
+            if (destroyStage > 9) throw new ArgumentOutOfRangeException(nameof(destroyStage));
+            Protocol.Send(player, stream, Packet.BlockBreakAnimation,
+                eID, loc, destroyStage);
+        }
+
+        public static void UpdateBlockEntity(Player player, GameStream stream,
+            Location loc, byte action, NbtTag tag)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void BlockAction(Player player, GameStream stream,
+            Location loc, byte actionID, byte actionParam, VarInt type)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void BlockChange(Player player, GameStream stream,
+            Location loc, VarInt id)
+        {
+            throw new NotImplementedException();
+        }
         public static void Gen()
         {
             /*

@@ -10,9 +10,9 @@ using LightJson.Serialization;
 
 namespace GemsCraft.Chat
 {
-    class ChatBuilder
+    public class ChatBuilder
     {
-        private JsonObject json = new JsonObject();
+        private readonly JsonObject _json = new JsonObject();
         private readonly string _text;
         public ChatBuilder() { }
         public ChatBuilder(string text)
@@ -27,15 +27,15 @@ namespace GemsCraft.Chat
 
         public string Generate()
         {
-            if (json.Count == 0) throw new ChatBuilderException("No items added.");
+            if (_json.Count == 0) throw new ChatBuilderException("No items added.");
             JsonWriter writer = new JsonWriter(true);
-            return writer.Serialize(json);
+            return writer.Serialize(_json);
         }
 
         public void SetTranslated(string item)
         {
             if (item == null) return;
-            json.Add("translate", item);
+            _json.Add("translate", item);
         }
 
         public void AddContent(ChatDetail[] chats)
@@ -53,7 +53,7 @@ namespace GemsCraft.Chat
                 })
                 .ToList();
             List<JsonValue> itemsJson = items.Select(j => new JsonValue(j)).ToList();
-            json.Add("with", new JsonArray(itemsJson.ToArray()));
+            _json.Add("with", new JsonArray(itemsJson.ToArray()));
         }
     }
 

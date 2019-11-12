@@ -79,6 +79,13 @@
     <Compile Include="Chat\ChatColor.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Configuration\ServerIcon.cs" />
+    <Compile Include="Entities\Egg.cs" />
+    <Compile Include="Entities\EnderPearl.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\ExperienceBottle.cs" />
+    <Compile Include="Entities\Potion.cs" />
+    <Compile Include="Entities\Snowball.cs" />
+    <Compile Include="Entities\Throwable.cs" />
     <Compile Include="Network\AesStream.cs" />
     <Compile Include="Network\GameStream.cs" />
     <Compile Include="Network\Packets\HandshakePackets.cs" />
@@ -91,6 +98,7 @@
     <Compile Include="Network\Packets\StatusPackets.cs" />
     <Compile Include="Network\Protocol.cs" />
     <Compile Include="Network\Tools.cs" />
+    <Compile Include="Players\Animation.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PlayerList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,7 +113,11 @@
     <Compile Include="Utils\ResponseData.cs" />
     <Compile Include="Utils\VariableValueArray.cs" />
     <Compile Include="Worlds\Dimension.cs" />
+    <Compile Include="Entities\Metadata\EntityMetadataArray.cs" />
+    <Compile Include="Entities\Metadata\EntityMetadataType.cs" />
+    <Compile Include="Entities\Metadata\IEntityMetadata.cs" />
     <Compile Include="Worlds\Location.cs" />
+    <Compile Include="Worlds\Mob.cs" />
     <Compile Include="Worlds\Velocity.cs" />
   </ItemGroup>
   <ItemGroup>
