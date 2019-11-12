@@ -116,7 +116,7 @@ namespace GemsCraft.Network.Packets
 
         public static void SpawnMob(Player player, GameStream stream,
             VarInt eID, string uuid, Mob mob, Location loc, Velocity vel,
-            IEntityMetadata metadata)
+            EntityMetadata metadata)
         {
             throw new NotImplementedException();
         }

@@ -3,12 +3,15 @@ using System.IO;
 using System.Net.Sockets;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
+using GemsCraft.AppSystem.Types;
+using GemsCraft.Entities;
+using GemsCraft.Entities.Metadata;
 using GemsCraft.Network;
 using Newtonsoft.Json;
 
 namespace GemsCraft.Players
 {
-    public class Player
+    public class Player : Living
     {
         /// <summary>
         /// The Minecraft Client
@@ -19,14 +22,50 @@ namespace GemsCraft.Players
         /// </summary>
         internal int Eid;
         /// <summary>
-        /// Used for encryption
-        /// </summary>
-        internal AesStream AesStream;
-        /// <summary>
         /// Used by the server to determine which state it is at when
         /// communicating with the client
         /// </summary>
         public SessionState State;
+
+        #region Metadata
+
+        public EntityMetadata AdditionalHearts = new EntityMetadata(
+            11,
+            EntityMetadataType.Float,
+            0.0
+        );
+
+        public EntityMetadata Score = new EntityMetadata(
+            12,
+            EntityMetadataType.VarInt,
+            (VarInt) 0
+        );
+
+        public EntityMetadata SkinParts = new EntityMetadata(
+            13,
+            EntityMetadataType.Byte,
+            0
+        );
+
+        public EntityMetadata MainHand = new EntityMetadata(
+            14,
+            EntityMetadataType.Byte,
+            1
+        );
+
+        public EntityMetadata LeftShoulderEntityData = new EntityMetadata(
+            15,
+            EntityMetadataType.NBT,
+            null
+        );
+
+        public EntityMetadata RightShoulderEntityData = new EntityMetadata(
+            16,
+            EntityMetadataType.NBT,
+            null
+        );
+
+        #endregion
 
         /// <summary>
         /// Used during Encryption

@@ -40,7 +40,7 @@ namespace GemsCraft.Entities
         );
 
         public EntityMetadata Arrows = new EntityMetadata(
-            9,
+            10,
             EntityMetadataType.VarInt,
             (VarInt) 0
         );
