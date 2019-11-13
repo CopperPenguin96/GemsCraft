@@ -8,18 +8,16 @@ using GemsCraft.Entities.Metadata;
 
 namespace GemsCraft.Entities
 {
-    public class Ocelot: TameableAnimal // Meow
+    public class Snowman
     {
         /// <summary>
-        /// 0 = untames,
-        /// 1 = tuxedo,
-        /// 2 = tabby,
-        /// 3 = siamese
+        /// 0x10 = has pumpkin hat
+        /// 0x00 = has no pumpkin hat
         /// </summary>
-        public EntityMetadata Type = new EntityMetadata(
-            15,
-            EntityMetadataType.VarInt,
-            (VarInt) 0
+        public EntityMetadata PumpkinHat = new EntityMetadata(
+            12,
+            EntityMetadataType.Byte,
+            0x10
         );
     }
 }

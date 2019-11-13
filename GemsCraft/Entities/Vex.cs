@@ -8,18 +8,15 @@ using GemsCraft.Entities.Metadata;
 
 namespace GemsCraft.Entities
 {
-    public class Ocelot: TameableAnimal // Meow
+    public class Vex: Monster
     {
         /// <summary>
-        /// 0 = untames,
-        /// 1 = tuxedo,
-        /// 2 = tabby,
-        /// 3 = siamese
+        /// 0x01 = attack mode
         /// </summary>
-        public EntityMetadata Type = new EntityMetadata(
-            15,
-            EntityMetadataType.VarInt,
-            (VarInt) 0
+        public EntityMetadata AttackMode = new EntityMetadata(
+            12,
+            EntityMetadataType.Byte,
+            0
         );
     }
 }
