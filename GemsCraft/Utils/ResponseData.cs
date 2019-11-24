@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GemBlocks;
 using GemsCraft.Configuration;
 using GemsCraft.Network;
 using Newtonsoft.Json;

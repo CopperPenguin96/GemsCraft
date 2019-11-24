@@ -10,11 +10,6 @@ namespace GemsCraft.Entities
 {
     public class Living: Entity
     {
-        /// <summary>
-        /// 0x01 = active
-        /// 0x02 = Active hand
-        /// 0x04 = riptide spin attack
-        /// </summary>
         public EntityMetadata HandState = new EntityMetadata(
             6,
             EntityMetadataType.Byte,

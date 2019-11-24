@@ -10,6 +10,7 @@ using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.Chat;
 using GemsCraft.Properties;
+using GemsCraft.Worlds;
 using Newtonsoft.Json;
 using Version = GemsCraft.AppSystem.Version;
 
@@ -27,12 +28,13 @@ namespace GemsCraft.Configuration
         public ServerIcon Icon { get; internal set; } = new ServerIcon(Resources.server_icon);
         public string MOTD { get; internal set; } = "Welcome to the Server!";
         public int MaxPlayers { get; internal set; } = 20;
+        public Difficulty Difficulty = Difficulty.Easy;
 
         private int _tWorld = 0;
         // Worlds
         private int _mWorld
         {
-            get => Current?.MaxPerWorld ?? _tWorld;
+            get => 10;
             set
             {
                 if (Current == null) return;

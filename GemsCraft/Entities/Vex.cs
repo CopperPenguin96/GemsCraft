@@ -10,9 +10,6 @@ namespace GemsCraft.Entities
 {
     public class Vex: Monster
     {
-        /// <summary>
-        /// 0x01 = attack mode
-        /// </summary>
         public EntityMetadata AttackMode = new EntityMetadata(
             12,
             EntityMetadataType.Byte,

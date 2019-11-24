@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Entities.Metadata;
+using GemsCraft.Entities.Metadata.Flags;
 
 namespace GemsCraft.Entities
 {

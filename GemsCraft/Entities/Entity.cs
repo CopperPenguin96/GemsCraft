@@ -1,6 +1,7 @@
 ﻿using GemsCraft.AppSystem.Types;
 using GemsCraft.Chat;
 using GemsCraft.Entities.Metadata;
+using GemsCraft.Entities.Metadata.Flags;
 
 namespace GemsCraft.Entities
 {
@@ -12,7 +13,7 @@ namespace GemsCraft.Entities
         public EntityMetadata Effect = new EntityMetadata(
             0, 
             EntityMetadataType.Byte, 
-            EntityEffect.Nothing);
+            0);
 
         public EntityMetadata Air = new EntityMetadata(
             1,

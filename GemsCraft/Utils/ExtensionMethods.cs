@@ -7,13 +7,20 @@ using GemsCraft.AppSystem.Types;
 
 namespace GemsCraft.Utils
 {
-
-    public static class UuidUtil
+    public static class ByteUtil
     {
+        public static bool ToBoolean(this byte b)
+        {
+            return b != 0;
+        }
     }
 
-    public static class MathUtil
+    public static class BooleanUtil
     {
+        public static byte ToByte(this bool b)
+        {
+            return b ? (byte) 1 : (byte) 0;
+        }
     }
 
     public static class ImageUtil

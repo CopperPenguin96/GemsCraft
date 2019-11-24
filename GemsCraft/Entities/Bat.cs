@@ -10,9 +10,6 @@ namespace GemsCraft.Entities
 {
     public class Bat: Ambient
     {
-        /// <summary>
-        /// 0x01 = ishanging
-        /// </summary>
         public EntityMetadata IsHanging = new EntityMetadata(
             12,
             EntityMetadataType.Byte,

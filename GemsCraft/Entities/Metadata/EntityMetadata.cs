@@ -1,4 +1,7 @@
-﻿namespace GemsCraft.Entities.Metadata
+﻿using System;
+using GemsCraft.Utils;
+
+namespace GemsCraft.Entities.Metadata
 {
     public class EntityMetadata
     {
@@ -11,6 +14,13 @@
             Index = index;
             Type = type;
             Value = value;
+        }
+
+        public void SetMaskValue(Enum value, bool on)
+        {
+            if (Type != EntityMetadataType.Byte)
+                throw new ArgumentException("Type must be of byte");
+            Value = on.ToByte() << Convert.ToByte(value);
         }
     }
 }

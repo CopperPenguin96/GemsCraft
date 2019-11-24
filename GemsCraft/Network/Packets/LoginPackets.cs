@@ -43,6 +43,7 @@ namespace GemsCraft.Network.Packets
             Protocol.Send(player, stream, Packet.EncryptionRequest,
                 new List<object>
                 {
+                    " ",
                     (VarInt) publicKey.Length,
                     publicKey,
                     (VarInt) verifyToken.Length,
@@ -70,7 +71,7 @@ namespace GemsCraft.Network.Packets
             var decryptedToken = Server.CryptoServerProvider.Decrypt(verifyToken, false);
             for (int i = 0; i < decryptedToken.Length; i++)
             {
-                if (decryptedToken[i] != player.VerifyToken[i])
+                if (decryptedToken[i] != player.Stream.VerifyToken[i])
                 {
                     Disconnect(player, stream, "Unable to authenticate");
                 }

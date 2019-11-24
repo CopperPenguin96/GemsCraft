@@ -15,7 +15,7 @@ namespace GemsCraft.Entities
         /// </summary>
         public EntityMetadata PlayerCreated = new EntityMetadata(
             12,
-            EntityMetadataType.Boolean,
+            EntityMetadataType.Byte,
             0
         );
     }

@@ -10,9 +10,6 @@ namespace GemsCraft.Entities
 {
     public class Spider: Monster
     {
-        /// <summary>
-        /// 0x01 = is climbing
-        /// </summary>
         public EntityMetadata IsClimbing = new EntityMetadata(
             12,
             EntityMetadataType.Byte,

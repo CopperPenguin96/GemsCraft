@@ -40,11 +40,17 @@
     <Reference Include="fNbt, Version=0.6.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\fNbt.0.6.4\lib\net35-client\fNbt.dll</HintPath>
     </Reference>
-    <Reference Include="GemBlocks, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GemBlocks.1.0.2.1\lib\netstandard2.0\GemBlocks.dll</HintPath>
+    <Reference Include="GC">
+      <HintPath>..\..\..\ikvm-7.2.4630.5\bin\GC.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core">
+      <HintPath>..\..\..\ikvm-7.2.4630.5\bin\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime">
+      <HintPath>..\..\..\ikvm-7.2.4630.5\bin\IKVM.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="LightJson">
       <HintPath>D:\Downloads\LightJson_v0.3.0\LightJson.dll</HintPath>
@@ -74,6 +80,7 @@
     <Compile Include="AppSystem\Types\Identifier.cs" />
     <Compile Include="AppSystem\Types\OptLocation.cs" />
     <Compile Include="AppSystem\Types\OptUuid.cs" />
+    <Compile Include="AppSystem\Types\Position.cs" />
     <Compile Include="AppSystem\Types\Rotation.cs" />
     <Compile Include="AppSystem\Types\Slot.cs" />
     <Compile Include="AppSystem\Types\VarInt.cs" />
@@ -85,40 +92,115 @@
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Configuration\ServerIcon.cs" />
     <Compile Include="Entities\AbstractFireball.cs" />
+    <Compile Include="Entities\AbstractFish.cs" />
+    <Compile Include="Entities\AbstractHorse.cs" />
+    <Compile Include="Entities\AbstractIllager.cs" />
+    <Compile Include="Entities\AbstractSkeleton.cs" />
+    <Compile Include="Entities\Ageable.cs" />
     <Compile Include="Entities\Ambient.cs" />
+    <Compile Include="Entities\Animal.cs" />
     <Compile Include="Entities\AreaEffectCloud.cs" />
     <Compile Include="Entities\ArmorStand.cs" />
     <Compile Include="Entities\Arrow.cs" />
     <Compile Include="Entities\Bat.cs" />
+    <Compile Include="Entities\Blaze.cs" />
     <Compile Include="Entities\Boat.cs" />
+    <Compile Include="Entities\ChestedHorse.cs" />
+    <Compile Include="Entities\Chicken.cs" />
+    <Compile Include="Entities\Cod.cs" />
+    <Compile Include="Entities\Cow.cs" />
     <Compile Include="Entities\Creature.cs" />
+    <Compile Include="Entities\Creeper.cs" />
     <Compile Include="Entities\Dolphin.cs" />
+    <Compile Include="Entities\Donkey.cs" />
     <Compile Include="Entities\DragonFireball.cs" />
+    <Compile Include="Entities\Drowned.cs" />
     <Compile Include="Entities\Egg.cs" />
+    <Compile Include="Entities\ElderGuardian.cs" />
     <Compile Include="Entities\EnderCrystal.cs" />
+    <Compile Include="Entities\EnderDragon.cs" />
+    <Compile Include="Entities\Enderman.cs" />
+    <Compile Include="Entities\Endermite.cs" />
     <Compile Include="Entities\EnderPearl.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\EvocationFangs.cs" />
+    <Compile Include="Entities\EvocationIllager.cs" />
     <Compile Include="Entities\ExperienceBottle.cs" />
     <Compile Include="Entities\EyeOfEnder.cs" />
     <Compile Include="Entities\FallingBlock.cs" />
     <Compile Include="Entities\Fireball.cs" />
     <Compile Include="Entities\Fireworks.cs" />
     <Compile Include="Entities\FishingHook.cs" />
+    <Compile Include="Entities\Flying.cs" />
+    <Compile Include="Entities\Ghast.cs" />
+    <Compile Include="Entities\GiantZombie.cs" />
+    <Compile Include="Entities\Golem.cs" />
+    <Compile Include="Entities\Guardian.cs" />
     <Compile Include="Entities\Hanging.cs" />
+    <Compile Include="Entities\Horse.cs" />
+    <Compile Include="Entities\Husk.cs" />
+    <Compile Include="Entities\IllusionIllager.cs" />
     <Compile Include="Entities\Insentient.cs" />
+    <Compile Include="Entities\IronGolem.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\ItemFrame.cs" />
     <Compile Include="Entities\Living.cs" />
+    <Compile Include="Entities\Llama.cs" />
+    <Compile Include="Entities\LlamaSpit.cs" />
     <Compile Include="Entities\Metadata\EntityEffect.cs" />
+    <Compile Include="Entities\Minecart.cs" />
+    <Compile Include="Entities\MinecartChest.cs" />
+    <Compile Include="Entities\MinecartCommandBlock.cs" />
+    <Compile Include="Entities\MinecartContainer.cs" />
+    <Compile Include="Entities\MinecartFurnace.cs" />
+    <Compile Include="Entities\MinecartHopper.cs" />
+    <Compile Include="Entities\MinecartRideable.cs" />
+    <Compile Include="Entities\MinecartSpawner.cs" />
+    <Compile Include="Entities\MinecartTNT.cs" />
+    <Compile Include="Entities\Monster.cs" />
+    <Compile Include="Entities\Mooshroom.cs" />
+    <Compile Include="Entities\Mule.cs" />
+    <Compile Include="Entities\Ocelot.cs" />
+    <Compile Include="Entities\Parrot.cs" />
+    <Compile Include="Entities\Phantom.cs" />
+    <Compile Include="Entities\Pig.cs" />
+    <Compile Include="Entities\PolarBear.cs" />
     <Compile Include="Entities\Potion.cs" />
+    <Compile Include="Entities\PufferFish.cs" />
+    <Compile Include="Entities\Rabbit.cs" />
+    <Compile Include="Entities\Salmon.cs" />
+    <Compile Include="Entities\Sheep.cs" />
+    <Compile Include="Entities\Shulker.cs" />
+    <Compile Include="Entities\Silverfish.cs" />
+    <Compile Include="Entities\Skeleton.cs" />
+    <Compile Include="Entities\SkeletonHorse.cs" />
+    <Compile Include="Entities\Slime.cs" />
     <Compile Include="Entities\SmallFireball.cs" />
     <Compile Include="Entities\Snowball.cs" />
+    <Compile Include="Entities\Snowman.cs" />
+    <Compile Include="Entities\SpellcasterIllager.cs" />
+    <Compile Include="Entities\Spider.cs" />
     <Compile Include="Entities\Squid.cs" />
+    <Compile Include="Entities\Stray.cs" />
+    <Compile Include="Entities\TameableAnimal.cs" />
     <Compile Include="Entities\Throwable.cs" />
     <Compile Include="Entities\TippedArrow.cs" />
+    <Compile Include="Entities\TNTPrimed.cs" />
     <Compile Include="Entities\Trident.cs" />
+    <Compile Include="Entities\TropicalFish.cs" />
+    <Compile Include="Entities\Turtle.cs" />
+    <Compile Include="Entities\Vex.cs" />
+    <Compile Include="Entities\Villager.cs" />
+    <Compile Include="Entities\VindicationIllager.cs" />
     <Compile Include="Entities\WaterMob.cs" />
+    <Compile Include="Entities\Witch.cs" />
+    <Compile Include="Entities\Wither.cs" />
+    <Compile Include="Entities\WitherSkeleton.cs" />
     <Compile Include="Entities\WitherSkull.cs" />
+    <Compile Include="Entities\Wolf.cs" />
+    <Compile Include="Entities\Zombie.cs" />
+    <Compile Include="Entities\ZombieHorse.cs" />
+    <Compile Include="Entities\ZombieVillager.cs" />
     <Compile Include="Network\AesStream.cs" />
     <Compile Include="Network\GameStream.cs" />
     <Compile Include="Network\Packets\HandshakePackets.cs" />

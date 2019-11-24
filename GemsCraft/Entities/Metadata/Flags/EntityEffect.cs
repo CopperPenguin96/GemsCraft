@@ -1,8 +1,7 @@
-﻿namespace GemsCraft.Entities.Metadata
+﻿namespace GemsCraft.Entities.Metadata.Flags
 {
     public enum EntityEffect: byte
     {
-        Nothing = 0,
         OnFire = 0x01,
         Crouched = 0x02,
         Unused = 0x04, // previously riding

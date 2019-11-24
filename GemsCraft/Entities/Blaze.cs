@@ -10,9 +10,6 @@ namespace GemsCraft.Entities
 {
     public class Blaze: Monster
     {
-        /// <summary>
-        /// 0x01 = is on fire
-        /// </summary>
         public EntityMetadata OnFire = new EntityMetadata(
             12,
             EntityMetadataType.Byte,

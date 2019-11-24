@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using fNbt;
-using GemBlocks.Blocks;
-using GemBlocks.Levels;
-using GemBlocks.Levels.Generators;
-using GemBlocks.Worlds;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Chat;
 using GemsCraft.Configuration;
 using GemsCraft.Entities.Metadata;
 using GemsCraft.Players;
 using GemsCraft.Worlds;
+using minecraft.level;
+using minecraft.world;
+using Position = GemsCraft.AppSystem.Types.Position;
 
 namespace GemsCraft.Network.Packets
 {
@@ -21,8 +20,8 @@ namespace GemsCraft.Network.Packets
         {
             int eid = _lastIdentifier += 1;
             player.Eid = eid;
-            GameMode mode = GameMode.Survival;
-            Dimension dim = Dimension.Overworld;
+            string mode = GameType.CREATIVE.name();
+            string dim = Dimension.Overworld.ToString();
             byte max = (byte) Config.Current.MaxPerWorld;
             string levelType = "survival";
             VarInt viewDistance = 2;
@@ -39,8 +38,23 @@ namespace GemsCraft.Network.Packets
                     viewDistance,
                     reducedInfo
                 });
+            // TODO: implement brand? (SendPluginMessage)
+            SendServerDifficulty(player, stream, Config.Current.Difficulty, true);
         }
 
+        public static void SpawnPosition(Player player, GameStream stream,
+            Position pos)
+        {
+            Protocol.Send(player, stream, Packet.SpawnPosition,
+                pos.Get());
+        }
+
+        public static void SendChunkData(Player player, GameStream stream,
+            Chunk chunk)
+        {
+            
+        }
+        
         /// <summary>
         /// Sent by the server when a vehicle or other object is spawned
         /// </summary>
@@ -118,7 +132,10 @@ namespace GemsCraft.Network.Packets
             VarInt eID, string uuid, Mob mob, Location loc, Velocity vel,
             EntityMetadata metadata)
         {
-            throw new NotImplementedException();
+            Protocol.Send(player, stream, Packet.SpawnMob,
+                eID, uuid, (VarInt) (int)mob, 
+                loc.X, loc.Y, loc.Z, loc.Yaw, loc.Pitch, loc.HeadPitch,
+                vel.X, vel.Y, vel.Z, metadata);
         }
 
         public static void SpawnPainting(Player player, GameStream stream,
@@ -133,9 +150,12 @@ namespace GemsCraft.Network.Packets
         /// Sent when a player comes into visible range, not when a player joins!
         /// </summary>
         public static void SpawnPlayer(Player player, GameStream stream,
-            VarInt eID, string uuid, Location loc, IEntityMetadata metadata)
+            VarInt eID, string uuid, Location loc, EntityMetadata metadata)
         {
-            throw new NotImplementedException();
+            Protocol.Send(player, stream, Packet.SpawnPlayer,
+                eID, uuid, 
+                loc.X, loc.Y, loc.Z,
+                loc.Yaw, loc.Pitch, metadata);
         }
 
         public static void Animation(Player player, GameStream stream,
@@ -166,44 +186,47 @@ namespace GemsCraft.Network.Packets
         }
 
         public static void BlockAction(Player player, GameStream stream,
-            Location loc, byte actionID, byte actionParam, VarInt type)
+            Position pos, byte actionID, byte actionParam, VarInt type)
         {
-            throw new NotImplementedException();
+            Protocol.Send(player, stream, Packet.BlockAction,
+                pos.Get(), actionID, actionParam, type);
         }
 
         public static void BlockChange(Player player, GameStream stream,
-            Location loc, VarInt id)
+            Position pos, VarInt id)
         {
-            throw new NotImplementedException();
+            Protocol.Send(player, stream, Packet.BlockChange,
+                pos.Get(), id);
         }
-        public static void Gen()
+
+        /// <summary>
+        /// Mods and plugins can use this to send their data.
+        /// Minecraft itself uses several plugin channels. These
+        /// internal channels are in the minecraft namespace.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="stream"></param>
+        /// <param name="channel"></param>
+        /// <param name="data"></param>
+        public static void SendPluginMessage(Player player, GameStream stream,
+            Identifier channel, byte[] data)
         {
-            /*
-             * Create the base layers of the generated world.
-             * We set the bottom layer of the world to be bedrock
-             * and the 20 layers above to be melon
-             * blocks.
-             */
-            DefaultLayers layers = new DefaultLayers();
-            layers.SetLayer(0, BlockRegistry.Bedrock);
-            layers.SetLayers(1, 20, BlockRegistry.MelonBlock);
+            Protocol.Send(player, stream, Packet.PluginMessage,
+                channel.ToString(), data);
+        }
 
-            /*
-             * Create the internal Minecraft world generator
-             * We use a flat generator. We do this to make sure that the
-             * whole world will be paved
-             * with melons and not just the part we generated.
-             */
-            IGenerator gen = new FlatGenerator(layers);
+        public static void SendServerDifficulty(Player player, GameStream stream,
+            Difficulty difficulty, bool locked)
+        {
+            if ((byte) difficulty > 3) throw new ArgumentOutOfRangeException(nameof(difficulty));
+            Protocol.Send(player, stream, Packet.ServerDifficulty,
+                (byte) difficulty, locked);
+        }
 
-            /*
-             * Create the level config
-             * We set the mode to creative mode and name our world.
-             * We also set the spawn point in the middle of our
-             * structure
-             */
-            Level level = new Level("MelonWorld", gen) { GameMode = GameMode.Creative };
-            level.SetSpawnPoint(50, 0, 50);
+        public static void SendPlayerAbilities(Player plyaer, GameStream stream,
+            sbyte flags, float flyingSpeed, float fieldOfViewModifier)
+        {
+
         }
     }
 }

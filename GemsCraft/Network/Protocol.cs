@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using GemsCraft.AppSystem.Types;
+using GemsCraft.Entities.Metadata;
 using GemsCraft.Network.Packets;
 using GemsCraft.Players;
 using Newtonsoft.Json;
@@ -102,11 +103,13 @@ namespace GemsCraft.Network
                 case double _:
                     return 8;
                 case string str:
-                    return str.Length;
+                    return str.Length + ((VarInt) str.Length).Length;
                 case VarInt vI:
                     return vI.Length;
                 case byte[] b:
                     return b.Length;
+                case EntityMetadata ei:
+                    return GetItemLength(ei.Value);
             }
 
             throw new PacketException("Type not supported");

@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using fNbt;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
+using GemsCraft.Chat;
+using GemsCraft.Entities;
+using GemsCraft.Entities.Metadata;
 using GemsCraft.Network.Packets;
 
 namespace GemsCraft.Network
@@ -158,10 +162,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 if ((value & 0xFFFFFF80u) == 0)
                 {
                     byte terror = (byte)value;
-                    WriteUInt8(terror);
+                    WriteByte(terror);
                     break;
                 }
-                WriteUInt8((byte)(value & 0x7F | 0x80));
+                WriteByte((byte)(value & 0x7F | 0x80));
                 value >>= 7;
             }
         }
@@ -182,10 +186,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 length++;
                 if ((value & 0xFFFFFF80u) == 0)
                 {
-                    WriteUInt8((byte)value);
+                    WriteByte((byte)value);
                     break;
                 }
-                WriteUInt8((byte)(value & 0x7F | 0x80));
+                WriteByte((byte)(value & 0x7F | 0x80));
                 value >>= 7;
             }
         }
@@ -227,19 +231,19 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             }
         }
 
-        public void WriteUInt8(byte value)
+        public void WriteByte(byte value)
         {
-            WriteByte(value);
+            base.WriteByte(value);
         }
 
-        public sbyte ReadInt8()
+        public sbyte ReadSByte()
         {
             return (sbyte)ReadByte();
         }
 
-        public void WriteInt8(sbyte value)
+        public void WriteSByte(sbyte value)
         {
-            WriteUInt8((byte)value);
+            WriteByte((byte)value);
         }
 
         public ushort ReadShort()
@@ -293,7 +297,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             WriteUInt((uint)value);
         }
 
-        public ulong ReadUInt64()
+        public ulong ReadULong()
         {
             return unchecked(
                    ((ulong)ReadByte() << 56) |
@@ -306,7 +310,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                     (ulong)ReadByte());
         }
 
-        public void WriteUInt64(ulong value)
+        public void WriteULong(ulong value)
         {
             Write(new[]
             {
@@ -321,14 +325,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             }, 0, 8);
         }
 
-        public long ReadInt64()
+        public long ReadLong()
         {
-            return (long)ReadUInt64();
+            return (long)ReadULong();
         }
 
-        public void WriteInt64(long value)
+        public void WriteLong(long value)
         {
-            WriteUInt64((ulong)value);
+            WriteULong((ulong)value);
         }
 
         public byte[] ReadByteArray(int length)
@@ -346,22 +350,22 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             return result;
         }
 
-        public void WriteUInt8Array(byte[] value)
+        public void WriteByteArray(byte[] value)
         {
             Write(value, 0, value.Length);
         }
 
-        public void WriteUInt8Array(byte[] value, int offset, int count)
+        public void WriteByteArray(byte[] value, int offset, int count)
         {
             Write(value, offset, count);
         }
 
-        public sbyte[] ReadInt8Array(int length)
+        public sbyte[] ReadSByteArray(int length)
         {
             return (sbyte[])(Array)ReadByteArray(length);
         }
 
-        public void WriteInt8Array(sbyte[] value)
+        public void WriteSByteArray(sbyte[] value)
         {
             Write((byte[])(Array)value, 0, value.Length);
         }
@@ -401,61 +405,61 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 WriteUInt(t);
         }
 
-        public int[] ReadInt32Array(int length)
+        public int[] ReadIntArray(int length)
         {
             return (int[])(Array)ReadUIntArray(length);
         }
 
-        public void WriteInt32Array(int[] value)
+        public void WriteIntArray(int[] value)
         {
             WriteUIntArray((uint[])(Array)value);
         }
 
-        public ulong[] ReadUInt64Array(int length)
+        public ulong[] ReadULongArray(int length)
         {
             var result = new ulong[length];
             if (length == 0) return result;
             for (int i = 0; i < length; i++)
-                result[i] = ReadUInt64();
+                result[i] = ReadULong();
             return result;
         }
 
-        public void WriteUInt64Array(ulong[] value)
+        public void WriteULongArray(ulong[] value)
         {
             foreach (var t in value)
-                WriteUInt64(t);
+                WriteULong(t);
         }
 
-        public long[] ReadInt64Array(int length)
+        public long[] ReadLongArray(int length)
         {
-            return (long[])(Array)ReadUInt64Array(length);
+            return (long[])(Array)ReadULongArray(length);
         }
 
-        public void WriteInt64Array(long[] value)
+        public void WriteLongArray(long[] value)
         {
-            WriteUInt64Array((ulong[])(Array)value);
+            WriteULongArray((ulong[])(Array)value);
         }
 
-        public unsafe float ReadSingle()
+        public unsafe float ReadFloat()
         {
             uint value = ReadUInt();
             return *(float*)&value;
         }
 
-        public unsafe void WriteSingle(float value)
+        public unsafe void WriteFloat(float value)
         {
             WriteUInt(*(uint*)&value);
         }
 
         public unsafe double ReadDouble()
         {
-            ulong value = ReadUInt64();
+            ulong value = ReadULong();
             return *(double*)&value;
         }
 
         public unsafe void WriteDouble(double value)
         {
-            WriteUInt64(*(ulong*)&value);
+            WriteULong(*(ulong*)&value);
         }
 
         public bool ReadBoolean()
@@ -465,7 +469,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         public void WriteBoolean(bool value)
         {
-            WriteUInt8(value ? (byte)1 : (byte)0);
+            base.WriteByte(value ? (byte)1 : (byte)0);
         }
 
         public string ReadString()
@@ -480,7 +484,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         {
             WriteVarInt(StringEncoding.GetByteCount(value));
             if (value.Length > 0)
-                WriteUInt8Array(StringEncoding.GetBytes(value));
+                WriteByteArray(StringEncoding.GetBytes(value));
         }
 
         public override long Position { get; set; }
@@ -493,7 +497,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                     WriteBoolean(value);
                     break;
                 case sbyte sByte:
-                    WriteInt8(sByte);
+                    WriteSByte(sByte);
                     break;
                 case byte by:
                     WriteByte(@by);
@@ -508,7 +512,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                     WriteInt(i);
                     break;
                 case long l:
-                    WriteInt64(l);
+                    WriteLong(l);
                     break;
                 case double d:
                     WriteDouble(d);
@@ -520,17 +524,75 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                     WriteVarInt(vi);
                     break;
                 case byte[] bt:
-                    WriteUInt8Array(bt);
+                    WriteByteArray(bt);
                     break;
-            }
-            
-            if (o is float f) // TODO implement
-            {
-
+                case EntityMetadata ei:
+                    WriteMetadata(ei);
+                    break;
+                case float ft:
+                    WriteFloat(ft);
+                    break;
             }
 
         }
 
+        private const byte Closer = 0x7F;
+        public void WriteMetadata(EntityMetadata dt)
+        {
+            WriteByte(dt.Index);
+            object o = dt.Value;
+            switch (dt.Type)
+            {
+                case EntityMetadataType.Byte:
+                    WriteByte((byte) o);
+                    break;
+                case EntityMetadataType.VarInt:
+                    WriteVarInt((VarInt) o);
+                    break;
+                case EntityMetadataType.Float:
+                    WriteFloat((float) o);
+                    break;
+                case EntityMetadataType.String:
+                    WriteString((string) o);
+                    break;
+                case EntityMetadataType.Chat:
+                    ChatBuilder b = (ChatBuilder) o;
+                    WriteString(b.Generate());
+                    break;
+                case EntityMetadataType.OptChat:
+                    OptChat optC = (OptChat) o;
+                    if (optC.Enabled)
+                    {
+                        WriteString(optC.Chat.Generate());
+                    }
 
+                    break;
+                case EntityMetadataType.Slot:
+                    Slot slot = (Slot) o;
+                    short id = (short) slot.ItemID.Value;
+                    WriteShort(id);
+                    if (id != -1)
+                    {
+                        WriteSByte((sbyte) slot.ItemCount);
+                        if (slot.OptionalNbt != null)
+                        {
+                            var file = new NbtFile(slot.OptionalNbt);
+                            var data = file.SaveToBuffer(NbtCompression.GZip);
+                            WriteShort((short) data.Length);
+                            WriteByteArray(data);
+                        }
+                        else
+                        {
+                            WriteShort(-1);
+                        }
+                    }
+
+                    break;
+                case EntityMetadataType.Boolean:
+                    WriteBoolean((bool) o);
+                    break;
+            }
+            WriteByte(Closer);
+        }
     }
 }

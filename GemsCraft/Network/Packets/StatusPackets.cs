@@ -30,7 +30,7 @@ namespace GemsCraft.Network.Packets
 
         public static void ReceivePing(Player player, GameStream stream)
         {
-            long payload = stream.ReadInt64();
+            long payload = stream.ReadLong();
             stream.Payload = payload;
             SendPong(player, stream);
         }

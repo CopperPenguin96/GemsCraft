@@ -5,13 +5,16 @@ using System.Net;
 using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Threading;
-using GemBlocks.Blocks;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Configuration;
 using GemsCraft.Network;
+using GemsCraft.Network.Packets;
 using GemsCraft.Players;
+using minecraft.blocks;
+using minecraft.level;
+using minecraft.world;
 using Version = GemsCraft.AppSystem.Version;
 
 namespace GemsCraft
@@ -26,6 +29,7 @@ namespace GemsCraft
         protected internal static string ID = " ";
         public static void Start()
         {
+            //LoadMainWorld(null, null);
             Config.Load(); // The config must be the first thing loaded
             Files.CheckPaths(); // Ensures all paths are ready for the server to start
             Logger.AddToFull("-------------Started Session on " +
@@ -34,7 +38,7 @@ namespace GemsCraft
             Logger.Write("GemsCraft is starting...", LogType.System);
 
             // Must be loaded before using any blocks :/
-            GemBlocks.Blocks.BlockRegistry.Load();
+            BlockRegistry.Load();
             // Encryption setup, and warning if not enabled.
             if (Config.Current.EnableEncryption)
             {
@@ -128,6 +132,21 @@ namespace GemsCraft
                 Logger.Write("Error!");
                 Logger.Write(e.ToString());
             }
+        }
+
+        public static void LoadMainWorld(Player player, GameStream stream)
+        {
+            IGenerator gen = SimpleGenerator.DEFAULT;
+            Level level = new Level("MainWorld", gen);
+            level.setGameType(GameType.SURVIVAL);
+            level.setAllowCommands(true);
+            level.setMapFeatures(true);
+            level.setSpawnPoint(0, 0, 0);
+            World w = new World(level);
+            Chunk chunk = w.getRegion(0, 0, true).getChunk(0, 0, true);
+            PlayPackets.SendChunkData(player, stream,
+                chunk);
+            w.save();
         }
     }
 }

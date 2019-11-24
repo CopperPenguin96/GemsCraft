@@ -16,6 +16,6 @@ namespace GemsCraft.AppSystem.Types
         public bool Present { get; set; }
         public VarInt ItemID { get; set; }
         public byte ItemCount { get; set; }
-        public NbtTag OptionalNbt { get; set; }
+        public NbtCompound OptionalNbt { get; set; }
     }
 }
