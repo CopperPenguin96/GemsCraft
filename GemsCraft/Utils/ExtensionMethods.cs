@@ -15,6 +15,11 @@ namespace GemsCraft.Utils
             return b != 0;
         }
 
+        public static bool IsBitSet(this byte b, Enum value)
+        {
+            return (b & (1 << Convert.ToByte(value))) != 0;
+        }
+
         public static byte SetBitOn(this byte b, Enum value, bool on)
         {
             byte val = b;

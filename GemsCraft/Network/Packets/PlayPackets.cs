@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Policy;
+using System.Text;
 using fNbt;
+using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Chat;
 using GemsCraft.Configuration;
 using GemsCraft.Entities.Metadata;
 using GemsCraft.Players;
+using GemsCraft.Utils;
 using GemsCraft.Worlds;
 using minecraft.level;
 using minecraft.world;
@@ -221,12 +226,75 @@ namespace GemsCraft.Network.Packets
             if ((byte) difficulty > 3) throw new ArgumentOutOfRangeException(nameof(difficulty));
             Protocol.Send(player, stream, Packet.ServerDifficulty,
                 (byte) difficulty, locked);
+            SendAllPlayerAbilities(player, stream,0.05F, 0.1F);
         }
 
-        public static void SendPlayerAbilities(Player plyaer, GameStream stream,
-            sbyte flags, float flyingSpeed, float fieldOfViewModifier)
+        public static void SendAllPlayerAbilities(Player player, GameStream stream,
+            float flyingSpeed, float fieldOfViewModifier)
         {
+            SendPlayerAbilities(player, stream,
+                new[] {Ability.All}, flyingSpeed, fieldOfViewModifier);
+        }
+        
+        public static void SendPlayerAbilities(Player player, GameStream stream,
+            Ability[] abilities, float flyingSpeed, float fieldOfViewModifier)
+        {
+            if (abilities.Contains(Ability.All))
+            {
+                abilities = new[]
+                {
+                    Ability.AllowFlying, Ability.Flying,
+                    Ability.InstantBreak, Ability.Invulnerable
+                };
+            }
+            byte abilityList = abilities.Aggregate<Ability, byte>(0, (current, ab) => current.SetBitOn(ab, true));
+            Protocol.Send(player, stream, Packet.PlayerAbilities,
+                abilityList, flyingSpeed, fieldOfViewModifier);
+        }
 
+        public static void ReceivePluginMessage(Player player, GameStream stream)
+        {
+            string channel = stream.ReadString();
+            long lengthLeft = stream.Length - stream.Position;
+            byte[] name = stream.ReadByteArray((int) lengthLeft);
+            Identifier ident = new Identifier
+            {
+                Namespace = channel,
+                Name = Encoding.UTF8.GetString(name)
+            };
+            Logger.Write("Received identifier from client: " +
+                         ident);
+        }
+
+        public static readonly SkinPart[] SkinParts = {
+            SkinPart.Cape, SkinPart.Jacket, SkinPart.LeftSleeve,
+            SkinPart.RightSleeve, SkinPart.LeftPants, SkinPart.RightPants,
+            SkinPart.Hat
+        };
+
+        public static void ReceiveClientSettings(Player player, GameStream stream)
+        {
+            string locale = stream.ReadString();
+            byte viewDistance = stream.ReadByte();
+            ChatMode chatMode = (ChatMode) (int) stream.ReadVarInt().Value;
+            bool colors = stream.ReadBoolean();
+            byte skinParts = stream.ReadByte();
+            VarInt mainHand = stream.ReadVarInt();
+
+            player.Locale = locale;
+            player.ViewDistance = viewDistance;
+            player.ChatMode = chatMode;
+            player.ColorsEnabled = colors;
+
+            foreach (SkinPart part in SkinParts)
+            {
+                if (skinParts.IsBitSet(part))
+                {
+                    player.DisplayedSkinParts.Add(part);
+                }
+            }
+
+            player.MainHand.Value = mainHand;
         }
     }
 }

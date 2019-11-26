@@ -30,7 +30,12 @@ namespace GemsCraft.Network
                     if ((Packet) vi == Packet.EncryptionResponse)
                         LoginPackets.ReceiveEncryptionResponse(client, stream);
                     break;
-
+                case SessionState.Play:
+                    if ((Packet) vi == Packet.PluginMessageServerBound)
+                        PlayPackets.ReceivePluginMessage(client, stream);
+                    if ((Packet) vi == Packet.ClientSettings)
+                        PlayPackets.ReceiveClientSettings(client, stream);
+                    break;
             }
         }
 

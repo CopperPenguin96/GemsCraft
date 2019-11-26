@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
+using GemsCraft.Chat;
 using GemsCraft.Entities;
 using GemsCraft.Entities.Metadata;
 using GemsCraft.Network;
@@ -26,6 +28,29 @@ namespace GemsCraft.Players
         /// communicating with the client
         /// </summary>
         public SessionState State;
+
+        #region Client-Side Settings
+
+        /// <summary>
+        /// eg. en_GB
+        /// </summary>
+        public string Locale { get; internal set; }
+
+        /// <summary>
+        /// Client-side render distance, in chunks
+        /// </summary>
+        public byte ViewDistance { get; internal set; }
+
+        public ChatMode ChatMode { get; internal set; }
+
+        /// <summary>
+        /// "Colors" client-side multiplayer setting
+        /// </summary>
+        public bool ColorsEnabled { get; internal set; }
+
+        public List<SkinPart> DisplayedSkinParts { get; internal set; }
+
+        #endregion
 
         #region Metadata
 
