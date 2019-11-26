@@ -147,7 +147,22 @@
     <Compile Include="Entities\Living.cs" />
     <Compile Include="Entities\Llama.cs" />
     <Compile Include="Entities\LlamaSpit.cs" />
-    <Compile Include="Entities\Metadata\EntityEffect.cs" />
+    <Compile Include="Entities\Metadata\Flags\AmorStandParts.cs" />
+    <Compile Include="Entities\Metadata\Flags\BlazeFire.cs" />
+    <Compile Include="Entities\Metadata\Flags\HorseFlags.cs" />
+    <Compile Include="Entities\Metadata\Flags\ArrowHit.cs" />
+    <Compile Include="Entities\Metadata\Flags\BatFlags.cs" />
+    <Compile Include="Entities\Metadata\Flags\EntityEffect.cs" />
+    <Compile Include="Entities\Metadata\Flags\HandState.cs" />
+    <Compile Include="Entities\Metadata\Flags\IllagerTargetState.cs" />
+    <Compile Include="Entities\Metadata\Flags\InsentientDetails.cs" />
+    <Compile Include="Entities\Metadata\Flags\IronGolemFlags.cs" />
+    <Compile Include="Entities\Metadata\Flags\SheepFlags.cs" />
+    <Compile Include="Entities\Metadata\Flags\SkinParts.cs" />
+    <Compile Include="Entities\Metadata\Flags\SnowmanHat.cs" />
+    <Compile Include="Entities\Metadata\Flags\SpiderFlags.cs" />
+    <Compile Include="Entities\Metadata\Flags\TameableFlags.cs" />
+    <Compile Include="Entities\Metadata\Flags\VexAttackMode.cs" />
     <Compile Include="Entities\Minecart.cs" />
     <Compile Include="Entities\MinecartChest.cs" />
     <Compile Include="Entities\MinecartCommandBlock.cs" />
@@ -214,6 +229,7 @@
     <Compile Include="Network\Protocol.cs" />
     <Compile Include="Network\Tools.cs" />
     <Compile Include="Players\Animation.cs" />
+    <Compile Include="Players\Flags.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PlayerList.cs" />
     <Compile Include="Players\SkinPart.cs" />
@@ -228,6 +244,7 @@
     <Compile Include="Utils\JavaUUID.cs" />
     <Compile Include="Utils\ResponseData.cs" />
     <Compile Include="Utils\VariableValueArray.cs" />
+    <Compile Include="Worlds\Difficulty.cs" />
     <Compile Include="Worlds\Dimension.cs" />
     <Compile Include="Entities\Metadata\EntityMetadataType.cs" />
     <Compile Include="Entities\Metadata\EntityMetadata.cs" />
@@ -247,6 +264,9 @@
   <ItemGroup>
     <None Include="Resources\blocks.json" />
     <None Include="Resources\server-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\Flags\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

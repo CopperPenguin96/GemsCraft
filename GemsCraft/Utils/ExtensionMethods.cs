@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
 
 namespace GemsCraft.Utils
@@ -12,6 +13,22 @@ namespace GemsCraft.Utils
         public static bool ToBoolean(this byte b)
         {
             return b != 0;
+        }
+
+        public static byte SetBitOn(this byte b, Enum value, bool on)
+        {
+            byte val = b;
+            byte mask = Convert.ToByte(value);
+            if (!on)
+            {
+                val &= (byte)~mask;
+            }
+            else
+            {
+                val |= (byte)mask;
+            }
+
+            return val;
         }
     }
 

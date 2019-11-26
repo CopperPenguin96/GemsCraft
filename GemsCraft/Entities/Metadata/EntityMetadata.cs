@@ -16,11 +16,11 @@ namespace GemsCraft.Entities.Metadata
             Value = value;
         }
 
-        public void SetMaskValue(Enum value, bool on)
+        public void SetBitOn(Enum value, bool on)
         {
             if (Type != EntityMetadataType.Byte)
                 throw new ArgumentException("Type must be of byte");
-            Value = on.ToByte() << Convert.ToByte(value);
+            Value = ((byte) Value).SetBitOn(value, on);
         }
     }
 }
