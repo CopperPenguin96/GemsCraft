@@ -29,6 +29,21 @@ namespace GemsCraft.Players
         /// </summary>
         public SessionState State;
 
+        private byte _slot;
+
+        /// <summary>
+        /// Player's current selected slot
+        /// </summary>
+        public byte Slot
+        {
+            get => _slot;
+            set
+            {
+                if (value > 8) throw new ArgumentOutOfRangeException(nameof(value));
+                _slot = value;
+            }
+        }
+
         #region Client-Side Settings
 
         /// <summary>
