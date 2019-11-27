@@ -16,10 +16,16 @@ using Version = GemsCraft.AppSystem.Version;
 
 namespace GemsCraft.Configuration
 {
+    /*
+     * GemsCraft Modern Config History
+     *
+     * *-*-*-* Alpha Phase *-*-*-*
+     * 0.0 - Basic Config, mostly taken from GemsCraft Classic
+     */
     public class Config
     {
         public static Config Current = new Config();
-        //public readonly string AppVersion = Version.LatestStable.ToString(true);
+        public string AppVersion = Version.LatestStable.ToString();
 
         // Basic
         public string ServerName { get; internal set; } = "[GemsCraft] Default";
@@ -85,6 +91,10 @@ namespace GemsCraft.Configuration
         public string RankChatColor { get; internal set; } = ChatColor.Navy;
         public string GlobalChatColor { get; internal set; } = ChatColor.Green;
         public string DefaultColor { get; internal set; } = ChatColor.White;
+        public string SayColor { get; internal set; } = ChatColor.Aqua;
+        public string AnnouncementColor { get; internal set; } = ChatColor.Gold;
+        public string HelpColor { get; internal set; } = ChatColor.Green;
+        public string MeColor { get; internal set; } = ChatColor.Lime;
 
         public static void LoadDefaults()
         {

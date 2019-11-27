@@ -151,8 +151,22 @@ namespace GemsCraft.Network.Packets
             }
 
             player.MainHand.Value = mainHand;
+            SendPlayerSlot(player, stream, player.Slot);
+            // TODO - Declare Recipes
+            // TODO - Set Tags
+            // TODO - Set Entity Statuses
+
         }
 
-        public static void SendPlayerSlot()
+        /// <summary>
+        /// Sent to change the player's slot selection.
+        /// </summary>
+        /// <param name="slot">The slot which the player has selected 0-8</param>
+        public static void SendPlayerSlot(Player player, GameStream stream,
+            byte slot)
+        {
+            if (slot > 8) throw new ArgumentOutOfRangeException(nameof(slot));
+            Protocol.Send(player, stream, Packet.HeldItemChange, slot);
+        }
     }
 }

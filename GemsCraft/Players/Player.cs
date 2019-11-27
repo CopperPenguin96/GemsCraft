@@ -29,7 +29,7 @@ namespace GemsCraft.Players
         /// </summary>
         public SessionState State;
 
-        private byte _slot;
+        private byte _slot = 0;
 
         /// <summary>
         /// Player's current selected slot

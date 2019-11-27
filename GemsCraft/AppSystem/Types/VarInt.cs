@@ -19,8 +19,13 @@ namespace GemsCraft.AppSystem.Types
 
         public int Length => GameStream.GetVarIntLength((int) Value);
 
-        #region explicit/implicit
-        public static explicit operator VarInt(int val)
+        #region implicit operators
+        public static implicit operator VarInt(int val)
+        {
+            return new VarInt(val);
+        }
+
+        public static implicit operator VarInt(uint val)
         {
             return new VarInt(val);
         }
@@ -30,7 +35,35 @@ namespace GemsCraft.AppSystem.Types
             return new VarInt(val);
         }
 
-        public static explicit operator VarInt(byte val)
+        public static implicit operator VarInt(ulong val)
+        {
+            return new VarInt((long) val);
+        }
+
+        public static implicit operator VarInt(short val)
+        {
+            return new VarInt(val);
+        }
+
+        public static implicit operator VarInt(ushort val)
+        {
+            return new VarInt(val);
+        }
+
+        /*
+         TODO - uncomment when VarLong implemented
+        public static implicit operator VarInt(VarLong val)
+        {
+            return new VarInt(val);
+        }
+        */
+
+        public static implicit operator VarInt(sbyte val)
+        {
+            return new VarInt(val);
+        }
+
+        public static implicit operator VarInt(byte val)
         {
             return new VarInt(val);
         }
