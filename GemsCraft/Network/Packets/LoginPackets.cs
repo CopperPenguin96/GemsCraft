@@ -22,6 +22,7 @@ namespace GemsCraft.Network.Packets
             stream.ServerId = RandomServerId();
             client.Username = username;
             Logger.Write(username + " is connecting.");
+            
             if (Config.Current.EnableEncryption) SendEncryptionRequest(client, stream);
             else SendSuccess(client, stream);
         }

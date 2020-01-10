@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
-using GemsCraft.Chat;
-using GemsCraft.Properties;
-using GemsCraft.Worlds;
+using GemsCraft.Configuration.Categories;
 using Newtonsoft.Json;
 using Version = GemsCraft.AppSystem.Version;
 
@@ -24,87 +15,62 @@ namespace GemsCraft.Configuration
      */
     public class Config
     {
-        public static Config Current = new Config();
-        public string AppVersion = Version.LatestStable.ToString();
+        public static BasicConfig Basic = new BasicConfig();
+        public static ChatConfig Chat = new ChatConfig();
+        public static WorldConfig Worlds = new WorldConfig();
+        public static SecurityConfig Security = new SecurityConfig();
+        public static LoggingConfig Logging = new LoggingConfig();
+        public static AdvancedConfig Advanced = new AdvancedConfig();
+        public static IRCConfig IRC = new IRCConfig();
+        public static MiscConfig Misc = new MiscConfig();
 
-        // Basic
-        public string ServerName { get; internal set; } = "[GemsCraft] Default";
-        public bool OnlineMode { get; internal set; } = true;
-        public bool AutoUpdateChecker { get; internal set; } = true;
-        public ServerIcon Icon { get; internal set; } = new ServerIcon(Resources.server_icon);
-        public string MOTD { get; internal set; } = "Welcome to the Server!";
-        public int MaxPlayers { get; internal set; } = 20;
-        public Difficulty Difficulty = Difficulty.Easy;
-
-        private int _tWorld = 0;
-        // Worlds
-        private int _mWorld
-        {
-            get => 10;
-            set
-            {
-                if (Current == null) return;
-                else
-                {
-                    _tWorld = value;
-                }
-            }
-        }
-
-        public int MaxPerWorld
-        {
-            get => _mWorld;
-            internal set
-            {
-                if (value > MaxPlayers)
-                    throw new ArgumentOutOfRangeException(
-                        "Max players per world cannot be bigger than max server players!");
-                _mWorld = value;
-            }
-        }
-        // Security
-        public bool EnableEncryption { get; internal set; } = true;
-
-        // Advanced
-        public bool EnablePacketCompression { get; internal set; } = false;
-        public string PlayerDBDirectory { get; internal set; } = Files.PlayerDatabasePath;
-        public bool ShowAdvancedDebugInfo { get; internal set; } = false;
-
-        // Logging
-        public string LogDirectory { get; internal set; } = Files.LogPath;
-        public bool SaveLogs { get; internal set; } = true;
-        public string SystemColor { get; internal set; } = ChatColor.Gray;
-        public string UserActivityColor { get; internal set; } = ChatColor.Gray;
-        public string UserCommandColor { get; internal set; } = ChatColor.Gray;
-        public string ConsoleInputColor { get; internal set; } = ChatColor.Gray;
-        public string ConsoleOutputColor { get; internal set; } = ChatColor.Gray;
-        public string TraceColor { get; internal set; } = ChatColor.Gray;
-        public string DebugColor { get; internal set; } = ChatColor.Gray;
-        public string ChangedWorldColor { get; internal set; } = ChatColor.Lime;
-        public string WarningColor { get; internal set; } = ChatColor.Yellow;
-        public string SuspiciousActivityColor { get; internal set; } = ChatColor.Yellow;
-        public string IRCColor { get; internal set; } = ChatColor.Purple;
-        public string PrivateChatColor { get; internal set; } = ChatColor.Purple;
-        public string DiscordColor { get; internal set; } = ChatColor.Purple;
-        public string ErrorColor { get; internal set; } = ChatColor.Red;
-        public string SeriousErrorColor { get; internal set; } = ChatColor.Maroon;
-        public string RankChatColor { get; internal set; } = ChatColor.Navy;
-        public string GlobalChatColor { get; internal set; } = ChatColor.Green;
-        public string DefaultColor { get; internal set; } = ChatColor.White;
-        public string SayColor { get; internal set; } = ChatColor.Aqua;
-        public string AnnouncementColor { get; internal set; } = ChatColor.Gold;
-        public string HelpColor { get; internal set; } = ChatColor.Green;
-        public string MeColor { get; internal set; } = ChatColor.Lime;
-
+        /// <summary>
+        /// Loads the default configs
+        /// </summary>
         public static void LoadDefaults()
         {
-            Current = new Config();
+            Basic = new BasicConfig();
+            Chat = new ChatConfig();
+            Worlds = new WorldConfig();
+            Security = new SecurityConfig();
+            Logging = new LoggingConfig();
+            Advanced = new AdvancedConfig();
+            IRC = new IRCConfig();
+            Misc = new MiscConfig();
         }
+
+        /// <summary>
+        /// Used for saving/loading the config via JSON
+        /// </summary>
+        public class ConfigFile
+        {
+            public string AppVersion { get; set; }
+            public BasicConfig Basic { get; set; }
+            public ChatConfig Chat { get; set; }
+            public WorldConfig Worlds { get; set; }
+            public SecurityConfig Security { get; set; }
+            public LoggingConfig Logging { get; set; }
+            public AdvancedConfig Advanced { get; set; }
+            public IRCConfig IRC { get; set; }
+            public MiscConfig Misc { get; set; }
+        }
+
+        private static readonly ConfigFile File = new ConfigFile();
 
         public static void Save()
         {
-            string json = JsonConvert.SerializeObject(Current, Formatting.Indented);
-            var writer = File.CreateText(Files.ConfigurationPath);
+            File.AppVersion = Version.LatestStable.ToString();
+            File.Basic = Basic;
+            File.Chat = Chat;
+            File.Worlds = Worlds;
+            File.Security = Security;
+            File.Logging = Logging;
+            File.Advanced = Advanced;
+            File.IRC = IRC;
+            File.Misc = Misc;
+
+            string json = JsonConvert.SerializeObject(File, Formatting.Indented);
+            var writer = System.IO.File.CreateText(Files.ConfigurationPath);
             writer.Write(json);
             writer.Flush();
             writer.Close();
@@ -127,14 +93,30 @@ namespace GemsCraft.Configuration
 
         public static void Load()
         {
-            if (!File.Exists(Files.ConfigurationPath))
+            if (!System.IO.File.Exists(Files.ConfigurationPath))
             {
                 Logger.Write("Configuration does not exist. Loading defaults.", LogType.System);
                 LoadDefaults();
                 return;
             }
-            string json = File.ReadAllText(Files.ConfigurationPath);
-            Current = JsonConvert.DeserializeObject<Config>(json);
+            string json = System.IO.File.ReadAllText(Files.ConfigurationPath);
+            ConfigFile file = JsonConvert.DeserializeObject<ConfigFile>(json);
+            if (file == null)
+            {
+                Logger.Write("Unable to load Config. Loading defaults.", LogType.Warning);
+                LoadDefaults();
+            }
+            else
+            {
+                Basic = file.Basic;
+                Chat = file.Chat;
+                Worlds = file.Worlds;
+                Security = file.Security;
+                Logging = file.Logging;
+                Advanced = file.Advanced;
+                IRC = file.IRC;
+                Misc = file.Misc;
+            }
         }
 
         public static bool TryLoad()

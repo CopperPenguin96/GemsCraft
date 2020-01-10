@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Entities.Metadata;
 using GemsCraft.Network.Packets;

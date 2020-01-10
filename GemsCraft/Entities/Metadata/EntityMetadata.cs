@@ -23,4 +23,5 @@ namespace GemsCraft.Entities.Metadata
             Value = ((byte) Value).SetBitOn(value, on);
         }
     }
+    
 }

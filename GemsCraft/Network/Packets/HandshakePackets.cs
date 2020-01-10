@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Players;

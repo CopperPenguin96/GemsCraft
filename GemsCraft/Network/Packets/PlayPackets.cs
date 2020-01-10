@@ -6,7 +6,7 @@ using System.Text;
 using fNbt;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
-using GemsCraft.Chat;
+using GemsCraft.ChatSystem;
 using GemsCraft.Configuration;
 using GemsCraft.Entities.Metadata;
 using GemsCraft.Players;
@@ -25,9 +25,9 @@ namespace GemsCraft.Network.Packets
         {
             int eid = _lastIdentifier += 1;
             player.Eid = eid;
-            string mode = GameType.CREATIVE.name();
+            string mode = minecraft.level.GameType.CREATIVE.name();
             string dim = Dimension.Overworld.ToString();
-            byte max = (byte) Config.Current.MaxPerWorld;
+            byte max = (byte)Config.Current.MaxPerWorld;
             string levelType = "survival";
             VarInt viewDistance = 2;
             bool reducedInfo = Config.Current.ShowAdvancedDebugInfo;
@@ -57,7 +57,7 @@ namespace GemsCraft.Network.Packets
         public static void SendChunkData(Player player, GameStream stream,
             Chunk chunk)
         {
-            
+
         }
 
         /// <summary>
@@ -79,19 +79,19 @@ namespace GemsCraft.Network.Packets
         public static void SendServerDifficulty(Player player, GameStream stream,
             Difficulty difficulty, bool locked)
         {
-            if ((byte) difficulty > 3) throw new ArgumentOutOfRangeException(nameof(difficulty));
+            if ((byte)difficulty > 3) throw new ArgumentOutOfRangeException(nameof(difficulty));
             Protocol.Send(player, stream, Packet.ServerDifficulty,
-                (byte) difficulty, locked);
-            SendAllPlayerAbilities(player, stream,0.05F, 0.1F);
+                (byte)difficulty, locked);
+            SendAllPlayerAbilities(player, stream, 0.05F, 0.1F);
         }
 
         public static void SendAllPlayerAbilities(Player player, GameStream stream,
             float flyingSpeed, float fieldOfViewModifier)
         {
             SendPlayerAbilities(player, stream,
-                new[] {Ability.All}, flyingSpeed, fieldOfViewModifier);
+                new[] { Ability.All }, flyingSpeed, fieldOfViewModifier);
         }
-        
+
         public static void SendPlayerAbilities(Player player, GameStream stream,
             Ability[] abilities, float flyingSpeed, float fieldOfViewModifier)
         {
@@ -112,7 +112,7 @@ namespace GemsCraft.Network.Packets
         {
             string channel = stream.ReadString();
             long lengthLeft = stream.Length - stream.Position;
-            byte[] name = stream.ReadByteArray((int) lengthLeft);
+            byte[] name = stream.ReadByteArray((int)lengthLeft);
             Identifier ident = new Identifier
             {
                 Namespace = channel,
@@ -132,7 +132,7 @@ namespace GemsCraft.Network.Packets
         {
             string locale = stream.ReadString();
             byte viewDistance = stream.ReadByte();
-            ChatMode chatMode = (ChatMode) (int) stream.ReadVarInt().Value;
+            ChatMode chatMode = (ChatMode)(int)stream.ReadVarInt().Value;
             bool colors = stream.ReadBoolean();
             byte skinParts = stream.ReadByte();
             VarInt mainHand = stream.ReadVarInt();

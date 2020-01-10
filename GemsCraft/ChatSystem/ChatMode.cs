@@ -1,4 +1,4 @@
-﻿namespace GemsCraft.Chat
+﻿namespace GemsCraft.ChatSystem
 {
     public enum ChatMode
     {

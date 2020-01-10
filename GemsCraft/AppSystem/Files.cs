@@ -1,19 +1,18 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
+﻿
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GemsCraft.AppSystem
 {
     internal class Files
     {
+        public static string WorkingPath;
+        public static string BaseDir;
         public const string MainPath = "GemsCraft/";
         public const string PlayerDatabasePath = "GemsCraft/PlayerDB/";
         public const string ConfigurationPath = "GemsCraft/config.json";
         public const string LogPath = "GemsCraft/Logs/";
+        public const string BlockDBPath = "GemsCraft/BlockDB/";
+        public const string SwearPath = "GemsCraft/SwearWords.txt";
 
         /// <summary>
         /// Checks to make sure the directories utilized by GemsCraft

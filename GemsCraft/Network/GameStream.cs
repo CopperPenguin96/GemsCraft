@@ -6,7 +6,7 @@ using fNbt;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
-using GemsCraft.Chat;
+using GemsCraft.ChatSystem;
 using GemsCraft.Entities;
 using GemsCraft.Entities.Metadata;
 using GemsCraft.Network.Packets;

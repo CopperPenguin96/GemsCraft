@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GemsCraft.AppSystem.Exceptions;
-using GemsCraft.AppSystem.Types;
 using LightJson;
 using LightJson.Serialization;
 
-namespace GemsCraft.Chat
+namespace GemsCraft.ChatSystem
 {
     public class ChatBuilder
     {

@@ -1,13 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows.Forms;
+using GemBlocks.Blocks;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
+using ikvm.extensions;
 
 namespace GemsCraft.Utils
 {
+    public static class BlockUtil
+    {
+        /// <summary>
+        /// Puts the meta and type into an int[]
+        /// </summary>
+        public static int[] GetMetaAndType(this Block block)
+        {
+            return new[] { block.Meta, block.Type };
+        }
+    }
+
     public static class ByteUtil
     {
         public static bool ToBoolean(this byte b)
@@ -41,7 +57,7 @@ namespace GemsCraft.Utils
     {
         public static byte ToByte(this bool b)
         {
-            return b ? (byte) 1 : (byte) 0;
+            return b ? (byte)1 : (byte)0;
         }
     }
 
@@ -57,9 +73,71 @@ namespace GemsCraft.Utils
         }
     }
 
+    public static class StringArrayUtil
+    {
+        public static string ToCommaSeperatedString(this IEnumerable<string> strArray)
+        {
+            string str = "";
+            string[] strNew = strArray.ToArray();
+            for (int x = 0; x <= strNew.Length - 1; x++)
+            {
+                if (x == strNew.Length - 1) str += strNew[x];
+                else str += strNew[x] + ",";
+            }
+
+            return str;
+        }
+    }
+
     public static class StringUtil
     {
-        public static string[] Alphabet = 
+        public static bool EndsWith(this string str, string chars)
+        {
+            if (chars.Length > str.Length) return false;
+            int strLength = str.Length - chars.Length;
+            return str.substring(strLength, chars.Length) == chars;
+        }
+
+        public static bool EndsWith(this string str, char[] chars)
+        {
+            return EndsWith(str, new string(chars));
+        }
+
+        public static bool StartsWith(this string str, string chars)
+        {
+            if (chars.Length > str.Length) return false;
+            return str.Substring(0, chars.Length) == chars;
+        }
+        
+        public static bool StartsWith(this string str, char[] chars)
+        {
+            return StartsWith(str, new string(chars));
+        }
+
+        public static Block GetBlock(this string block)
+        {
+            foreach (Block blk in BlockRegistry.Blocks)
+            {
+                if (string.Equals(blk.Name, block, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return blk;
+                }
+            }
+
+            return Block.Undefined;
+        }
+
+        public static string ToCompactString(this DateTime date)
+        {
+            return date.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ssK");
+        }
+
+        public static string ToCompactString(this TimeSpan span)
+        {
+            return $"{span.Days}.{span.Hours:00}:{span.Minutes:00}:{span.Seconds:00}";
+        }
+
+        public static string[] Alphabet =
         {
             "a", "b", "c", "d", "e", "f", "g", "h", "i",
             "j", "k", "l", "m", "n", "o", "p", "q", "r",

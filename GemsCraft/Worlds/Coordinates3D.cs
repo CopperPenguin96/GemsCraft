@@ -171,10 +171,10 @@ namespace GemsCraft.Worlds
             return new Coordinates3D(a % b.X, a % b.Y, a % b.Z);
         }
 
-        public static explicit operator Coordinates3D(Coordinates2D a)
+        /*public static explicit operator Coordinates3D(Coordinates2D a)
         {
             return new Coordinates3D(a.X, 0, a.Z);
-        }
+        }*/
 
         public static implicit operator Coordinates3D(Vector3 a)
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GemsCraft.Chat;
+using GemsCraft.ChatSystem;
 using GemsCraft.Entities.Metadata;
 
 namespace GemsCraft.Entities

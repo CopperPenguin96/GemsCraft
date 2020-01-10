@@ -1,5 +1,5 @@
 ﻿using GemsCraft.AppSystem.Types;
-using GemsCraft.Chat;
+using GemsCraft.ChatSystem;
 using GemsCraft.Entities.Metadata;
 using GemsCraft.Entities.Metadata.Flags;
 

@@ -1,5 +1,15 @@
-﻿namespace GemsCraft.Commands
+﻿// Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
+// Modified by apotter96 for GemsCraft
+
+using System;
+
+namespace GemsCraft.Commands
 {
+    /// <summary>
+    /// Command categories. A command may belong to more than one category.
+    /// Use binary flag logic (value & flag == flag) to test whether a command belongs to a particular category.
+    /// </summary>
+    [Flags]
     public enum CommandCategory
     {
         /// <summary>
@@ -33,7 +43,7 @@
         Maintenance = 16,
 
         /// <summary>
-        /// World-related commands: creating, editing, testing, etc.
+        /// World-related commands: joining, loading, renaming, etc.
         /// </summary>
         World = 32,
 
@@ -41,19 +51,19 @@
         /// Zone-related commands: creating, editing, testing, etc.
         /// </summary>
         Zone = 64,
-        
+
         /// <summary>
         /// Commands that are only used for diagnostics and debugging.
         /// </summary>
         Debug = 128,
 
         /// <summary>
-        /// Commands that are just for fun.
+        /// Commands that are just fun.
         /// </summary>
         Fun = 256,
 
         /// <summary>
-        /// COmmands that used advanced mathematics.
+        /// Commands that use advanced mathematics.
         /// </summary>
         Math = 512
     }

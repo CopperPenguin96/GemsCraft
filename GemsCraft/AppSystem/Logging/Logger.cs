@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
-using GemsCraft.Chat;
+using GemsCraft.ChatSystem;
 using GemsCraft.Configuration;
+using JetBrains.Annotations;
 
 namespace GemsCraft.AppSystem.Logging
 {
@@ -12,12 +14,38 @@ namespace GemsCraft.AppSystem.Logging
         public static List<string> RepresentedLogs = new List<string>(); // What is shown to the console
 
         /// <summary>
+        /// Used to make an easy port of old fCraft-based code
+        /// </summary>
+        public static void Log(LogType type, string message)
+        {
+            Write(message, type);
+        }
+
+        [StringFormatMethod("message")]
+        public static void Log(LogType type, string message, params object[] args)
+        {
+            Write(message, type, args);
+        }
+
+        /// <summary>
         /// Writes to the logger as a Normal log. Automatically saves the log.
         /// </summary>
         /// <param name="message">The text of the log</param>
         public static void Write(string message)
         { 
             Write(message, LogType.Normal);
+        }
+
+        [StringFormatMethod("message")]
+        public static void Write(string message, params object[] args)
+        {
+            Write(string.Format(message, args));
+        }
+
+        [StringFormatMethod("message")]
+        public static void Write(string message, LogType type, params object[] args)
+        {
+            Write(string.Format(message, args), type);
         }
 
         /// <summary>
@@ -61,8 +89,8 @@ namespace GemsCraft.AppSystem.Logging
         public static void AddToFull(string s, bool save)
         {
             FullLogs.Add(s);
-            if (!Config.Current.SaveLogs) return;
-            string fileName = Config.Current.LogDirectory + DateTime.Now.ToLongDateString() + ".txt";
+            if (!Config.Logging.SaveLogs) return;
+            string fileName = Config.Logging.LogDirectory + DateTime.Now.ToLongDateString() + ".txt";
             var writer = File.Exists(fileName) ? File.AppendText(fileName) : File.CreateText(fileName);
             writer.WriteLine(s);
             writer.Flush();
@@ -140,41 +168,41 @@ namespace GemsCraft.AppSystem.Logging
             switch (type)
             {
                 case LogType.System:
-                    return Config.Current.SystemColor;
+                    return Config.Logging.SystemColor;
                 case LogType.UserActivity:
-                    return Config.Current.UserActivityColor;
+                    return Config.Logging.UserActivityColor;
                 case LogType.UserCommand:
-                    return Config.Current.UserCommandColor;
+                    return Config.Logging.UserCommandColor;
                 case LogType.ConsoleInput:
-                    return Config.Current.ConsoleInputColor;
+                    return Config.Logging.ConsoleInputColor;
                 case LogType.ConsoleOutput:
-                    return Config.Current.ConsoleOutputColor;
+                    return Config.Logging.ConsoleOutputColor;
                 case LogType.Trace:
-                    return Config.Current.TraceColor;
+                    return Config.Logging.TraceColor;
                 case LogType.Debug:
-                    return Config.Current.DebugColor;
+                    return Config.Logging.DebugColor;
                 case LogType.ChangedWorld:
-                    return Config.Current.ChangedWorldColor;
+                    return Config.Logging.ChangedWorldColor;
                 case LogType.Warning:
-                    return Config.Current.WarningColor;
+                    return Config.Logging.WarningColor;
                 case LogType.SuspiciousActivity:
-                    return Config.Current.SuspiciousActivityColor;
+                    return Config.Logging.SuspiciousActivityColor;
                 case LogType.IRC:
-                    return Config.Current.IRCColor;
+                    return Config.Chat.IRCColor;
                 case LogType.PrivateChat:
-                    return Config.Current.PrivateChatColor;
+                    return Config.Chat.PrivateChatColor;
                 case LogType.Discord:
-                    return Config.Current.DiscordColor;
+                    return Config.Chat.DiscordColor;
                 case LogType.Error:
-                    return Config.Current.ErrorColor;
+                    return Config.Chat.ErrorColor;
                 case LogType.SeriousError:
-                    return Config.Current.SeriousErrorColor;
+                    return Config.Chat.SeriousErrorColor;
                 case LogType.RankChat:
-                    return Config.Current.RankChatColor;
+                    return Config.Chat.RankChatColor;
                 case LogType.GlobalChat:
-                    return Config.Current.GlobalChatColor;
+                    return Config.Chat.GlobalChatColor;
                 default:
-                    return Config.Current.DefaultColor;
+                    return Config.Chat.DefaultColor;
             }
 
         }

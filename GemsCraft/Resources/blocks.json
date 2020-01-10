@@ -1,4316 +1,4316 @@
 [
   {
     "type": 0,
-    "meta": 0,
+    "mea": 0,
     "name": "Air",
-    "text_type": "air"
+    "ex_ype": "air"
   },
   {
     "type": 1,
-    "meta": 0,
-    "name": "Stone",
-    "text_type": "stone"
+    "mea": 0,
+    "name": "Sne",
+    "ex_ype": "sne"
   },
   {
     "type": 1,
-    "meta": 1,
-    "name": "Granite",
-    "text_type": "stone"
+    "mea": 1,
+    "name": "Granie",
+    "ex_ype": "sne"
   },
   {
     "type": 1,
-    "meta": 2,
-    "name": "Polished Granite",
-    "text_type": "stone"
+    "mea": 2,
+    "name": "Pished Granie",
+    "ex_ype": "sne"
   },
   {
     "type": 1,
-    "meta": 3,
-    "name": "Diorite",
-    "text_type": "stone"
+    "mea": 3,
+    "name": "Dirie",
+    "ex_ype": "sne"
   },
   {
     "type": 1,
-    "meta": 4,
-    "name": "Polished Diorite",
-    "text_type": "stone"
+    "mea": 4,
+    "name": "Pished Dirie",
+    "ex_ype": "sne"
   },
   {
     "type": 1,
-    "meta": 5,
-    "name": "Andesite",
-    "text_type": "stone"
+    "mea": 5,
+    "name": "Andesie",
+    "ex_ype": "sne"
   },
   {
     "type": 1,
-    "meta": 6,
-    "name": "Polished Andesite",
-    "text_type": "stone"
+    "mea": 6,
+    "name": "Pished Andesie",
+    "ex_ype": "sne"
   },
   {
     "type": 2,
-    "meta": 0,
+    "mea": 0,
     "name": "Grass",
-    "text_type": "grass"
+    "ex_ype": "grass"
   },
   {
     "type": 3,
-    "meta": 0,
-    "name": "Dirt",
-    "text_type": "dirt"
+    "mea": 0,
+    "name": "Dir",
+    "ex_ype": "dir"
   },
   {
     "type": 3,
-    "meta": 1,
-    "name": "Coarse Dirt",
-    "text_type": "dirt"
+    "mea": 1,
+    "name": "Carse Dir",
+    "ex_ype": "dir"
   },
   {
     "type": 3,
-    "meta": 2,
-    "name": "Podzol",
-    "text_type": "dirt"
+    "mea": 2,
+    "name": "Pdz",
+    "ex_ype": "dir"
   },
   {
     "type": 4,
-    "meta": 0,
-    "name": "Cobblestone",
-    "text_type": "cobblestone"
+    "mea": 0,
+    "name": "Cbbesne",
+    "ex_ype": "cbbesne"
   },
   {
     "type": 5,
-    "meta": 0,
-    "name": "Oak Wood Plank",
-    "text_type": "planks"
+    "mea": 0,
+    "name": "Oak Wd Pank",
+    "ex_ype": "panks"
   },
   {
     "type": 5,
-    "meta": 1,
-    "name": "Spruce Wood Plank",
-    "text_type": "planks"
+    "mea": 1,
+    "name": "Sprce Wd Pank",
+    "ex_ype": "panks"
   },
   {
     "type": 5,
-    "meta": 2,
-    "name": "Birch Wood Plank",
-    "text_type": "planks"
+    "mea": 2,
+    "name": "Birch Wd Pank",
+    "ex_ype": "panks"
   },
   {
     "type": 5,
-    "meta": 3,
-    "name": "Jungle Wood Plank",
-    "text_type": "planks"
+    "mea": 3,
+    "name": "Jnge Wd Pank",
+    "ex_ype": "panks"
   },
   {
     "type": 5,
-    "meta": 4,
-    "name": "Acacia Wood Plank",
-    "text_type": "planks"
+    "mea": 4,
+    "name": "Acacia Wd Pank",
+    "ex_ype": "panks"
   },
   {
     "type": 5,
-    "meta": 5,
-    "name": "Dark Oak Wood Plank",
-    "text_type": "planks"
+    "mea": 5,
+    "name": "Dark Oak Wd Pank",
+    "ex_ype": "panks"
   },
   {
     "type": 6,
-    "meta": 0,
-    "name": "Oak Sapling",
-    "text_type": "sapling"
+    "mea": 0,
+    "name": "Oak Saping",
+    "ex_ype": "saping"
   },
   {
     "type": 6,
-    "meta": 1,
-    "name": "Spruce Sapling",
-    "text_type": "sapling"
+    "mea": 1,
+    "name": "Sprce Saping",
+    "ex_ype": "saping"
   },
   {
     "type": 6,
-    "meta": 2,
-    "name": "Birch Sapling",
-    "text_type": "sapling"
+    "mea": 2,
+    "name": "Birch Saping",
+    "ex_ype": "saping"
   },
   {
     "type": 6,
-    "meta": 3,
-    "name": "Jungle Sapling",
-    "text_type": "sapling"
+    "mea": 3,
+    "name": "Jnge Saping",
+    "ex_ype": "saping"
   },
   {
     "type": 6,
-    "meta": 4,
-    "name": "Acacia Sapling",
-    "text_type": "sapling"
+    "mea": 4,
+    "name": "Acacia Saping",
+    "ex_ype": "saping"
   },
   {
     "type": 6,
-    "meta": 5,
-    "name": "Dark Oak Sapling",
-    "text_type": "sapling"
+    "mea": 5,
+    "name": "Dark Oak Saping",
+    "ex_ype": "saping"
   },
   {
     "type": 7,
-    "meta": 0,
-    "name": "Bedrock",
-    "text_type": "bedrock"
+    "mea": 0,
+    "name": "Bedrck",
+    "ex_ype": "bedrck"
   },
   {
     "type": 8,
-    "meta": 0,
-    "name": "Flowing Water",
-    "text_type": "flowing_water"
+    "mea": 0,
+    "name": "Fwing Waer",
+    "ex_ype": "fwing_waer"
   },
   {
     "type": 9,
-    "meta": 0,
-    "name": "Still Water",
-    "text_type": "water"
+    "mea": 0,
+    "name": "SiWaer",
+    "ex_ype": "waer"
   },
   {
     "type": 10,
-    "meta": 0,
-    "name": "Flowing Lava",
-    "text_type": "flowing_lava"
+    "mea": 0,
+    "name": "Fwing Lava",
+    "ex_ype": "fwing_ava"
   },
   {
     "type": 11,
-    "meta": 0,
-    "name": "Still Lava",
-    "text_type": "lava"
+    "mea": 0,
+    "name": "SiLava",
+    "ex_ype": "ava"
   },
   {
     "type": 12,
-    "meta": 0,
+    "mea": 0,
     "name": "Sand",
-    "text_type": "sand"
+    "ex_ype": "sand"
   },
   {
     "type": 12,
-    "meta": 1,
+    "mea": 1,
     "name": "Red Sand",
-    "text_type": "sand"
+    "ex_ype": "sand"
   },
   {
     "type": 13,
-    "meta": 0,
-    "name": "Gravel",
-    "text_type": "gravel"
+    "mea": 0,
+    "name": "Grave",
+    "ex_ype": "grave"
   },
   {
     "type": 14,
-    "meta": 0,
-    "name": "Gold Ore",
-    "text_type": "gold_ore"
+    "mea": 0,
+    "name": "Gd Ore",
+    "ex_ype": "gd_re"
   },
   {
     "type": 15,
-    "meta": 0,
-    "name": "Iron Ore",
-    "text_type": "iron_ore"
+    "mea": 0,
+    "name": "Irn Ore",
+    "ex_ype": "irn_re"
   },
   {
     "type": 16,
-    "meta": 0,
-    "name": "Coal Ore",
-    "text_type": "coal_ore"
+    "mea": 0,
+    "name": "CaOre",
+    "ex_ype": "ca_re"
   },
   {
     "type": 17,
-    "meta": 0,
-    "name": "Oak Wood",
-    "text_type": "log"
+    "mea": 0,
+    "name": "Oak Wd",
+    "ex_ype": "g"
   },
   {
     "type": 17,
-    "meta": 1,
-    "name": "Spruce Wood",
-    "text_type": "log"
+    "mea": 1,
+    "name": "Sprce Wd",
+    "ex_ype": "g"
   },
   {
     "type": 17,
-    "meta": 2,
-    "name": "Birch Wood",
-    "text_type": "log"
+    "mea": 2,
+    "name": "Birch Wd",
+    "ex_ype": "g"
   },
   {
     "type": 17,
-    "meta": 3,
-    "name": "Jungle Wood",
-    "text_type": "log"
+    "mea": 3,
+    "name": "Jnge Wd",
+    "ex_ype": "g"
   },
   {
     "type": 18,
-    "meta": 0,
+    "mea": 0,
     "name": "Oak Leaves",
-    "text_type": "leaves"
+    "ex_ype": "eaves"
   },
   {
     "type": 18,
-    "meta": 1,
-    "name": "Spruce Leaves",
-    "text_type": "leaves"
+    "mea": 1,
+    "name": "Sprce Leaves",
+    "ex_ype": "eaves"
   },
   {
     "type": 18,
-    "meta": 2,
+    "mea": 2,
     "name": "Birch Leaves",
-    "text_type": "leaves"
+    "ex_ype": "eaves"
   },
   {
     "type": 18,
-    "meta": 3,
-    "name": "Jungle Leaves",
-    "text_type": "leaves"
+    "mea": 3,
+    "name": "Jnge Leaves",
+    "ex_ype": "eaves"
   },
   {
     "type": 19,
-    "meta": 0,
-    "name": "Sponge",
-    "text_type": "sponge"
+    "mea": 0,
+    "name": "Spnge",
+    "ex_ype": "spnge"
   },
   {
     "type": 19,
-    "meta": 1,
-    "name": "Wet Sponge",
-    "text_type": "sponge"
+    "mea": 1,
+    "name": "WeSpnge",
+    "ex_ype": "spnge"
   },
   {
     "type": 20,
-    "meta": 0,
-    "name": "Glass",
-    "text_type": "glass"
+    "mea": 0,
+    "name": "Gass",
+    "ex_ype": "gass"
   },
   {
     "type": 21,
-    "meta": 0,
-    "name": "Lapis Lazuli Ore",
-    "text_type": "lapis_ore"
+    "mea": 0,
+    "name": "Lapis Lazi Ore",
+    "ex_ype": "apis_re"
   },
   {
     "type": 22,
-    "meta": 0,
-    "name": "Lapis Lazuli Block",
-    "text_type": "lapis_block"
+    "mea": 0,
+    "name": "Lapis Lazi Bck",
+    "ex_ype": "apis_bck"
   },
   {
     "type": 23,
-    "meta": 0,
+    "mea": 0,
     "name": "Dispenser",
-    "text_type": "dispenser"
+    "ex_ype": "dispenser"
   },
   {
     "type": 24,
-    "meta": 0,
-    "name": "Sandstone",
-    "text_type": "sandstone"
+    "mea": 0,
+    "name": "Sandsne",
+    "ex_ype": "sandsne"
   },
   {
     "type": 24,
-    "meta": 1,
-    "name": "Chiseled Sandstone",
-    "text_type": "sandstone"
+    "mea": 1,
+    "name": "Chiseed Sandsne",
+    "ex_ype": "sandsne"
   },
   {
     "type": 24,
-    "meta": 2,
-    "name": "Smooth Sandstone",
-    "text_type": "sandstone"
+    "mea": 2,
+    "name": "Smh Sandsne",
+    "ex_ype": "sandsne"
   },
   {
     "type": 25,
-    "meta": 0,
-    "name": "Note Block",
-    "text_type": "noteblock"
+    "mea": 0,
+    "name": "e Bck",
+    "ex_ype": "nebck"
   },
   {
     "type": 26,
-    "meta": 0,
+    "mea": 0,
     "name": "Bed",
-    "text_type": "bed"
+    "ex_ype": "bed"
   },
   {
     "type": 27,
-    "meta": 0,
-    "name": "Powered Rail",
-    "text_type": "golden_rail"
+    "mea": 0,
+    "name": "Pwered Rai",
+    "ex_ype": "gden_rai"
   },
   {
     "type": 28,
-    "meta": 0,
-    "name": "Detector Rail",
-    "text_type": "detector_rail"
+    "mea": 0,
+    "name": "Deecr Rai",
+    "ex_ype": "deecr_rai"
   },
   {
     "type": 29,
-    "meta": 0,
-    "name": "Sticky Piston",
-    "text_type": "sticky_piston"
+    "mea": 0,
+    "name": "Sicky Pisn",
+    "ex_ype": "sicky_pisn"
   },
   {
     "type": 30,
-    "meta": 0,
-    "name": "Cobweb",
-    "text_type": "web"
+    "mea": 0,
+    "name": "Cbweb",
+    "ex_ype": "web"
   },
   {
     "type": 31,
-    "meta": 0,
-    "name": "Dead Shrub",
-    "text_type": "tallgrass"
+    "mea": 0,
+    "name": "Dead Shrb",
+    "ex_ype": "agrass"
   },
   {
     "type": 31,
-    "meta": 1,
+    "mea": 1,
     "name": "Grass",
-    "text_type": "tallgrass"
+    "ex_ype": "agrass"
   },
   {
     "type": 31,
-    "meta": 2,
+    "mea": 2,
     "name": "Fern",
-    "text_type": "tallgrass"
+    "ex_ype": "agrass"
   },
   {
     "type": 32,
-    "meta": 0,
-    "name": "Dead Bush",
-    "text_type": "deadbush"
+    "mea": 0,
+    "name": "Dead Bsh",
+    "ex_ype": "deadbsh"
   },
   {
     "type": 33,
-    "meta": 0,
-    "name": "Piston",
-    "text_type": "piston"
+    "mea": 0,
+    "name": "Pisn",
+    "ex_ype": "pisn"
   },
   {
     "type": 34,
-    "meta": 0,
-    "name": "Piston Head",
-    "text_type": "piston_head"
+    "mea": 0,
+    "name": "Pisn Head",
+    "ex_ype": "pisn_head"
   },
   {
     "type": 35,
-    "meta": 0,
-    "name": "White Wool",
-    "text_type": "wool"
+    "mea": 0,
+    "name": "Whie W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 1,
-    "name": "Orange Wool",
-    "text_type": "wool"
+    "mea": 1,
+    "name": "Orange W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 2,
-    "name": "Magenta Wool",
-    "text_type": "wool"
+    "mea": 2,
+    "name": "Magena W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 3,
-    "name": "Light Blue Wool",
-    "text_type": "wool"
+    "mea": 3,
+    "name": "LighBe W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 4,
-    "name": "Yellow Wool",
-    "text_type": "wool"
+    "mea": 4,
+    "name": "Yew W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 5,
-    "name": "Lime Wool",
-    "text_type": "wool"
+    "mea": 5,
+    "name": "Lime W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 6,
-    "name": "Pink Wool",
-    "text_type": "wool"
+    "mea": 6,
+    "name": "Pink W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 7,
-    "name": "Gray Wool",
-    "text_type": "wool"
+    "mea": 7,
+    "name": "Gray W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 8,
-    "name": "Light Gray Wool",
-    "text_type": "wool"
+    "mea": 8,
+    "name": "LighGray W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 9,
-    "name": "Cyan Wool",
-    "text_type": "wool"
+    "mea": 9,
+    "name": "Cyan W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 10,
-    "name": "Purple Wool",
-    "text_type": "wool"
+    "mea": 10,
+    "name": "Prpe W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 11,
-    "name": "Blue Wool",
-    "text_type": "wool"
+    "mea": 11,
+    "name": "Be W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 12,
-    "name": "Brown Wool",
-    "text_type": "wool"
+    "mea": 12,
+    "name": "Brwn W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 13,
-    "name": "Green Wool",
-    "text_type": "wool"
+    "mea": 13,
+    "name": "Green W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 14,
-    "name": "Red Wool",
-    "text_type": "wool"
+    "mea": 14,
+    "name": "Red W",
+    "ex_ype": "w"
   },
   {
     "type": 35,
-    "meta": 15,
-    "name": "Black Wool",
-    "text_type": "wool"
+    "mea": 15,
+    "name": "Back W",
+    "ex_ype": "w"
   },
   {
     "type": 37,
-    "meta": 0,
-    "name": "Dandelion",
-    "text_type": "yellow_flower"
+    "mea": 0,
+    "name": "Dandein",
+    "ex_ype": "yew_fwer"
   },
   {
     "type": 38,
-    "meta": 0,
-    "name": "Poppy",
-    "text_type": "red_flower"
+    "mea": 0,
+    "name": "Pppy",
+    "ex_ype": "red_fwer"
   },
   {
     "type": 38,
-    "meta": 1,
-    "name": "Blue Orchid",
-    "text_type": "red_flower"
+    "mea": 1,
+    "name": "Be Orchid",
+    "ex_ype": "red_fwer"
   },
   {
     "type": 38,
-    "meta": 2,
-    "name": "Allium",
-    "text_type": "red_flower"
+    "mea": 2,
+    "name": "Aim",
+    "ex_ype": "red_fwer"
   },
   {
     "type": 38,
-    "meta": 3,
-    "name": "Azure Bluet",
-    "text_type": "red_flower"
+    "mea": 3,
+    "name": "Azre Be",
+    "ex_ype": "red_fwer"
   },
   {
     "type": 38,
-    "meta": 4,
-    "name": "Red Tulip",
-    "text_type": "red_flower"
+    "mea": 4,
+    "name": "Red Tip",
+    "ex_ype": "red_fwer"
   },
   {
     "type": 38,
-    "meta": 5,
-    "name": "Orange Tulip",
-    "text_type": "red_flower"
+    "mea": 5,
+    "name": "Orange Tip",
+    "ex_ype": "red_fwer"
   },
   {
     "type": 38,
-    "meta": 6,
-    "name": "White Tulip",
-    "text_type": "red_flower"
+    "mea": 6,
+    "name": "Whie Tip",
+    "ex_ype": "red_fwer"
   },
   {
     "type": 38,
-    "meta": 7,
-    "name": "Pink Tulip",
-    "text_type": "red_flower"
+    "mea": 7,
+    "name": "Pink Tip",
+    "ex_ype": "red_fwer"
   },
   {
     "type": 38,
-    "meta": 8,
+    "mea": 8,
     "name": "Oxeye Daisy",
-    "text_type": "red_flower"
+    "ex_ype": "red_fwer"
   },
   {
     "type": 39,
-    "meta": 0,
-    "name": "Brown Mushroom",
-    "text_type": "brown_mushroom"
+    "mea": 0,
+    "name": "Brwn Mshrm",
+    "ex_ype": "brwn_mshrm"
   },
   {
     "type": 40,
-    "meta": 0,
-    "name": "Red Mushroom",
-    "text_type": "red_mushroom"
+    "mea": 0,
+    "name": "Red Mshrm",
+    "ex_ype": "red_mshrm"
   },
   {
     "type": 41,
-    "meta": 0,
-    "name": "Gold Block",
-    "text_type": "gold_block"
+    "mea": 0,
+    "name": "Gd Bck",
+    "ex_ype": "gd_bck"
   },
   {
     "type": 42,
-    "meta": 0,
-    "name": "Iron Block",
-    "text_type": "iron_block"
+    "mea": 0,
+    "name": "Irn Bck",
+    "ex_ype": "irn_bck"
   },
   {
     "type": 43,
-    "meta": 0,
-    "name": "Double Stone Slab",
-    "text_type": "double_stone_slab"
+    "mea": 0,
+    "name": "Dbe Sne Sab",
+    "ex_ype": "dbe_sne_sab"
   },
   {
     "type": 43,
-    "meta": 1,
-    "name": "Double Sandstone Slab",
-    "text_type": "double_stone_slab"
+    "mea": 1,
+    "name": "Dbe Sandsne Sab",
+    "ex_ype": "dbe_sne_sab"
   },
   {
     "type": 43,
-    "meta": 2,
-    "name": "Double Wooden Slab",
-    "text_type": "double_stone_slab"
+    "mea": 2,
+    "name": "Dbe Wden Sab",
+    "ex_ype": "dbe_sne_sab"
   },
   {
     "type": 43,
-    "meta": 3,
-    "name": "Double Cobblestone Slab",
-    "text_type": "double_stone_slab"
+    "mea": 3,
+    "name": "Dbe Cbbesne Sab",
+    "ex_ype": "dbe_sne_sab"
   },
   {
     "type": 43,
-    "meta": 4,
-    "name": "Double Brick Slab",
-    "text_type": "double_stone_slab"
+    "mea": 4,
+    "name": "Dbe Brick Sab",
+    "ex_ype": "dbe_sne_sab"
   },
   {
     "type": 43,
-    "meta": 5,
-    "name": "Double Stone Brick Slab",
-    "text_type": "double_stone_slab"
+    "mea": 5,
+    "name": "Dbe Sne Brick Sab",
+    "ex_ype": "dbe_sne_sab"
   },
   {
     "type": 43,
-    "meta": 6,
-    "name": "Double Nether Brick Slab",
-    "text_type": "double_stone_slab"
+    "mea": 6,
+    "name": "Dbe eher Brick Sab",
+    "ex_ype": "dbe_sne_sab"
   },
   {
     "type": 43,
-    "meta": 7,
-    "name": "Double Quartz Slab",
-    "text_type": "double_stone_slab"
+    "mea": 7,
+    "name": "Dbe Qarz Sab",
+    "ex_ype": "dbe_sne_sab"
   },
   {
     "type": 44,
-    "meta": 0,
-    "name": "Stone Slab",
-    "text_type": "stone_slab"
+    "mea": 0,
+    "name": "Sne Sab",
+    "ex_ype": "sne_sab"
   },
   {
     "type": 44,
-    "meta": 1,
-    "name": "Sandstone Slab",
-    "text_type": "stone_slab"
+    "mea": 1,
+    "name": "Sandsne Sab",
+    "ex_ype": "sne_sab"
   },
   {
     "type": 44,
-    "meta": 2,
-    "name": "Wooden Slab",
-    "text_type": "stone_slab"
+    "mea": 2,
+    "name": "Wden Sab",
+    "ex_ype": "sne_sab"
   },
   {
     "type": 44,
-    "meta": 3,
-    "name": "Cobblestone Slab",
-    "text_type": "stone_slab"
+    "mea": 3,
+    "name": "Cbbesne Sab",
+    "ex_ype": "sne_sab"
   },
   {
     "type": 44,
-    "meta": 4,
-    "name": "Brick Slab",
-    "text_type": "stone_slab"
+    "mea": 4,
+    "name": "Brick Sab",
+    "ex_ype": "sne_sab"
   },
   {
     "type": 44,
-    "meta": 5,
-    "name": "Stone Brick Slab",
-    "text_type": "stone_slab"
+    "mea": 5,
+    "name": "Sne Brick Sab",
+    "ex_ype": "sne_sab"
   },
   {
     "type": 44,
-    "meta": 6,
-    "name": "Nether Brick Slab",
-    "text_type": "stone_slab"
+    "mea": 6,
+    "name": "eher Brick Sab",
+    "ex_ype": "sne_sab"
   },
   {
     "type": 44,
-    "meta": 7,
-    "name": "Quartz Slab",
-    "text_type": "stone_slab"
+    "mea": 7,
+    "name": "Qarz Sab",
+    "ex_ype": "sne_sab"
   },
   {
     "type": 45,
-    "meta": 0,
+    "mea": 0,
     "name": "Bricks",
-    "text_type": "brick_block"
+    "ex_ype": "brick_bck"
   },
   {
     "type": 46,
-    "meta": 0,
-    "name": "TNT",
-    "text_type": "tnt"
+    "mea": 0,
+    "name": "TT",
+    "ex_ype": "n"
   },
   {
     "type": 47,
-    "meta": 0,
-    "name": "Bookshelf",
-    "text_type": "bookshelf"
+    "mea": 0,
+    "name": "Bkshef",
+    "ex_ype": "bkshef"
   },
   {
     "type": 48,
-    "meta": 0,
-    "name": "Moss Stone",
-    "text_type": "mossy_cobblestone"
+    "mea": 0,
+    "name": "Mss Sne",
+    "ex_ype": "mssy_cbbesne"
   },
   {
     "type": 49,
-    "meta": 0,
+    "mea": 0,
     "name": "Obsidian",
-    "text_type": "obsidian"
+    "ex_ype": "bsidian"
   },
   {
     "type": 50,
-    "meta": 0,
-    "name": "Torch",
-    "text_type": "torch"
+    "mea": 0,
+    "name": "Trch",
+    "ex_ype": "rch"
   },
   {
     "type": 51,
-    "meta": 0,
+    "mea": 0,
     "name": "Fire",
-    "text_type": "fire"
+    "ex_ype": "fire"
   },
   {
     "type": 52,
-    "meta": 0,
-    "name": "Monster Spawner",
-    "text_type": "mob_spawner"
+    "mea": 0,
+    "name": "Mnser Spawner",
+    "ex_ype": "mb_spawner"
   },
   {
     "type": 53,
-    "meta": 0,
-    "name": "Oak Wood Stairs",
-    "text_type": "oak_stairs"
+    "mea": 0,
+    "name": "Oak Wd Sairs",
+    "ex_ype": "ak_sairs"
   },
   {
     "type": 54,
-    "meta": 0,
-    "name": "Chest",
-    "text_type": "chest"
+    "mea": 0,
+    "name": "Ches",
+    "ex_ype": "ches"
   },
   {
     "type": 55,
-    "meta": 0,
-    "name": "Redstone Wire",
-    "text_type": "redstone_wire"
+    "mea": 0,
+    "name": "Redsne Wire",
+    "ex_ype": "redsne_wire"
   },
   {
     "type": 56,
-    "meta": 0,
-    "name": "Diamond Ore",
-    "text_type": "diamond_ore"
+    "mea": 0,
+    "name": "Diamnd Ore",
+    "ex_ype": "diamnd_re"
   },
   {
     "type": 57,
-    "meta": 0,
-    "name": "Diamond Block",
-    "text_type": "diamond_block"
+    "mea": 0,
+    "name": "Diamnd Bck",
+    "ex_ype": "diamnd_bck"
   },
   {
     "type": 58,
-    "meta": 0,
-    "name": "Crafting Table",
-    "text_type": "crafting_table"
+    "mea": 0,
+    "name": "Crafing Tabe",
+    "ex_ype": "crafing_abe"
   },
   {
     "type": 59,
-    "meta": 0,
-    "name": "Wheat Crops",
-    "text_type": "wheat"
+    "mea": 0,
+    "name": "WheaCrps",
+    "ex_ype": "whea"
   },
   {
     "type": 60,
-    "meta": 0,
-    "name": "Farmland",
-    "text_type": "farmland"
+    "mea": 0,
+    "name": "Farmand",
+    "ex_ype": "farmand"
   },
   {
     "type": 61,
-    "meta": 0,
-    "name": "Furnace",
-    "text_type": "furnace"
+    "mea": 0,
+    "name": "Frnace",
+    "ex_ype": "frnace"
   },
   {
     "type": 62,
-    "meta": 0,
-    "name": "Burning Furnace",
-    "text_type": "lit_furnace"
+    "mea": 0,
+    "name": "Brning Frnace",
+    "ex_ype": "i_frnace"
   },
   {
     "type": 63,
-    "meta": 0,
-    "name": "Standing Sign Block",
-    "text_type": "standing_sign"
+    "mea": 0,
+    "name": "Sanding Sign Bck",
+    "ex_ype": "sanding_sign"
   },
   {
     "type": 64,
-    "meta": 0,
-    "name": "Oak Door Block",
-    "text_type": "wooden_door"
+    "mea": 0,
+    "name": "Oak Dr Bck",
+    "ex_ype": "wden_dr"
   },
   {
     "type": 65,
-    "meta": 0,
+    "mea": 0,
     "name": "Ladder",
-    "text_type": "ladder"
+    "ex_ype": "adder"
   },
   {
     "type": 66,
-    "meta": 0,
-    "name": "Rail",
-    "text_type": "rail"
+    "mea": 0,
+    "name": "Rai",
+    "ex_ype": "rai"
   },
   {
     "type": 67,
-    "meta": 0,
-    "name": "Cobblestone Stairs",
-    "text_type": "stone_stairs"
+    "mea": 0,
+    "name": "Cbbesne Sairs",
+    "ex_ype": "sne_sairs"
   },
   {
     "type": 68,
-    "meta": 0,
-    "name": "Wall-mounted Sign Block",
-    "text_type": "wall_sign"
+    "mea": 0,
+    "name": "Wa-mned Sign Bck",
+    "ex_ype": "wa_sign"
   },
   {
     "type": 69,
-    "meta": 0,
+    "mea": 0,
     "name": "Lever",
-    "text_type": "lever"
+    "ex_ype": "ever"
   },
   {
     "type": 70,
-    "meta": 0,
-    "name": "Stone Pressure Plate",
-    "text_type": "stone_pressure_plate"
+    "mea": 0,
+    "name": "Sne Pressre Pae",
+    "ex_ype": "sne_pressre_pae"
   },
   {
     "type": 71,
-    "meta": 0,
-    "name": "Iron Door Block",
-    "text_type": "iron_door"
+    "mea": 0,
+    "name": "Irn Dr Bck",
+    "ex_ype": "irn_dr"
   },
   {
     "type": 72,
-    "meta": 0,
-    "name": "Wooden Pressure Plate",
-    "text_type": "wooden_pressure_plate"
+    "mea": 0,
+    "name": "Wden Pressre Pae",
+    "ex_ype": "wden_pressre_pae"
   },
   {
     "type": 73,
-    "meta": 0,
-    "name": "Redstone Ore",
-    "text_type": "redstone_ore"
+    "mea": 0,
+    "name": "Redsne Ore",
+    "ex_ype": "redsne_re"
   },
   {
     "type": 74,
-    "meta": 0,
-    "name": "Glowing Redstone Ore",
-    "text_type": "lit_redstone_ore"
+    "mea": 0,
+    "name": "Gwing Redsne Ore",
+    "ex_ype": "i_redsne_re"
   },
   {
     "type": 75,
-    "meta": 0,
-    "name": "Redstone Torch (off)",
-    "text_type": "unlit_redstone_torch"
+    "mea": 0,
+    "name": "Redsne Trch (ff)",
+    "ex_ype": "ni_redsne_rch"
   },
   {
     "type": 76,
-    "meta": 0,
-    "name": "Redstone Torch (on)",
-    "text_type": "redstone_torch"
+    "mea": 0,
+    "name": "Redsne Trch (n)",
+    "ex_ype": "redsne_rch"
   },
   {
     "type": 77,
-    "meta": 0,
-    "name": "Stone Button",
-    "text_type": "stone_button"
+    "mea": 0,
+    "name": "Sne Bn",
+    "ex_ype": "sne_bn"
   },
   {
     "type": 78,
-    "meta": 0,
-    "name": "Snow",
-    "text_type": "snow_layer"
+    "mea": 0,
+    "name": "Snw",
+    "ex_ype": "snw_ayer"
   },
   {
     "type": 79,
-    "meta": 0,
+    "mea": 0,
     "name": "Ice",
-    "text_type": "ice"
+    "ex_ype": "ice"
   },
   {
     "type": 80,
-    "meta": 0,
-    "name": "Snow Block",
-    "text_type": "snow"
+    "mea": 0,
+    "name": "Snw Bck",
+    "ex_ype": "snw"
   },
   {
     "type": 81,
-    "meta": 0,
-    "name": "Cactus",
-    "text_type": "cactus"
+    "mea": 0,
+    "name": "Cacs",
+    "ex_ype": "cacs"
   },
   {
     "type": 82,
-    "meta": 0,
-    "name": "Clay",
-    "text_type": "clay"
+    "mea": 0,
+    "name": "Cay",
+    "ex_ype": "cay"
   },
   {
     "type": 83,
-    "meta": 0,
-    "name": "Sugar Canes",
-    "text_type": "reeds"
+    "mea": 0,
+    "name": "Sgar Canes",
+    "ex_ype": "reeds"
   },
   {
     "type": 84,
-    "meta": 0,
-    "name": "Jukebox",
-    "text_type": "jukebox"
+    "mea": 0,
+    "name": "Jkebx",
+    "ex_ype": "jkebx"
   },
   {
     "type": 85,
-    "meta": 0,
+    "mea": 0,
     "name": "Oak Fence",
-    "text_type": "fence"
+    "ex_ype": "fence"
   },
   {
     "type": 86,
-    "meta": 0,
-    "name": "Pumpkin",
-    "text_type": "pumpkin"
+    "mea": 0,
+    "name": "Pmpkin",
+    "ex_ype": "pmpkin"
   },
   {
     "type": 87,
-    "meta": 0,
-    "name": "Netherrack",
-    "text_type": "netherrack"
+    "mea": 0,
+    "name": "eherrack",
+    "ex_ype": "neherrack"
   },
   {
     "type": 88,
-    "meta": 0,
-    "name": "Soul Sand",
-    "text_type": "soul_sand"
+    "mea": 0,
+    "name": "SSand",
+    "ex_ype": "s_sand"
   },
   {
     "type": 89,
-    "meta": 0,
-    "name": "Glowstone",
-    "text_type": "glowstone"
+    "mea": 0,
+    "name": "Gwsne",
+    "ex_ype": "gwsne"
   },
   {
     "type": 90,
-    "meta": 0,
-    "name": "Nether Portal",
-    "text_type": "portal"
+    "mea": 0,
+    "name": "eher Pra",
+    "ex_ype": "pra"
   },
   {
     "type": 91,
-    "meta": 0,
-    "name": "Jack o'Lantern",
-    "text_type": "lit_pumpkin"
+    "mea": 0,
+    "name": "Jack 'Lanern",
+    "ex_ype": "i_pmpkin"
   },
   {
     "type": 92,
-    "meta": 0,
-    "name": "Cake Block",
-    "text_type": "cake"
+    "mea": 0,
+    "name": "Cake Bck",
+    "ex_ype": "cake"
   },
   {
     "type": 93,
-    "meta": 0,
-    "name": "Redstone Repeater Block (off)",
-    "text_type": "unpowered_repeater"
+    "mea": 0,
+    "name": "Redsne Repeaer Bck (ff)",
+    "ex_ype": "npwered_repeaer"
   },
   {
     "type": 94,
-    "meta": 0,
-    "name": "Redstone Repeater Block (on)",
-    "text_type": "powered_repeater"
+    "mea": 0,
+    "name": "Redsne Repeaer Bck (n)",
+    "ex_ype": "pwered_repeaer"
   },
   {
     "type": 95,
-    "meta": 0,
-    "name": "White Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 0,
+    "name": "Whie Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 1,
-    "name": "Orange Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 1,
+    "name": "Orange Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 2,
-    "name": "Magenta Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 2,
+    "name": "Magena Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 3,
-    "name": "Light Blue Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 3,
+    "name": "LighBe Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 4,
-    "name": "Yellow Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 4,
+    "name": "Yew Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 5,
-    "name": "Lime Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 5,
+    "name": "Lime Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 6,
-    "name": "Pink Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 6,
+    "name": "Pink Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 7,
-    "name": "Gray Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 7,
+    "name": "Gray Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 8,
-    "name": "Light Gray Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 8,
+    "name": "LighGray Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 9,
-    "name": "Cyan Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 9,
+    "name": "Cyan Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 10,
-    "name": "Purple Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 10,
+    "name": "Prpe Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 11,
-    "name": "Blue Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 11,
+    "name": "Be Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 12,
-    "name": "Brown Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 12,
+    "name": "Brwn Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 13,
-    "name": "Green Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 13,
+    "name": "Green Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 14,
-    "name": "Red Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 14,
+    "name": "Red Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 95,
-    "meta": 15,
-    "name": "Black Stained Glass",
-    "text_type": "stained_glass"
+    "mea": 15,
+    "name": "Back Sained Gass",
+    "ex_ype": "sained_gass"
   },
   {
     "type": 96,
-    "meta": 0,
-    "name": "Wooden Trapdoor",
-    "text_type": "trapdoor"
+    "mea": 0,
+    "name": "Wden Trapdr",
+    "ex_ype": "rapdr"
   },
   {
     "type": 97,
-    "meta": 0,
-    "name": "Stone Monster Egg",
-    "text_type": "monster_egg"
+    "mea": 0,
+    "name": "Sne Mnser Egg",
+    "ex_ype": "mnser_egg"
   },
   {
     "type": 97,
-    "meta": 1,
-    "name": "Cobblestone Monster Egg",
-    "text_type": "monster_egg"
+    "mea": 1,
+    "name": "Cbbesne Mnser Egg",
+    "ex_ype": "mnser_egg"
   },
   {
     "type": 97,
-    "meta": 2,
-    "name": "Stone Brick Monster Egg",
-    "text_type": "monster_egg"
+    "mea": 2,
+    "name": "Sne Brick Mnser Egg",
+    "ex_ype": "mnser_egg"
   },
   {
     "type": 97,
-    "meta": 3,
-    "name": "Mossy Stone Brick Monster Egg",
-    "text_type": "monster_egg"
+    "mea": 3,
+    "name": "Mssy Sne Brick Mnser Egg",
+    "ex_ype": "mnser_egg"
   },
   {
     "type": 97,
-    "meta": 4,
-    "name": "Cracked Stone Brick Monster Egg",
-    "text_type": "monster_egg"
+    "mea": 4,
+    "name": "Cracked Sne Brick Mnser Egg",
+    "ex_ype": "mnser_egg"
   },
   {
     "type": 97,
-    "meta": 5,
-    "name": "Chiseled Stone Brick Monster Egg",
-    "text_type": "monster_egg"
+    "mea": 5,
+    "name": "Chiseed Sne Brick Mnser Egg",
+    "ex_ype": "mnser_egg"
   },
   {
     "type": 98,
-    "meta": 0,
-    "name": "Stone Bricks",
-    "text_type": "stonebrick"
+    "mea": 0,
+    "name": "Sne Bricks",
+    "ex_ype": "snebrick"
   },
   {
     "type": 98,
-    "meta": 1,
-    "name": "Mossy Stone Bricks",
-    "text_type": "stonebrick"
+    "mea": 1,
+    "name": "Mssy Sne Bricks",
+    "ex_ype": "snebrick"
   },
   {
     "type": 98,
-    "meta": 2,
-    "name": "Cracked Stone Bricks",
-    "text_type": "stonebrick"
+    "mea": 2,
+    "name": "Cracked Sne Bricks",
+    "ex_ype": "snebrick"
   },
   {
     "type": 98,
-    "meta": 3,
-    "name": "Chiseled Stone Bricks",
-    "text_type": "stonebrick"
+    "mea": 3,
+    "name": "Chiseed Sne Bricks",
+    "ex_ype": "snebrick"
   },
   {
     "type": 99,
-    "meta": 0,
-    "name": "Brown Mushroom Block",
-    "text_type": "brown_mushroom_block"
+    "mea": 0,
+    "name": "Brwn Mshrm Bck",
+    "ex_ype": "brwn_mshrm_bck"
   },
   {
     "type": 100,
-    "meta": 0,
-    "name": "Red Mushroom Block",
-    "text_type": "red_mushroom_block"
+    "mea": 0,
+    "name": "Red Mshrm Bck",
+    "ex_ype": "red_mshrm_bck"
   },
   {
     "type": 101,
-    "meta": 0,
-    "name": "Iron Bars",
-    "text_type": "iron_bars"
+    "mea": 0,
+    "name": "Irn Bars",
+    "ex_ype": "irn_bars"
   },
   {
     "type": 102,
-    "meta": 0,
-    "name": "Glass Pane",
-    "text_type": "glass_pane"
+    "mea": 0,
+    "name": "Gass Pane",
+    "ex_ype": "gass_pane"
   },
   {
     "type": 103,
-    "meta": 0,
-    "name": "Melon Block",
-    "text_type": "melon_block"
+    "mea": 0,
+    "name": "Men Bck",
+    "ex_ype": "men_bck"
   },
   {
     "type": 104,
-    "meta": 0,
-    "name": "Pumpkin Stem",
-    "text_type": "pumpkin_stem"
+    "mea": 0,
+    "name": "Pmpkin Sem",
+    "ex_ype": "pmpkin_sem"
   },
   {
     "type": 105,
-    "meta": 0,
-    "name": "Melon Stem",
-    "text_type": "melon_stem"
+    "mea": 0,
+    "name": "Men Sem",
+    "ex_ype": "men_sem"
   },
   {
     "type": 106,
-    "meta": 0,
+    "mea": 0,
     "name": "Vines",
-    "text_type": "vine"
+    "ex_ype": "vine"
   },
   {
     "type": 107,
-    "meta": 0,
-    "name": "Oak Fence Gate",
-    "text_type": "fence_gate"
+    "mea": 0,
+    "name": "Oak Fence Gae",
+    "ex_ype": "fence_gae"
   },
   {
     "type": 108,
-    "meta": 0,
-    "name": "Brick Stairs",
-    "text_type": "brick_stairs"
+    "mea": 0,
+    "name": "Brick Sairs",
+    "ex_ype": "brick_sairs"
   },
   {
     "type": 109,
-    "meta": 0,
-    "name": "Stone Brick Stairs",
-    "text_type": "stone_brick_stairs"
+    "mea": 0,
+    "name": "Sne Brick Sairs",
+    "ex_ype": "sne_brick_sairs"
   },
   {
     "type": 110,
-    "meta": 0,
-    "name": "Mycelium",
-    "text_type": "mycelium"
+    "mea": 0,
+    "name": "Myceim",
+    "ex_ype": "myceim"
   },
   {
     "type": 111,
-    "meta": 0,
-    "name": "Lily Pad",
-    "text_type": "waterlily"
+    "mea": 0,
+    "name": "Liy Pad",
+    "ex_ype": "waeriy"
   },
   {
     "type": 112,
-    "meta": 0,
-    "name": "Nether Brick",
-    "text_type": "nether_brick"
+    "mea": 0,
+    "name": "eher Brick",
+    "ex_ype": "neher_brick"
   },
   {
     "type": 113,
-    "meta": 0,
-    "name": "Nether Brick Fence",
-    "text_type": "nether_brick_fence"
+    "mea": 0,
+    "name": "eher Brick Fence",
+    "ex_ype": "neher_brick_fence"
   },
   {
     "type": 114,
-    "meta": 0,
-    "name": "Nether Brick Stairs",
-    "text_type": "nether_brick_stairs"
+    "mea": 0,
+    "name": "eher Brick Sairs",
+    "ex_ype": "neher_brick_sairs"
   },
   {
     "type": 115,
-    "meta": 0,
-    "name": "Nether Wart",
-    "text_type": "nether_wart"
+    "mea": 0,
+    "name": "eher War",
+    "ex_ype": "neher_war"
   },
   {
     "type": 116,
-    "meta": 0,
-    "name": "Enchantment Table",
-    "text_type": "enchanting_table"
+    "mea": 0,
+    "name": "EnchanmenTabe",
+    "ex_ype": "enchaning_abe"
   },
   {
     "type": 117,
-    "meta": 0,
-    "name": "Brewing Stand",
-    "text_type": "brewing_stand"
+    "mea": 0,
+    "name": "Brewing Sand",
+    "ex_ype": "brewing_sand"
   },
   {
     "type": 118,
-    "meta": 0,
-    "name": "Cauldron",
-    "text_type": "cauldron"
+    "mea": 0,
+    "name": "Cadrn",
+    "ex_ype": "cadrn"
   },
   {
     "type": 119,
-    "meta": 0,
-    "name": "End Portal",
-    "text_type": "end_portal"
+    "mea": 0,
+    "name": "End Pra",
+    "ex_ype": "end_pra"
   },
   {
     "type": 120,
-    "meta": 0,
-    "name": "End Portal Frame",
-    "text_type": "end_portal_frame"
+    "mea": 0,
+    "name": "End PraFrame",
+    "ex_ype": "end_pra_frame"
   },
   {
     "type": 121,
-    "meta": 0,
-    "name": "End Stone",
-    "text_type": "end_stone"
+    "mea": 0,
+    "name": "End Sne",
+    "ex_ype": "end_sne"
   },
   {
     "type": 122,
-    "meta": 0,
-    "name": "Dragon Egg",
-    "text_type": "dragon_egg"
+    "mea": 0,
+    "name": "Dragn Egg",
+    "ex_ype": "dragn_egg"
   },
   {
     "type": 123,
-    "meta": 0,
-    "name": "Redstone Lamp (inactive)",
-    "text_type": "redstone_lamp"
+    "mea": 0,
+    "name": "Redsne Lamp (inacive)",
+    "ex_ype": "redsne_amp"
   },
   {
     "type": 124,
-    "meta": 0,
-    "name": "Redstone Lamp (active)",
-    "text_type": "lit_redstone_lamp"
+    "mea": 0,
+    "name": "Redsne Lamp (acive)",
+    "ex_ype": "i_redsne_amp"
   },
   {
     "type": 125,
-    "meta": 0,
-    "name": "Double Oak Wood Slab",
-    "text_type": "double_wooden_slab"
+    "mea": 0,
+    "name": "Dbe Oak Wd Sab",
+    "ex_ype": "dbe_wden_sab"
   },
   {
     "type": 125,
-    "meta": 1,
-    "name": "Double Spruce Wood Slab",
-    "text_type": "double_wooden_slab"
+    "mea": 1,
+    "name": "Dbe Sprce Wd Sab",
+    "ex_ype": "dbe_wden_sab"
   },
   {
     "type": 125,
-    "meta": 2,
-    "name": "Double Birch Wood Slab",
-    "text_type": "double_wooden_slab"
+    "mea": 2,
+    "name": "Dbe Birch Wd Sab",
+    "ex_ype": "dbe_wden_sab"
   },
   {
     "type": 125,
-    "meta": 3,
-    "name": "Double Jungle Wood Slab",
-    "text_type": "double_wooden_slab"
+    "mea": 3,
+    "name": "Dbe Jnge Wd Sab",
+    "ex_ype": "dbe_wden_sab"
   },
   {
     "type": 125,
-    "meta": 4,
-    "name": "Double Acacia Wood Slab",
-    "text_type": "double_wooden_slab"
+    "mea": 4,
+    "name": "Dbe Acacia Wd Sab",
+    "ex_ype": "dbe_wden_sab"
   },
   {
     "type": 125,
-    "meta": 5,
-    "name": "Double Dark Oak Wood Slab",
-    "text_type": "double_wooden_slab"
+    "mea": 5,
+    "name": "Dbe Dark Oak Wd Sab",
+    "ex_ype": "dbe_wden_sab"
   },
   {
     "type": 126,
-    "meta": 0,
-    "name": "Oak Wood Slab",
-    "text_type": "wooden_slab"
+    "mea": 0,
+    "name": "Oak Wd Sab",
+    "ex_ype": "wden_sab"
   },
   {
     "type": 126,
-    "meta": 1,
-    "name": "Spruce Wood Slab",
-    "text_type": "wooden_slab"
+    "mea": 1,
+    "name": "Sprce Wd Sab",
+    "ex_ype": "wden_sab"
   },
   {
     "type": 126,
-    "meta": 2,
-    "name": "Birch Wood Slab",
-    "text_type": "wooden_slab"
+    "mea": 2,
+    "name": "Birch Wd Sab",
+    "ex_ype": "wden_sab"
   },
   {
     "type": 126,
-    "meta": 3,
-    "name": "Jungle Wood Slab",
-    "text_type": "wooden_slab"
+    "mea": 3,
+    "name": "Jnge Wd Sab",
+    "ex_ype": "wden_sab"
   },
   {
     "type": 126,
-    "meta": 4,
-    "name": "Acacia Wood Slab",
-    "text_type": "wooden_slab"
+    "mea": 4,
+    "name": "Acacia Wd Sab",
+    "ex_ype": "wden_sab"
   },
   {
     "type": 126,
-    "meta": 5,
-    "name": "Dark Oak Wood Slab",
-    "text_type": "wooden_slab"
+    "mea": 5,
+    "name": "Dark Oak Wd Sab",
+    "ex_ype": "wden_sab"
   },
   {
     "type": 127,
-    "meta": 0,
-    "name": "Cocoa",
-    "text_type": "cocoa"
+    "mea": 0,
+    "name": "Cca",
+    "ex_ype": "cca"
   },
   {
     "type": 128,
-    "meta": 0,
-    "name": "Sandstone Stairs",
-    "text_type": "sandstone_stairs"
+    "mea": 0,
+    "name": "Sandsne Sairs",
+    "ex_ype": "sandsne_sairs"
   },
   {
     "type": 129,
-    "meta": 0,
-    "name": "Emerald Ore",
-    "text_type": "emerald_ore"
+    "mea": 0,
+    "name": "Emerad Ore",
+    "ex_ype": "emerad_re"
   },
   {
     "type": 130,
-    "meta": 0,
-    "name": "Ender Chest",
-    "text_type": "ender_chest"
+    "mea": 0,
+    "name": "Ender Ches",
+    "ex_ype": "ender_ches"
   },
   {
     "type": 131,
-    "meta": 0,
-    "name": "Tripwire Hook",
-    "text_type": "tripwire_hook"
+    "mea": 0,
+    "name": "Tripwire Hk",
+    "ex_ype": "ripwire_hk"
   },
   {
     "type": 132,
-    "meta": 0,
+    "mea": 0,
     "name": "Tripwire",
-    "text_type": "tripwire_hook"
+    "ex_ype": "ripwire_hk"
   },
   {
     "type": 133,
-    "meta": 0,
-    "name": "Emerald Block",
-    "text_type": "emerald_block"
+    "mea": 0,
+    "name": "Emerad Bck",
+    "ex_ype": "emerad_bck"
   },
   {
     "type": 134,
-    "meta": 0,
-    "name": "Spruce Wood Stairs",
-    "text_type": "spruce_stairs"
+    "mea": 0,
+    "name": "Sprce Wd Sairs",
+    "ex_ype": "sprce_sairs"
   },
   {
     "type": 135,
-    "meta": 0,
-    "name": "Birch Wood Stairs",
-    "text_type": "birch_stairs"
+    "mea": 0,
+    "name": "Birch Wd Sairs",
+    "ex_ype": "birch_sairs"
   },
   {
     "type": 136,
-    "meta": 0,
-    "name": "Jungle Wood Stairs",
-    "text_type": "jungle_stairs"
+    "mea": 0,
+    "name": "Jnge Wd Sairs",
+    "ex_ype": "jnge_sairs"
   },
   {
     "type": 137,
-    "meta": 0,
-    "name": "Command Block",
-    "text_type": "command_block"
+    "mea": 0,
+    "name": "Cmmand Bck",
+    "ex_ype": "cmmand_bck"
   },
   {
     "type": 138,
-    "meta": 0,
-    "name": "Beacon",
-    "text_type": "beacon"
+    "mea": 0,
+    "name": "Beacn",
+    "ex_ype": "beacn"
   },
   {
     "type": 139,
-    "meta": 0,
-    "name": "Cobblestone Wall",
-    "text_type": "cobblestone_wall"
+    "mea": 0,
+    "name": "Cbbesne Wa",
+    "ex_ype": "cbbesne_wa"
   },
   {
     "type": 139,
-    "meta": 1,
-    "name": "Mossy Cobblestone Wall",
-    "text_type": "cobblestone_wall"
+    "mea": 1,
+    "name": "Mssy Cbbesne Wa",
+    "ex_ype": "cbbesne_wa"
   },
   {
     "type": 140,
-    "meta": 0,
-    "name": "Flower Pot",
-    "text_type": "flower_pot"
+    "mea": 0,
+    "name": "Fwer P",
+    "ex_ype": "fwer_p"
   },
   {
     "type": 141,
-    "meta": 0,
-    "name": "Carrots",
-    "text_type": "carrots"
+    "mea": 0,
+    "name": "Carrs",
+    "ex_ype": "carrs"
   },
   {
     "type": 142,
-    "meta": 0,
-    "name": "Potatoes",
-    "text_type": "potatoes"
+    "mea": 0,
+    "name": "Paes",
+    "ex_ype": "paes"
   },
   {
     "type": 143,
-    "meta": 0,
-    "name": "Wooden Button",
-    "text_type": "wooden_button"
+    "mea": 0,
+    "name": "Wden Bn",
+    "ex_ype": "wden_bn"
   },
   {
     "type": 144,
-    "meta": 0,
-    "name": "Mob Head",
-    "text_type": "skull"
+    "mea": 0,
+    "name": "Mb Head",
+    "ex_ype": "sk"
   },
   {
     "type": 145,
-    "meta": 0,
-    "name": "Anvil",
-    "text_type": "anvil"
+    "mea": 0,
+    "name": "Anvi",
+    "ex_ype": "anvi"
   },
   {
     "type": 146,
-    "meta": 0,
-    "name": "Trapped Chest",
-    "text_type": "trapped_chest"
+    "mea": 0,
+    "name": "Trapped Ches",
+    "ex_ype": "rapped_ches"
   },
   {
     "type": 147,
-    "meta": 0,
-    "name": "Weighted Pressure Plate (light)",
-    "text_type": "light_weighted_pressure_plate"
+    "mea": 0,
+    "name": "Weighed Pressre Pae (igh)",
+    "ex_ype": "igh_weighed_pressre_pae"
   },
   {
     "type": 148,
-    "meta": 0,
-    "name": "Weighted Pressure Plate (heavy)",
-    "text_type": "heavy_weighted_pressure_plate"
+    "mea": 0,
+    "name": "Weighed Pressre Pae (heavy)",
+    "ex_ype": "heavy_weighed_pressre_pae"
   },
   {
     "type": 149,
-    "meta": 0,
-    "name": "Redstone Comparator (inactive)",
-    "text_type": "unpowered_comparator"
+    "mea": 0,
+    "name": "Redsne Cmparar (inacive)",
+    "ex_ype": "npwered_cmparar"
   },
   {
     "type": 150,
-    "meta": 0,
-    "name": "Redstone Comparator (active)",
-    "text_type": "powered_comparator"
+    "mea": 0,
+    "name": "Redsne Cmparar (acive)",
+    "ex_ype": "pwered_cmparar"
   },
   {
     "type": 151,
-    "meta": 0,
-    "name": "Daylight Sensor",
-    "text_type": "daylight_detector"
+    "mea": 0,
+    "name": "DayighSensr",
+    "ex_ype": "dayigh_deecr"
   },
   {
     "type": 152,
-    "meta": 0,
-    "name": "Redstone Block",
-    "text_type": "redstone_block"
+    "mea": 0,
+    "name": "Redsne Bck",
+    "ex_ype": "redsne_bck"
   },
   {
     "type": 153,
-    "meta": 0,
-    "name": "Nether Quartz Ore",
-    "text_type": "quartz_ore"
+    "mea": 0,
+    "name": "eher Qarz Ore",
+    "ex_ype": "qarz_re"
   },
   {
     "type": 154,
-    "meta": 0,
-    "name": "Hopper",
-    "text_type": "hopper"
+    "mea": 0,
+    "name": "Hpper",
+    "ex_ype": "hpper"
   },
   {
     "type": 155,
-    "meta": 0,
-    "name": "Quartz Block",
-    "text_type": "quartz_block"
+    "mea": 0,
+    "name": "Qarz Bck",
+    "ex_ype": "qarz_bck"
   },
   {
     "type": 155,
-    "meta": 1,
-    "name": "Chiseled Quartz Block",
-    "text_type": "quartz_block"
+    "mea": 1,
+    "name": "Chiseed Qarz Bck",
+    "ex_ype": "qarz_bck"
   },
   {
     "type": 155,
-    "meta": 2,
-    "name": "Pillar Quartz Block",
-    "text_type": "quartz_block"
+    "mea": 2,
+    "name": "Piar Qarz Bck",
+    "ex_ype": "qarz_bck"
   },
   {
     "type": 156,
-    "meta": 0,
-    "name": "Quartz Stairs",
-    "text_type": "quartz_stairs"
+    "mea": 0,
+    "name": "Qarz Sairs",
+    "ex_ype": "qarz_sairs"
   },
   {
     "type": 157,
-    "meta": 0,
-    "name": "Activator Rail",
-    "text_type": "activator_rail"
+    "mea": 0,
+    "name": "Acivar Rai",
+    "ex_ype": "acivar_rai"
   },
   {
     "type": 158,
-    "meta": 0,
-    "name": "Dropper",
-    "text_type": "dropper"
+    "mea": 0,
+    "name": "Drpper",
+    "ex_ype": "drpper"
   },
   {
     "type": 159,
-    "meta": 0,
-    "name": "White Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 0,
+    "name": "Whie Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 1,
-    "name": "Orange Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 1,
+    "name": "Orange Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 2,
-    "name": "Magenta Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 2,
+    "name": "Magena Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 3,
-    "name": "Light Blue Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 3,
+    "name": "LighBe Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 4,
-    "name": "Yellow Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 4,
+    "name": "Yew Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 5,
-    "name": "Lime Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 5,
+    "name": "Lime Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 6,
-    "name": "Pink Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 6,
+    "name": "Pink Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 7,
-    "name": "Gray Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 7,
+    "name": "Gray Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 8,
-    "name": "Light Gray Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 8,
+    "name": "LighGray Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 9,
-    "name": "Cyan Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 9,
+    "name": "Cyan Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 10,
-    "name": "Purple Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 10,
+    "name": "Prpe Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 11,
-    "name": "Blue Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 11,
+    "name": "Be Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 12,
-    "name": "Brown Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 12,
+    "name": "Brwn Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 13,
-    "name": "Green Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 13,
+    "name": "Green Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 14,
-    "name": "Red Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 14,
+    "name": "Red Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 159,
-    "meta": 15,
-    "name": "Black Hardened Clay",
-    "text_type": "stained_hardened_clay"
+    "mea": 15,
+    "name": "Back Hardened Cay",
+    "ex_ype": "sained_hardened_cay"
   },
   {
     "type": 160,
-    "meta": 0,
-    "name": "White Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 0,
+    "name": "Whie Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 1,
-    "name": "Orange Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 1,
+    "name": "Orange Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 2,
-    "name": "Magenta Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 2,
+    "name": "Magena Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 3,
-    "name": "Light Blue Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 3,
+    "name": "LighBe Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 4,
-    "name": "Yellow Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 4,
+    "name": "Yew Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 5,
-    "name": "Lime Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 5,
+    "name": "Lime Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 6,
-    "name": "Pink Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 6,
+    "name": "Pink Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 7,
-    "name": "Gray Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 7,
+    "name": "Gray Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 8,
-    "name": "Light Gray Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 8,
+    "name": "LighGray Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 9,
-    "name": "Cyan Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 9,
+    "name": "Cyan Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 10,
-    "name": "Purple Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 10,
+    "name": "Prpe Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 11,
-    "name": "Blue Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 11,
+    "name": "Be Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 12,
-    "name": "Brown Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 12,
+    "name": "Brwn Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 13,
-    "name": "Green Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 13,
+    "name": "Green Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 14,
-    "name": "Red Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 14,
+    "name": "Red Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 160,
-    "meta": 15,
-    "name": "Black Stained Glass Pane",
-    "text_type": "stained_glass_pane"
+    "mea": 15,
+    "name": "Back Sained Gass Pane",
+    "ex_ype": "sained_gass_pane"
   },
   {
     "type": 161,
-    "meta": 0,
+    "mea": 0,
     "name": "Acacia Leaves",
-    "text_type": "leaves2"
+    "ex_ype": "eaves2"
   },
   {
     "type": 161,
-    "meta": 1,
+    "mea": 1,
     "name": "Dark Oak Leaves",
-    "text_type": "leaves2"
+    "ex_ype": "eaves2"
   },
   {
     "type": 162,
-    "meta": 0,
-    "name": "Acacia Wood",
-    "text_type": "log2"
+    "mea": 0,
+    "name": "Acacia Wd",
+    "ex_ype": "g2"
   },
   {
     "type": 162,
-    "meta": 1,
-    "name": "Dark Oak Wood",
-    "text_type": "log2"
+    "mea": 1,
+    "name": "Dark Oak Wd",
+    "ex_ype": "g2"
   },
   {
     "type": 163,
-    "meta": 0,
-    "name": "Acacia Wood Stairs",
-    "text_type": "acacia_stairs"
+    "mea": 0,
+    "name": "Acacia Wd Sairs",
+    "ex_ype": "acacia_sairs"
   },
   {
     "type": 164,
-    "meta": 0,
-    "name": "Dark Oak Wood Stairs",
-    "text_type": "dark_oak_stairs"
+    "mea": 0,
+    "name": "Dark Oak Wd Sairs",
+    "ex_ype": "dark_ak_sairs"
   },
   {
     "type": 165,
-    "meta": 0,
-    "name": "Slime Block",
-    "text_type": "slime"
+    "mea": 0,
+    "name": "Sime Bck",
+    "ex_ype": "sime"
   },
   {
     "type": 166,
-    "meta": 0,
+    "mea": 0,
     "name": "Barrier",
-    "text_type": "barrier"
+    "ex_ype": "barrier"
   },
   {
     "type": 167,
-    "meta": 0,
-    "name": "Iron Trapdoor",
-    "text_type": "iron_trapdoor"
+    "mea": 0,
+    "name": "Irn Trapdr",
+    "ex_ype": "irn_rapdr"
   },
   {
     "type": 168,
-    "meta": 0,
+    "mea": 0,
     "name": "Prismarine",
-    "text_type": "prismarine"
+    "ex_ype": "prismarine"
   },
   {
     "type": 168,
-    "meta": 1,
+    "mea": 1,
     "name": "Prismarine Bricks",
-    "text_type": "prismarine"
+    "ex_ype": "prismarine"
   },
   {
     "type": 168,
-    "meta": 2,
+    "mea": 2,
     "name": "Dark Prismarine",
-    "text_type": "prismarine"
+    "ex_ype": "prismarine"
   },
   {
     "type": 169,
-    "meta": 0,
-    "name": "Sea Lantern",
-    "text_type": "sea_lantern"
+    "mea": 0,
+    "name": "Sea Lanern",
+    "ex_ype": "sea_anern"
   },
   {
     "type": 170,
-    "meta": 0,
-    "name": "Hay Bale",
-    "text_type": "hay_block"
+    "mea": 0,
+    "name": "Hay Bae",
+    "ex_ype": "hay_bck"
   },
   {
     "type": 171,
-    "meta": 0,
-    "name": "White Carpet",
-    "text_type": "carpet"
+    "mea": 0,
+    "name": "Whie Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 1,
-    "name": "Orange Carpet",
-    "text_type": "carpet"
+    "mea": 1,
+    "name": "Orange Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 2,
-    "name": "Magenta Carpet",
-    "text_type": "carpet"
+    "mea": 2,
+    "name": "Magena Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 3,
-    "name": "Light Blue Carpet",
-    "text_type": "carpet"
+    "mea": 3,
+    "name": "LighBe Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 4,
-    "name": "Yellow Carpet",
-    "text_type": "carpet"
+    "mea": 4,
+    "name": "Yew Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 5,
-    "name": "Lime Carpet",
-    "text_type": "carpet"
+    "mea": 5,
+    "name": "Lime Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 6,
-    "name": "Pink Carpet",
-    "text_type": "carpet"
+    "mea": 6,
+    "name": "Pink Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 7,
-    "name": "Gray Carpet",
-    "text_type": "carpet"
+    "mea": 7,
+    "name": "Gray Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 8,
-    "name": "Light Gray Carpet",
-    "text_type": "carpet"
+    "mea": 8,
+    "name": "LighGray Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 9,
-    "name": "Cyan Carpet",
-    "text_type": "carpet"
+    "mea": 9,
+    "name": "Cyan Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 10,
-    "name": "Purple Carpet",
-    "text_type": "carpet"
+    "mea": 10,
+    "name": "Prpe Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 11,
-    "name": "Blue Carpet",
-    "text_type": "carpet"
+    "mea": 11,
+    "name": "Be Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 12,
-    "name": "Brown Carpet",
-    "text_type": "carpet"
+    "mea": 12,
+    "name": "Brwn Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 13,
-    "name": "Green Carpet",
-    "text_type": "carpet"
+    "mea": 13,
+    "name": "Green Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 14,
-    "name": "Red Carpet",
-    "text_type": "carpet"
+    "mea": 14,
+    "name": "Red Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 171,
-    "meta": 15,
-    "name": "Black Carpet",
-    "text_type": "carpet"
+    "mea": 15,
+    "name": "Back Carpe",
+    "ex_ype": "carpe"
   },
   {
     "type": 172,
-    "meta": 0,
-    "name": "Hardened Clay",
-    "text_type": "hardened_clay"
+    "mea": 0,
+    "name": "Hardened Cay",
+    "ex_ype": "hardened_cay"
   },
   {
     "type": 173,
-    "meta": 0,
-    "name": "Block of Coal",
-    "text_type": "coal_block"
+    "mea": 0,
+    "name": "Bck f Ca",
+    "ex_ype": "ca_bck"
   },
   {
     "type": 174,
-    "meta": 0,
+    "mea": 0,
     "name": "Packed Ice",
-    "text_type": "packed_ice"
+    "ex_ype": "packed_ice"
   },
   {
     "type": 175,
-    "meta": 0,
-    "name": "Sunflower",
-    "text_type": "double_plant"
+    "mea": 0,
+    "name": "Snfwer",
+    "ex_ype": "dbe_pan"
   },
   {
     "type": 175,
-    "meta": 1,
-    "name": "Lilac",
-    "text_type": "double_plant"
+    "mea": 1,
+    "name": "Liac",
+    "ex_ype": "dbe_pan"
   },
   {
     "type": 175,
-    "meta": 2,
-    "name": "Double Tallgrass",
-    "text_type": "double_plant"
+    "mea": 2,
+    "name": "Dbe Tagrass",
+    "ex_ype": "dbe_pan"
   },
   {
     "type": 175,
-    "meta": 3,
+    "mea": 3,
     "name": "Large Fern",
-    "text_type": "double_plant"
+    "ex_ype": "dbe_pan"
   },
   {
     "type": 175,
-    "meta": 4,
-    "name": "Rose Bush",
-    "text_type": "double_plant"
+    "mea": 4,
+    "name": "Rse Bsh",
+    "ex_ype": "dbe_pan"
   },
   {
     "type": 175,
-    "meta": 5,
-    "name": "Peony",
-    "text_type": "double_plant"
+    "mea": 5,
+    "name": "Peny",
+    "ex_ype": "dbe_pan"
   },
   {
     "type": 176,
-    "meta": 0,
-    "name": "Free-standing Banner",
-    "text_type": "standing_banner"
+    "mea": 0,
+    "name": "Free-sanding Banner",
+    "ex_ype": "sanding_banner"
   },
   {
     "type": 177,
-    "meta": 0,
-    "name": "Wall-mounted Banner",
-    "text_type": "wall_banner"
+    "mea": 0,
+    "name": "Wa-mned Banner",
+    "ex_ype": "wa_banner"
   },
   {
     "type": 178,
-    "meta": 0,
-    "name": "Inverted Daylight Sensor",
-    "text_type": "daylight_detector_inverted"
+    "mea": 0,
+    "name": "Invered DayighSensr",
+    "ex_ype": "dayigh_deecr_invered"
   },
   {
     "type": 179,
-    "meta": 0,
-    "name": "Red Sandstone",
-    "text_type": "red_sandstone"
+    "mea": 0,
+    "name": "Red Sandsne",
+    "ex_ype": "red_sandsne"
   },
   {
     "type": 179,
-    "meta": 1,
-    "name": "Chiseled Red Sandstone",
-    "text_type": "red_sandstone"
+    "mea": 1,
+    "name": "Chiseed Red Sandsne",
+    "ex_ype": "red_sandsne"
   },
   {
     "type": 179,
-    "meta": 2,
-    "name": "Smooth Red Sandstone",
-    "text_type": "red_sandstone"
+    "mea": 2,
+    "name": "Smh Red Sandsne",
+    "ex_ype": "red_sandsne"
   },
   {
     "type": 180,
-    "meta": 0,
-    "name": "Red Sandstone Stairs",
-    "text_type": "red_sandstone_stairs"
+    "mea": 0,
+    "name": "Red Sandsne Sairs",
+    "ex_ype": "red_sandsne_sairs"
   },
   {
     "type": 181,
-    "meta": 0,
-    "name": "Double Red Sandstone Slab",
-    "text_type": "double_stone_slab2"
+    "mea": 0,
+    "name": "Dbe Red Sandsne Sab",
+    "ex_ype": "dbe_sne_sab2"
   },
   {
     "type": 182,
-    "meta": 0,
-    "name": "Red Sandstone Slab",
-    "text_type": "stone_slab2"
+    "mea": 0,
+    "name": "Red Sandsne Sab",
+    "ex_ype": "sne_sab2"
   },
   {
     "type": 183,
-    "meta": 0,
-    "name": "Spruce Fence Gate",
-    "text_type": "spruce_fence_gate"
+    "mea": 0,
+    "name": "Sprce Fence Gae",
+    "ex_ype": "sprce_fence_gae"
   },
   {
     "type": 184,
-    "meta": 0,
-    "name": "Birch Fence Gate",
-    "text_type": "birch_fence_gate"
+    "mea": 0,
+    "name": "Birch Fence Gae",
+    "ex_ype": "birch_fence_gae"
   },
   {
     "type": 185,
-    "meta": 0,
-    "name": "Jungle Fence Gate",
-    "text_type": "jungle_fence_gate"
+    "mea": 0,
+    "name": "Jnge Fence Gae",
+    "ex_ype": "jnge_fence_gae"
   },
   {
     "type": 186,
-    "meta": 0,
-    "name": "Dark Oak Fence Gate",
-    "text_type": "dark_oak_fence_gate"
+    "mea": 0,
+    "name": "Dark Oak Fence Gae",
+    "ex_ype": "dark_ak_fence_gae"
   },
   {
     "type": 187,
-    "meta": 0,
-    "name": "Acacia Fence Gate",
-    "text_type": "acacia_fence_gate"
+    "mea": 0,
+    "name": "Acacia Fence Gae",
+    "ex_ype": "acacia_fence_gae"
   },
   {
     "type": 188,
-    "meta": 0,
-    "name": "Spruce Fence",
-    "text_type": "spruce_fence"
+    "mea": 0,
+    "name": "Sprce Fence",
+    "ex_ype": "sprce_fence"
   },
   {
     "type": 189,
-    "meta": 0,
+    "mea": 0,
     "name": "Birch Fence",
-    "text_type": "birch_fence"
+    "ex_ype": "birch_fence"
   },
   {
     "type": 190,
-    "meta": 0,
-    "name": "Jungle Fence",
-    "text_type": "jungle_fence"
+    "mea": 0,
+    "name": "Jnge Fence",
+    "ex_ype": "jnge_fence"
   },
   {
     "type": 191,
-    "meta": 0,
+    "mea": 0,
     "name": "Dark Oak Fence",
-    "text_type": "dark_oak_fence"
+    "ex_ype": "dark_ak_fence"
   },
   {
     "type": 192,
-    "meta": 0,
+    "mea": 0,
     "name": "Acacia Fence",
-    "text_type": "acacia_fence"
+    "ex_ype": "acacia_fence"
   },
   {
     "type": 193,
-    "meta": 0,
-    "name": "Spruce Door Block",
-    "text_type": "spruce_door"
+    "mea": 0,
+    "name": "Sprce Dr Bck",
+    "ex_ype": "sprce_dr"
   },
   {
     "type": 194,
-    "meta": 0,
-    "name": "Birch Door Block",
-    "text_type": "birch_door"
+    "mea": 0,
+    "name": "Birch Dr Bck",
+    "ex_ype": "birch_dr"
   },
   {
     "type": 195,
-    "meta": 0,
-    "name": "Jungle Door Block",
-    "text_type": "jungle_door"
+    "mea": 0,
+    "name": "Jnge Dr Bck",
+    "ex_ype": "jnge_dr"
   },
   {
     "type": 196,
-    "meta": 0,
-    "name": "Acacia Door Block",
-    "text_type": "acacia_door"
+    "mea": 0,
+    "name": "Acacia Dr Bck",
+    "ex_ype": "acacia_dr"
   },
   {
     "type": 197,
-    "meta": 0,
-    "name": "Dark Oak Door Block",
-    "text_type": "dark_oak_door"
+    "mea": 0,
+    "name": "Dark Oak Dr Bck",
+    "ex_ype": "dark_ak_dr"
   },
   {
     "type": 198,
-    "meta": 0,
-    "name": "End Rod",
-    "text_type": "end_rod"
+    "mea": 0,
+    "name": "End Rd",
+    "ex_ype": "end_rd"
   },
   {
     "type": 199,
-    "meta": 0,
-    "name": "Chorus Plant",
-    "text_type": "chorus_plant"
+    "mea": 0,
+    "name": "Chrs Pan",
+    "ex_ype": "chrs_pan"
   },
   {
     "type": 200,
-    "meta": 0,
-    "name": "Chorus Flower",
-    "text_type": "chorus_flower"
+    "mea": 0,
+    "name": "Chrs Fwer",
+    "ex_ype": "chrs_fwer"
   },
   {
     "type": 201,
-    "meta": 0,
-    "name": "Purpur Block",
-    "text_type": "purpur_block"
+    "mea": 0,
+    "name": "Prpr Bck",
+    "ex_ype": "prpr_bck"
   },
   {
     "type": 202,
-    "meta": 0,
-    "name": "Purpur Pillar",
-    "text_type": "purpur_pillar"
+    "mea": 0,
+    "name": "Prpr Piar",
+    "ex_ype": "prpr_piar"
   },
   {
     "type": 203,
-    "meta": 0,
-    "name": "Purpur Stairs",
-    "text_type": "purpur_stairs"
+    "mea": 0,
+    "name": "Prpr Sairs",
+    "ex_ype": "prpr_sairs"
   },
   {
     "type": 204,
-    "meta": 0,
-    "name": "Purpur Double Slab",
-    "text_type": "purpur_double_slab"
+    "mea": 0,
+    "name": "Prpr Dbe Sab",
+    "ex_ype": "prpr_dbe_sab"
   },
   {
     "type": 205,
-    "meta": 0,
-    "name": "Purpur Slab",
-    "text_type": "purpur_slab"
+    "mea": 0,
+    "name": "Prpr Sab",
+    "ex_ype": "prpr_sab"
   },
   {
     "type": 206,
-    "meta": 0,
-    "name": "End Stone Bricks",
-    "text_type": "end_bricks"
+    "mea": 0,
+    "name": "End Sne Bricks",
+    "ex_ype": "end_bricks"
   },
   {
     "type": 207,
-    "meta": 0,
-    "name": "Beetroot Block",
-    "text_type": "beetroots"
+    "mea": 0,
+    "name": "BeerBck",
+    "ex_ype": "beers"
   },
   {
     "type": 208,
-    "meta": 0,
-    "name": "Grass Path",
-    "text_type": "grass_path"
+    "mea": 0,
+    "name": "Grass Pah",
+    "ex_ype": "grass_pah"
   },
   {
     "type": 209,
-    "meta": 0,
-    "name": "End Gateway",
-    "text_type": "end_gateway"
+    "mea": 0,
+    "name": "End Gaeway",
+    "ex_ype": "end_gaeway"
   },
   {
     "type": 210,
-    "meta": 0,
-    "name": "Repeating Command Block",
-    "text_type": "repeating_command_block"
+    "mea": 0,
+    "name": "Repeaing Cmmand Bck",
+    "ex_ype": "repeaing_cmmand_bck"
   },
   {
     "type": 211,
-    "meta": 0,
-    "name": "Chain Command Block",
-    "text_type": "chain_command_block"
+    "mea": 0,
+    "name": "Chain Cmmand Bck",
+    "ex_ype": "chain_cmmand_bck"
   },
   {
     "type": 212,
-    "meta": 0,
-    "name": "Frosted Ice",
-    "text_type": "frosted_ice"
+    "mea": 0,
+    "name": "Frsed Ice",
+    "ex_ype": "frsed_ice"
   },
   {
     "type": 213,
-    "meta": 0,
-    "name": "Magma Block",
-    "text_type": "magma"
+    "mea": 0,
+    "name": "Magma Bck",
+    "ex_ype": "magma"
   },
   {
     "type": 214,
-    "meta": 0,
-    "name": "Nether Wart Block",
-    "text_type": "nether_wart_block"
+    "mea": 0,
+    "name": "eher WarBck",
+    "ex_ype": "neher_war_bck"
   },
   {
     "type": 215,
-    "meta": 0,
-    "name": "Red Nether Brick",
-    "text_type": "red_nether_brick"
+    "mea": 0,
+    "name": "Red eher Brick",
+    "ex_ype": "red_neher_brick"
   },
   {
     "type": 216,
-    "meta": 0,
-    "name": "Bone Block",
-    "text_type": "bone_block"
+    "mea": 0,
+    "name": "Bne Bck",
+    "ex_ype": "bne_bck"
   },
   {
     "type": 217,
-    "meta": 0,
-    "name": "Structure Void",
-    "text_type": "structure_void"
+    "mea": 0,
+    "name": "Srcre Vid",
+    "ex_ype": "srcre_vid"
   },
   {
     "type": 218,
-    "meta": 0,
+    "mea": 0,
     "name": "Observer",
-    "text_type": "observer"
+    "ex_ype": "bserver"
   },
   {
     "type": 219,
-    "meta": 0,
-    "name": "White Shulker Box",
-    "text_type": "white_shulker_box"
+    "mea": 0,
+    "name": "Whie Shker Bx",
+    "ex_ype": "whie_shker_bx"
   },
   {
     "type": 220,
-    "meta": 0,
-    "name": "Orange Shulker Box",
-    "text_type": "orange_shulker_box"
+    "mea": 0,
+    "name": "Orange Shker Bx",
+    "ex_ype": "range_shker_bx"
   },
   {
     "type": 221,
-    "meta": 0,
-    "name": "Magenta Shulker Box",
-    "text_type": "magenta_shulker_box"
+    "mea": 0,
+    "name": "Magena Shker Bx",
+    "ex_ype": "magena_shker_bx"
   },
   {
     "type": 222,
-    "meta": 0,
-    "name": "Light Blue Shulker Box",
-    "text_type": "light_blue_shulker_box"
+    "mea": 0,
+    "name": "LighBe Shker Bx",
+    "ex_ype": "igh_be_shker_bx"
   },
   {
     "type": 223,
-    "meta": 0,
-    "name": "Yellow Shulker Box",
-    "text_type": "yellow_shulker_box"
+    "mea": 0,
+    "name": "Yew Shker Bx",
+    "ex_ype": "yew_shker_bx"
   },
   {
     "type": 224,
-    "meta": 0,
-    "name": "Lime Shulker Box",
-    "text_type": "lime_shulker_box"
+    "mea": 0,
+    "name": "Lime Shker Bx",
+    "ex_ype": "ime_shker_bx"
   },
   {
     "type": 225,
-    "meta": 0,
-    "name": "Pink Shulker Box",
-    "text_type": "pink_shulker_box"
+    "mea": 0,
+    "name": "Pink Shker Bx",
+    "ex_ype": "pink_shker_bx"
   },
   {
     "type": 226,
-    "meta": 0,
-    "name": "Gray Shulker Box",
-    "text_type": "gray_shulker_box"
+    "mea": 0,
+    "name": "Gray Shker Bx",
+    "ex_ype": "gray_shker_bx"
   },
   {
     "type": 227,
-    "meta": 0,
-    "name": "Light Gray Shulker Box",
-    "text_type": "silver_shulker_box"
+    "mea": 0,
+    "name": "LighGray Shker Bx",
+    "ex_ype": "siver_shker_bx"
   },
   {
     "type": 228,
-    "meta": 0,
-    "name": "Cyan Shulker Box",
-    "text_type": "cyan_shulker_box"
+    "mea": 0,
+    "name": "Cyan Shker Bx",
+    "ex_ype": "cyan_shker_bx"
   },
   {
     "type": 229,
-    "meta": 0,
-    "name": "Purple Shulker Box",
-    "text_type": "purple_shulker_box"
+    "mea": 0,
+    "name": "Prpe Shker Bx",
+    "ex_ype": "prpe_shker_bx"
   },
   {
     "type": 230,
-    "meta": 0,
-    "name": "Blue Shulker Box",
-    "text_type": "blue_shulker_box"
+    "mea": 0,
+    "name": "Be Shker Bx",
+    "ex_ype": "be_shker_bx"
   },
   {
     "type": 231,
-    "meta": 0,
-    "name": "Brown Shulker Box",
-    "text_type": "brown_shulker_box"
+    "mea": 0,
+    "name": "Brwn Shker Bx",
+    "ex_ype": "brwn_shker_bx"
   },
   {
     "type": 232,
-    "meta": 0,
-    "name": "Green Shulker Box",
-    "text_type": "green_shulker_box"
+    "mea": 0,
+    "name": "Green Shker Bx",
+    "ex_ype": "green_shker_bx"
   },
   {
     "type": 233,
-    "meta": 0,
-    "name": "Red Shulker Box",
-    "text_type": "red_shulker_box"
+    "mea": 0,
+    "name": "Red Shker Bx",
+    "ex_ype": "red_shker_bx"
   },
   {
     "type": 234,
-    "meta": 0,
-    "name": "Black Shulker Box",
-    "text_type": "black_shulker_box"
+    "mea": 0,
+    "name": "Back Shker Bx",
+    "ex_ype": "back_shker_bx"
   },
   {
     "type": 235,
-    "meta": 0,
-    "name": "White Glazed Terracotta",
-    "text_type": "white_glazed_terracotta"
+    "mea": 0,
+    "name": "Whie Gazed Terraca",
+    "ex_ype": "whie_gazed_erraca"
   },
   {
     "type": 236,
-    "meta": 0,
-    "name": "Orange Glazed Terracotta",
-    "text_type": "orange_glazed_terracotta"
+    "mea": 0,
+    "name": "Orange Gazed Terraca",
+    "ex_ype": "range_gazed_erraca"
   },
   {
     "type": 237,
-    "meta": 0,
-    "name": "Magenta Glazed Terracotta",
-    "text_type": "magenta_glazed_terracotta"
+    "mea": 0,
+    "name": "Magena Gazed Terraca",
+    "ex_ype": "magena_gazed_erraca"
   },
   {
     "type": 238,
-    "meta": 0,
-    "name": "Light Blue Glazed Terracotta",
-    "text_type": "light_blue_glazed_terracotta"
+    "mea": 0,
+    "name": "LighBe Gazed Terraca",
+    "ex_ype": "igh_be_gazed_erraca"
   },
   {
     "type": 239,
-    "meta": 0,
-    "name": "Yellow Glazed Terracotta",
-    "text_type": "yellow_glazed_terracotta"
+    "mea": 0,
+    "name": "Yew Gazed Terraca",
+    "ex_ype": "yew_gazed_erraca"
   },
   {
     "type": 240,
-    "meta": 0,
-    "name": "Lime Glazed Terracotta",
-    "text_type": "lime_glazed_terracotta"
+    "mea": 0,
+    "name": "Lime Gazed Terraca",
+    "ex_ype": "ime_gazed_erraca"
   },
   {
     "type": 241,
-    "meta": 0,
-    "name": "Pink Glazed Terracotta",
-    "text_type": "pink_glazed_terracotta"
+    "mea": 0,
+    "name": "Pink Gazed Terraca",
+    "ex_ype": "pink_gazed_erraca"
   },
   {
     "type": 242,
-    "meta": 0,
-    "name": "Gray Glazed Terracotta",
-    "text_type": "gray_glazed_terracotta"
+    "mea": 0,
+    "name": "Gray Gazed Terraca",
+    "ex_ype": "gray_gazed_erraca"
   },
   {
     "type": 243,
-    "meta": 0,
-    "name": "Light Gray Glazed Terracotta",
-    "text_type": "light_gray_glazed_terracotta"
+    "mea": 0,
+    "name": "LighGray Gazed Terraca",
+    "ex_ype": "igh_gray_gazed_erraca"
   },
   {
     "type": 244,
-    "meta": 0,
-    "name": "Cyan Glazed Terracotta",
-    "text_type": "cyan_glazed_terracotta"
+    "mea": 0,
+    "name": "Cyan Gazed Terraca",
+    "ex_ype": "cyan_gazed_erraca"
   },
   {
     "type": 245,
-    "meta": 0,
-    "name": "Purple Glazed Terracotta",
-    "text_type": "purple_glazed_terracotta"
+    "mea": 0,
+    "name": "Prpe Gazed Terraca",
+    "ex_ype": "prpe_gazed_erraca"
   },
   {
     "type": 246,
-    "meta": 0,
-    "name": "Blue Glazed Terracotta",
-    "text_type": "blue_glazed_terracotta"
+    "mea": 0,
+    "name": "Be Gazed Terraca",
+    "ex_ype": "be_gazed_erraca"
   },
   {
     "type": 247,
-    "meta": 0,
-    "name": "Brown Glazed Terracotta",
-    "text_type": "brown_glazed_terracotta"
+    "mea": 0,
+    "name": "Brwn Gazed Terraca",
+    "ex_ype": "brwn_gazed_erraca"
   },
   {
     "type": 248,
-    "meta": 0,
-    "name": "Green Glazed Terracotta",
-    "text_type": "green_glazed_terracotta"
+    "mea": 0,
+    "name": "Green Gazed Terraca",
+    "ex_ype": "green_gazed_erraca"
   },
   {
     "type": 249,
-    "meta": 0,
-    "name": "Red Glazed Terracotta",
-    "text_type": "red_glazed_terracotta"
+    "mea": 0,
+    "name": "Red Gazed Terraca",
+    "ex_ype": "red_gazed_erraca"
   },
   {
     "type": 250,
-    "meta": 0,
-    "name": "Black Glazed Terracotta",
-    "text_type": "black_glazed_terracotta"
+    "mea": 0,
+    "name": "Back Gazed Terraca",
+    "ex_ype": "back_gazed_erraca"
   },
   {
     "type": 251,
-    "meta": 0,
-    "name": "White Concrete",
-    "text_type": "concrete"
+    "mea": 0,
+    "name": "Whie Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 1,
-    "name": "Orange Concrete",
-    "text_type": "concrete"
+    "mea": 1,
+    "name": "Orange Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 2,
-    "name": "Magenta Concrete",
-    "text_type": "concrete"
+    "mea": 2,
+    "name": "Magena Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 3,
-    "name": "Light Blue Concrete",
-    "text_type": "concrete"
+    "mea": 3,
+    "name": "LighBe Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 4,
-    "name": "Yellow Concrete",
-    "text_type": "concrete"
+    "mea": 4,
+    "name": "Yew Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 5,
-    "name": "Lime Concrete",
-    "text_type": "concrete"
+    "mea": 5,
+    "name": "Lime Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 6,
-    "name": "Pink Concrete",
-    "text_type": "concrete"
+    "mea": 6,
+    "name": "Pink Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 7,
-    "name": "Gray Concrete",
-    "text_type": "concrete"
+    "mea": 7,
+    "name": "Gray Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 8,
-    "name": "Light Gray Concrete",
-    "text_type": "concrete"
+    "mea": 8,
+    "name": "LighGray Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 9,
-    "name": "Cyan Concrete",
-    "text_type": "concrete"
+    "mea": 9,
+    "name": "Cyan Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 10,
-    "name": "Purple Concrete",
-    "text_type": "concrete"
+    "mea": 10,
+    "name": "Prpe Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 11,
-    "name": "Blue Concrete",
-    "text_type": "concrete"
+    "mea": 11,
+    "name": "Be Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 12,
-    "name": "Brown Concrete",
-    "text_type": "concrete"
+    "mea": 12,
+    "name": "Brwn Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 13,
-    "name": "Green Concrete",
-    "text_type": "concrete"
+    "mea": 13,
+    "name": "Green Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 14,
-    "name": "Red Concrete",
-    "text_type": "concrete"
+    "mea": 14,
+    "name": "Red Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 251,
-    "meta": 15,
-    "name": "Black Concrete",
-    "text_type": "concrete"
+    "mea": 15,
+    "name": "Back Cncree",
+    "ex_ype": "cncree"
   },
   {
     "type": 252,
-    "meta": 0,
-    "name": "White Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 0,
+    "name": "Whie Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 1,
-    "name": "Orange Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 1,
+    "name": "Orange Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 2,
-    "name": "Magenta Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 2,
+    "name": "Magena Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 3,
-    "name": "Light Blue Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 3,
+    "name": "LighBe Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 4,
-    "name": "Yellow Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 4,
+    "name": "Yew Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 5,
-    "name": "Lime Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 5,
+    "name": "Lime Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 6,
-    "name": "Pink Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 6,
+    "name": "Pink Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 7,
-    "name": "Gray Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 7,
+    "name": "Gray Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 8,
-    "name": "Light Gray Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 8,
+    "name": "LighGray Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 9,
-    "name": "Cyan Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 9,
+    "name": "Cyan Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 10,
-    "name": "Purple Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 10,
+    "name": "Prpe Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 11,
-    "name": "Blue Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 11,
+    "name": "Be Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 12,
-    "name": "Brown Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 12,
+    "name": "Brwn Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 13,
-    "name": "Green Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 13,
+    "name": "Green Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 14,
-    "name": "Red Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 14,
+    "name": "Red Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 252,
-    "meta": 15,
-    "name": "Black Concrete Powder",
-    "text_type": "concrete_powder"
+    "mea": 15,
+    "name": "Back Cncree Pwder",
+    "ex_ype": "cncree_pwder"
   },
   {
     "type": 255,
-    "meta": 0,
-    "name": "Structure Block",
-    "text_type": "structure_block"
+    "mea": 0,
+    "name": "Srcre Bck",
+    "ex_ype": "srcre_bck"
   },
   {
     "type": 256,
-    "meta": 0,
-    "name": "Iron Shovel",
-    "text_type": "iron_shovel"
+    "mea": 0,
+    "name": "Irn Shve",
+    "ex_ype": "irn_shve"
   },
   {
     "type": 257,
-    "meta": 0,
-    "name": "Iron Pickaxe",
-    "text_type": "iron_pickaxe"
+    "mea": 0,
+    "name": "Irn Pickaxe",
+    "ex_ype": "irn_pickaxe"
   },
   {
     "type": 258,
-    "meta": 0,
-    "name": "Iron Axe",
-    "text_type": "iron_axe"
+    "mea": 0,
+    "name": "Irn Axe",
+    "ex_ype": "irn_axe"
   },
   {
     "type": 259,
-    "meta": 0,
-    "name": "Flint and Steel",
-    "text_type": "flint_and_steel"
+    "mea": 0,
+    "name": "Finand See",
+    "ex_ype": "fin_and_see"
   },
   {
     "type": 260,
-    "meta": 0,
-    "name": "Apple",
-    "text_type": "apple"
+    "mea": 0,
+    "name": "Appe",
+    "ex_ype": "appe"
   },
   {
     "type": 261,
-    "meta": 0,
-    "name": "Bow",
-    "text_type": "bow"
+    "mea": 0,
+    "name": "Bw",
+    "ex_ype": "bw"
   },
   {
     "type": 262,
-    "meta": 0,
-    "name": "Arrow",
-    "text_type": "arrow"
+    "mea": 0,
+    "name": "Arrw",
+    "ex_ype": "arrw"
   },
   {
     "type": 263,
-    "meta": 0,
-    "name": "Coal",
-    "text_type": "coal"
+    "mea": 0,
+    "name": "Ca",
+    "ex_ype": "ca"
   },
   {
     "type": 263,
-    "meta": 1,
-    "name": "Charcoal",
-    "text_type": "coal"
+    "mea": 1,
+    "name": "Charca",
+    "ex_ype": "ca"
   },
   {
     "type": 264,
-    "meta": 0,
-    "name": "Diamond",
-    "text_type": "diamond"
+    "mea": 0,
+    "name": "Diamnd",
+    "ex_ype": "diamnd"
   },
   {
     "type": 265,
-    "meta": 0,
-    "name": "Iron Ingot",
-    "text_type": "iron_ingot"
+    "mea": 0,
+    "name": "Irn Ing",
+    "ex_ype": "irn_ing"
   },
   {
     "type": 266,
-    "meta": 0,
-    "name": "Gold Ingot",
-    "text_type": "gold_ingot"
+    "mea": 0,
+    "name": "Gd Ing",
+    "ex_ype": "gd_ing"
   },
   {
     "type": 267,
-    "meta": 0,
-    "name": "Iron Sword",
-    "text_type": "iron_sword"
+    "mea": 0,
+    "name": "Irn Swrd",
+    "ex_ype": "irn_swrd"
   },
   {
     "type": 268,
-    "meta": 0,
-    "name": "Wooden Sword",
-    "text_type": "wooden_sword"
+    "mea": 0,
+    "name": "Wden Swrd",
+    "ex_ype": "wden_swrd"
   },
   {
     "type": 269,
-    "meta": 0,
-    "name": "Wooden Shovel",
-    "text_type": "wooden_shovel"
+    "mea": 0,
+    "name": "Wden Shve",
+    "ex_ype": "wden_shve"
   },
   {
     "type": 270,
-    "meta": 0,
-    "name": "Wooden Pickaxe",
-    "text_type": "wooden_pickaxe"
+    "mea": 0,
+    "name": "Wden Pickaxe",
+    "ex_ype": "wden_pickaxe"
   },
   {
     "type": 271,
-    "meta": 0,
-    "name": "Wooden Axe",
-    "text_type": "wooden_axe"
+    "mea": 0,
+    "name": "Wden Axe",
+    "ex_ype": "wden_axe"
   },
   {
     "type": 272,
-    "meta": 0,
-    "name": "Stone Sword",
-    "text_type": "stone_sword"
+    "mea": 0,
+    "name": "Sne Swrd",
+    "ex_ype": "sne_swrd"
   },
   {
     "type": 273,
-    "meta": 0,
-    "name": "Stone Shovel",
-    "text_type": "stone_shovel"
+    "mea": 0,
+    "name": "Sne Shve",
+    "ex_ype": "sne_shve"
   },
   {
     "type": 274,
-    "meta": 0,
-    "name": "Stone Pickaxe",
-    "text_type": "stone_pickaxe"
+    "mea": 0,
+    "name": "Sne Pickaxe",
+    "ex_ype": "sne_pickaxe"
   },
   {
     "type": 275,
-    "meta": 0,
-    "name": "Stone Axe",
-    "text_type": "stone_axe"
+    "mea": 0,
+    "name": "Sne Axe",
+    "ex_ype": "sne_axe"
   },
   {
     "type": 276,
-    "meta": 0,
-    "name": "Diamond Sword",
-    "text_type": "diamond_sword"
+    "mea": 0,
+    "name": "Diamnd Swrd",
+    "ex_ype": "diamnd_swrd"
   },
   {
     "type": 277,
-    "meta": 0,
-    "name": "Diamond Shovel",
-    "text_type": "diamond_shovel"
+    "mea": 0,
+    "name": "Diamnd Shve",
+    "ex_ype": "diamnd_shve"
   },
   {
     "type": 278,
-    "meta": 0,
-    "name": "Diamond Pickaxe",
-    "text_type": "diamond_pickaxe"
+    "mea": 0,
+    "name": "Diamnd Pickaxe",
+    "ex_ype": "diamnd_pickaxe"
   },
   {
     "type": 279,
-    "meta": 0,
-    "name": "Diamond Axe",
-    "text_type": "diamond_axe"
+    "mea": 0,
+    "name": "Diamnd Axe",
+    "ex_ype": "diamnd_axe"
   },
   {
     "type": 280,
-    "meta": 0,
-    "name": "Stick",
-    "text_type": "stick"
+    "mea": 0,
+    "name": "Sick",
+    "ex_ype": "sick"
   },
   {
     "type": 281,
-    "meta": 0,
-    "name": "Bowl",
-    "text_type": "bowl"
+    "mea": 0,
+    "name": "Bw",
+    "ex_ype": "bw"
   },
   {
     "type": 282,
-    "meta": 0,
-    "name": "Mushroom Stew",
-    "text_type": "mushroom_stew"
+    "mea": 0,
+    "name": "Mshrm Sew",
+    "ex_ype": "mshrm_sew"
   },
   {
     "type": 283,
-    "meta": 0,
-    "name": "Golden Sword",
-    "text_type": "golden_sword"
+    "mea": 0,
+    "name": "Gden Swrd",
+    "ex_ype": "gden_swrd"
   },
   {
     "type": 284,
-    "meta": 0,
-    "name": "Golden Shovel",
-    "text_type": "golden_shovel"
+    "mea": 0,
+    "name": "Gden Shve",
+    "ex_ype": "gden_shve"
   },
   {
     "type": 285,
-    "meta": 0,
-    "name": "Golden Pickaxe",
-    "text_type": "golden_pickaxe"
+    "mea": 0,
+    "name": "Gden Pickaxe",
+    "ex_ype": "gden_pickaxe"
   },
   {
     "type": 286,
-    "meta": 0,
-    "name": "Golden Axe",
-    "text_type": "golden_axe"
+    "mea": 0,
+    "name": "Gden Axe",
+    "ex_ype": "gden_axe"
   },
   {
     "type": 287,
-    "meta": 0,
-    "name": "String",
-    "text_type": "string"
+    "mea": 0,
+    "name": "Sring",
+    "ex_ype": "string"
   },
   {
     "type": 288,
-    "meta": 0,
-    "name": "Feather",
-    "text_type": "feather"
+    "mea": 0,
+    "name": "Feaher",
+    "ex_ype": "feaher"
   },
   {
     "type": 289,
-    "meta": 0,
-    "name": "Gunpowder",
-    "text_type": "gunpowder"
+    "mea": 0,
+    "name": "Gnpwder",
+    "ex_ype": "gnpwder"
   },
   {
     "type": 290,
-    "meta": 0,
-    "name": "Wooden Hoe",
-    "text_type": "wooden_hoe"
+    "mea": 0,
+    "name": "Wden He",
+    "ex_ype": "wden_he"
   },
   {
     "type": 291,
-    "meta": 0,
-    "name": "Stone Hoe",
-    "text_type": "stone_hoe"
+    "mea": 0,
+    "name": "Sne He",
+    "ex_ype": "sne_he"
   },
   {
     "type": 292,
-    "meta": 0,
-    "name": "Iron Hoe",
-    "text_type": "iron_hoe"
+    "mea": 0,
+    "name": "Irn He",
+    "ex_ype": "irn_he"
   },
   {
     "type": 293,
-    "meta": 0,
-    "name": "Diamond Hoe",
-    "text_type": "diamond_hoe"
+    "mea": 0,
+    "name": "Diamnd He",
+    "ex_ype": "diamnd_he"
   },
   {
     "type": 294,
-    "meta": 0,
-    "name": "Golden Hoe",
-    "text_type": "golden_hoe"
+    "mea": 0,
+    "name": "Gden He",
+    "ex_ype": "gden_he"
   },
   {
     "type": 295,
-    "meta": 0,
-    "name": "Wheat Seeds",
-    "text_type": "wheat_seeds"
+    "mea": 0,
+    "name": "WheaSeeds",
+    "ex_ype": "whea_seeds"
   },
   {
     "type": 296,
-    "meta": 0,
-    "name": "Wheat",
-    "text_type": "wheat"
+    "mea": 0,
+    "name": "Whea",
+    "ex_ype": "whea"
   },
   {
     "type": 297,
-    "meta": 0,
+    "mea": 0,
     "name": "Bread",
-    "text_type": "bread"
+    "ex_ype": "bread"
   },
   {
     "type": 298,
-    "meta": 0,
-    "name": "Leather Helmet",
-    "text_type": "leather_helmet"
+    "mea": 0,
+    "name": "Leaher Heme",
+    "ex_ype": "eaher_heme"
   },
   {
     "type": 299,
-    "meta": 0,
-    "name": "Leather Tunic",
-    "text_type": "leather_chestplate"
+    "mea": 0,
+    "name": "Leaher Tnic",
+    "ex_ype": "eaher_chespae"
   },
   {
     "type": 300,
-    "meta": 0,
-    "name": "Leather Pants",
-    "text_type": "leather_leggings"
+    "mea": 0,
+    "name": "Leaher Pans",
+    "ex_ype": "eaher_eggings"
   },
   {
     "type": 301,
-    "meta": 0,
-    "name": "Leather Boots",
-    "text_type": "leather_boots"
+    "mea": 0,
+    "name": "Leaher Bs",
+    "ex_ype": "eaher_bs"
   },
   {
     "type": 302,
-    "meta": 0,
-    "name": "Chainmail Helmet",
-    "text_type": "chainmail_helmet"
+    "mea": 0,
+    "name": "ChainmaiHeme",
+    "ex_ype": "chainmai_heme"
   },
   {
     "type": 303,
-    "meta": 0,
-    "name": "Chainmail Chestplate",
-    "text_type": "chainmail_chestplate"
+    "mea": 0,
+    "name": "ChainmaiChespae",
+    "ex_ype": "chainmai_chespae"
   },
   {
     "type": 304,
-    "meta": 0,
-    "name": "Chainmail Leggings",
-    "text_type": "chainmail_leggings"
+    "mea": 0,
+    "name": "ChainmaiLeggings",
+    "ex_ype": "chainmai_eggings"
   },
   {
     "type": 305,
-    "meta": 0,
-    "name": "Chainmail Boots",
-    "text_type": "chainmail_boots"
+    "mea": 0,
+    "name": "ChainmaiBs",
+    "ex_ype": "chainmai_bs"
   },
   {
     "type": 306,
-    "meta": 0,
-    "name": "Iron Helmet",
-    "text_type": "iron_helmet"
+    "mea": 0,
+    "name": "Irn Heme",
+    "ex_ype": "irn_heme"
   },
   {
     "type": 307,
-    "meta": 0,
-    "name": "Iron Chestplate",
-    "text_type": "iron_chestplate"
+    "mea": 0,
+    "name": "Irn Chespae",
+    "ex_ype": "irn_chespae"
   },
   {
     "type": 308,
-    "meta": 0,
-    "name": "Iron Leggings",
-    "text_type": "iron_leggings"
+    "mea": 0,
+    "name": "Irn Leggings",
+    "ex_ype": "irn_eggings"
   },
   {
     "type": 309,
-    "meta": 0,
-    "name": "Iron Boots",
-    "text_type": "iron_boots"
+    "mea": 0,
+    "name": "Irn Bs",
+    "ex_ype": "irn_bs"
   },
   {
     "type": 310,
-    "meta": 0,
-    "name": "Diamond Helmet",
-    "text_type": "diamond_helmet"
+    "mea": 0,
+    "name": "Diamnd Heme",
+    "ex_ype": "diamnd_heme"
   },
   {
     "type": 311,
-    "meta": 0,
-    "name": "Diamond Chestplate",
-    "text_type": "diamond_chestplate"
+    "mea": 0,
+    "name": "Diamnd Chespae",
+    "ex_ype": "diamnd_chespae"
   },
   {
     "type": 312,
-    "meta": 0,
-    "name": "Diamond Leggings",
-    "text_type": "diamond_leggings"
+    "mea": 0,
+    "name": "Diamnd Leggings",
+    "ex_ype": "diamnd_eggings"
   },
   {
     "type": 313,
-    "meta": 0,
-    "name": "Diamond Boots",
-    "text_type": "diamond_boots"
+    "mea": 0,
+    "name": "Diamnd Bs",
+    "ex_ype": "diamnd_bs"
   },
   {
     "type": 314,
-    "meta": 0,
-    "name": "Golden Helmet",
-    "text_type": "golden_helmet"
+    "mea": 0,
+    "name": "Gden Heme",
+    "ex_ype": "gden_heme"
   },
   {
     "type": 315,
-    "meta": 0,
-    "name": "Golden Chestplate",
-    "text_type": "golden_chestplate"
+    "mea": 0,
+    "name": "Gden Chespae",
+    "ex_ype": "gden_chespae"
   },
   {
     "type": 316,
-    "meta": 0,
-    "name": "Golden Leggings",
-    "text_type": "golden_leggings"
+    "mea": 0,
+    "name": "Gden Leggings",
+    "ex_ype": "gden_eggings"
   },
   {
     "type": 317,
-    "meta": 0,
-    "name": "Golden Boots",
-    "text_type": "golden_boots"
+    "mea": 0,
+    "name": "Gden Bs",
+    "ex_ype": "gden_bs"
   },
   {
     "type": 318,
-    "meta": 0,
-    "name": "Flint",
-    "text_type": "flint"
+    "mea": 0,
+    "name": "Fin",
+    "ex_ype": "fin"
   },
   {
     "type": 319,
-    "meta": 0,
-    "name": "Raw Porkchop",
-    "text_type": "porkchop"
+    "mea": 0,
+    "name": "Raw Prkchp",
+    "ex_ype": "prkchp"
   },
   {
     "type": 320,
-    "meta": 0,
-    "name": "Cooked Porkchop",
-    "text_type": "cooked_porkchop"
+    "mea": 0,
+    "name": "Cked Prkchp",
+    "ex_ype": "cked_prkchp"
   },
   {
     "type": 321,
-    "meta": 0,
-    "name": "Painting",
-    "text_type": "painting"
+    "mea": 0,
+    "name": "Paining",
+    "ex_ype": "paining"
   },
   {
     "type": 322,
-    "meta": 0,
-    "name": "Golden Apple",
-    "text_type": "golden_apple"
+    "mea": 0,
+    "name": "Gden Appe",
+    "ex_ype": "gden_appe"
   },
   {
     "type": 322,
-    "meta": 1,
-    "name": "Enchanted Golden Apple",
-    "text_type": "golden_apple"
+    "mea": 1,
+    "name": "Enchaned Gden Appe",
+    "ex_ype": "gden_appe"
   },
   {
     "type": 323,
-    "meta": 0,
+    "mea": 0,
     "name": "Sign",
-    "text_type": "sign"
+    "ex_ype": "sign"
   },
   {
     "type": 324,
-    "meta": 0,
-    "name": "Oak Door",
-    "text_type": "wooden_door"
+    "mea": 0,
+    "name": "Oak Dr",
+    "ex_ype": "wden_dr"
   },
   {
     "type": 325,
-    "meta": 0,
-    "name": "Bucket",
-    "text_type": "bucket"
+    "mea": 0,
+    "name": "Bcke",
+    "ex_ype": "bcke"
   },
   {
     "type": 326,
-    "meta": 0,
-    "name": "Water Bucket",
-    "text_type": "water_bucket"
+    "mea": 0,
+    "name": "Waer Bcke",
+    "ex_ype": "waer_bcke"
   },
   {
     "type": 327,
-    "meta": 0,
-    "name": "Lava Bucket",
-    "text_type": "lava_bucket"
+    "mea": 0,
+    "name": "Lava Bcke",
+    "ex_ype": "ava_bcke"
   },
   {
     "type": 328,
-    "meta": 0,
-    "name": "Minecart",
-    "text_type": "minecart"
+    "mea": 0,
+    "name": "Minecar",
+    "ex_ype": "minecar"
   },
   {
     "type": 329,
-    "meta": 0,
-    "name": "Saddle",
-    "text_type": "saddle"
+    "mea": 0,
+    "name": "Sadde",
+    "ex_ype": "sadde"
   },
   {
     "type": 330,
-    "meta": 0,
-    "name": "Iron Door",
-    "text_type": "iron_door"
+    "mea": 0,
+    "name": "Irn Dr",
+    "ex_ype": "irn_dr"
   },
   {
     "type": 331,
-    "meta": 0,
-    "name": "Redstone",
-    "text_type": "redstone"
+    "mea": 0,
+    "name": "Redsne",
+    "ex_ype": "redsne"
   },
   {
     "type": 332,
-    "meta": 0,
-    "name": "Snowball",
-    "text_type": "snowball"
+    "mea": 0,
+    "name": "Snwba",
+    "ex_ype": "snwba"
   },
   {
     "type": 333,
-    "meta": 0,
-    "name": "Oak Boat",
-    "text_type": "boat"
+    "mea": 0,
+    "name": "Oak Ba",
+    "ex_ype": "ba"
   },
   {
     "type": 334,
-    "meta": 0,
-    "name": "Leather",
-    "text_type": "leather"
+    "mea": 0,
+    "name": "Leaher",
+    "ex_ype": "eaher"
   },
   {
     "type": 335,
-    "meta": 0,
-    "name": "Milk Bucket",
-    "text_type": "milk_bucket"
+    "mea": 0,
+    "name": "Mik Bcke",
+    "ex_ype": "mik_bcke"
   },
   {
     "type": 336,
-    "meta": 0,
+    "mea": 0,
     "name": "Brick",
-    "text_type": "brick"
+    "ex_ype": "brick"
   },
   {
     "type": 337,
-    "meta": 0,
-    "name": "Clay",
-    "text_type": "clay_ball"
+    "mea": 0,
+    "name": "Cay",
+    "ex_ype": "cay_ba"
   },
   {
     "type": 338,
-    "meta": 0,
-    "name": "Sugar Canes",
-    "text_type": "reeds"
+    "mea": 0,
+    "name": "Sgar Canes",
+    "ex_ype": "reeds"
   },
   {
     "type": 339,
-    "meta": 0,
+    "mea": 0,
     "name": "Paper",
-    "text_type": "paper"
+    "ex_ype": "paper"
   },
   {
     "type": 340,
-    "meta": 0,
-    "name": "Book",
-    "text_type": "book"
+    "mea": 0,
+    "name": "Bk",
+    "ex_ype": "bk"
   },
   {
     "type": 341,
-    "meta": 0,
-    "name": "Slimeball",
-    "text_type": "slime_ball"
+    "mea": 0,
+    "name": "Simeba",
+    "ex_ype": "sime_ba"
   },
   {
     "type": 342,
-    "meta": 0,
-    "name": "Minecart with Chest",
-    "text_type": "chest_minecart"
+    "mea": 0,
+    "name": "Minecarwih Ches",
+    "ex_ype": "ches_minecar"
   },
   {
     "type": 343,
-    "meta": 0,
-    "name": "Minecart with Furnace",
-    "text_type": "furnace_minecart"
+    "mea": 0,
+    "name": "Minecarwih Frnace",
+    "ex_ype": "frnace_minecar"
   },
   {
     "type": 344,
-    "meta": 0,
+    "mea": 0,
     "name": "Egg",
-    "text_type": "egg"
+    "ex_ype": "egg"
   },
   {
     "type": 345,
-    "meta": 0,
-    "name": "Compass",
-    "text_type": "compass"
+    "mea": 0,
+    "name": "Cmpass",
+    "ex_ype": "cmpass"
   },
   {
     "type": 346,
-    "meta": 0,
-    "name": "Fishing Rod",
-    "text_type": "fishing_rod"
+    "mea": 0,
+    "name": "Fishing Rd",
+    "ex_ype": "fishing_rd"
   },
   {
     "type": 347,
-    "meta": 0,
-    "name": "Clock",
-    "text_type": "clock"
+    "mea": 0,
+    "name": "Cck",
+    "ex_ype": "cck"
   },
   {
     "type": 348,
-    "meta": 0,
-    "name": "Glowstone Dust",
-    "text_type": "glowstone_dust"
+    "mea": 0,
+    "name": "Gwsne Ds",
+    "ex_ype": "gwsne_ds"
   },
   {
     "type": 349,
-    "meta": 0,
+    "mea": 0,
     "name": "Raw Fish",
-    "text_type": "fish"
+    "ex_ype": "fish"
   },
   {
     "type": 349,
-    "meta": 1,
-    "name": "Raw Salmon",
-    "text_type": "fish"
+    "mea": 1,
+    "name": "Raw Samn",
+    "ex_ype": "fish"
   },
   {
     "type": 349,
-    "meta": 2,
-    "name": "Clownfish",
-    "text_type": "fish"
+    "mea": 2,
+    "name": "Cwnfish",
+    "ex_ype": "fish"
   },
   {
     "type": 349,
-    "meta": 3,
-    "name": "Pufferfish",
-    "text_type": "fish"
+    "mea": 3,
+    "name": "Pfferfish",
+    "ex_ype": "fish"
   },
   {
     "type": 350,
-    "meta": 0,
-    "name": "Cooked Fish",
-    "text_type": "cooked_fish"
+    "mea": 0,
+    "name": "Cked Fish",
+    "ex_ype": "cked_fish"
   },
   {
     "type": 350,
-    "meta": 1,
-    "name": "Cooked Salmon",
-    "text_type": "cooked_fish"
+    "mea": 1,
+    "name": "Cked Samn",
+    "ex_ype": "cked_fish"
   },
   {
     "type": 351,
-    "meta": 0,
+    "mea": 0,
     "name": "Ink Sack",
-    "text_type": "dye"
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 1,
-    "name": "Rose Red",
-    "text_type": "dye"
+    "mea": 1,
+    "name": "Rse Red",
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 2,
-    "name": "Cactus Green",
-    "text_type": "dye"
+    "mea": 2,
+    "name": "Cacs Green",
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 3,
-    "name": "Coco Beans",
-    "text_type": "dye"
+    "mea": 3,
+    "name": "CcBeans",
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 4,
-    "name": "Lapis Lazuli",
-    "text_type": "dye"
+    "mea": 4,
+    "name": "Lapis Lazi",
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 5,
-    "name": "Purple Dye",
-    "text_type": "dye"
+    "mea": 5,
+    "name": "Prpe Dye",
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 6,
+    "mea": 6,
     "name": "Cyan Dye",
-    "text_type": "dye"
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 7,
-    "name": "Light Gray Dye",
-    "text_type": "dye"
+    "mea": 7,
+    "name": "LighGray Dye",
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 8,
+    "mea": 8,
     "name": "Gray Dye",
-    "text_type": "dye"
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 9,
+    "mea": 9,
     "name": "Pink Dye",
-    "text_type": "dye"
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 10,
+    "mea": 10,
     "name": "Lime Dye",
-    "text_type": "dye"
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 11,
-    "name": "Dandelion Yellow",
-    "text_type": "dye"
+    "mea": 11,
+    "name": "Dandein Yew",
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 12,
-    "name": "Light Blue Dye",
-    "text_type": "dye"
+    "mea": 12,
+    "name": "LighBe Dye",
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 13,
-    "name": "Magenta Dye",
-    "text_type": "dye"
+    "mea": 13,
+    "name": "Magena Dye",
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 14,
+    "mea": 14,
     "name": "Orange Dye",
-    "text_type": "dye"
+    "ex_ype": "dye"
   },
   {
     "type": 351,
-    "meta": 15,
-    "name": "Bone Meal",
-    "text_type": "dye"
+    "mea": 15,
+    "name": "Bne Mea",
+    "ex_ype": "dye"
   },
   {
     "type": 352,
-    "meta": 0,
-    "name": "Bone",
-    "text_type": "bone"
+    "mea": 0,
+    "name": "Bne",
+    "ex_ype": "bne"
   },
   {
     "type": 353,
-    "meta": 0,
-    "name": "Sugar",
-    "text_type": "sugar"
+    "mea": 0,
+    "name": "Sgar",
+    "ex_ype": "sgar"
   },
   {
     "type": 354,
-    "meta": 0,
+    "mea": 0,
     "name": "Cake",
-    "text_type": "cake"
+    "ex_ype": "cake"
   },
   {
     "type": 355,
-    "meta": 0,
+    "mea": 0,
     "name": "Bed",
-    "text_type": "bed"
+    "ex_ype": "bed"
   },
   {
     "type": 356,
-    "meta": 0,
-    "name": "Redstone Repeater",
-    "text_type": "repeater"
+    "mea": 0,
+    "name": "Redsne Repeaer",
+    "ex_ype": "repeaer"
   },
   {
     "type": 357,
-    "meta": 0,
-    "name": "Cookie",
-    "text_type": "cookie"
+    "mea": 0,
+    "name": "Ckie",
+    "ex_ype": "ckie"
   },
   {
     "type": 358,
-    "meta": 0,
+    "mea": 0,
     "name": "Map",
-    "text_type": "filled_map"
+    "ex_ype": "fied_map"
   },
   {
     "type": 359,
-    "meta": 0,
+    "mea": 0,
     "name": "Shears",
-    "text_type": "shears"
+    "ex_ype": "shears"
   },
   {
     "type": 360,
-    "meta": 0,
-    "name": "Melon",
-    "text_type": "melon"
+    "mea": 0,
+    "name": "Men",
+    "ex_ype": "men"
   },
   {
     "type": 361,
-    "meta": 0,
-    "name": "Pumpkin Seeds",
-    "text_type": "pumpkin_seeds"
+    "mea": 0,
+    "name": "Pmpkin Seeds",
+    "ex_ype": "pmpkin_seeds"
   },
   {
     "type": 362,
-    "meta": 0,
-    "name": "Melon Seeds",
-    "text_type": "melon_seeds"
+    "mea": 0,
+    "name": "Men Seeds",
+    "ex_ype": "men_seeds"
   },
   {
     "type": 363,
-    "meta": 0,
+    "mea": 0,
     "name": "Raw Beef",
-    "text_type": "beef"
+    "ex_ype": "beef"
   },
   {
     "type": 364,
-    "meta": 0,
-    "name": "Steak",
-    "text_type": "cooked_beef"
+    "mea": 0,
+    "name": "Seak",
+    "ex_ype": "cked_beef"
   },
   {
     "type": 365,
-    "meta": 0,
+    "mea": 0,
     "name": "Raw Chicken",
-    "text_type": "chicken"
+    "ex_ype": "chicken"
   },
   {
     "type": 366,
-    "meta": 0,
-    "name": "Cooked Chicken",
-    "text_type": "cooked_chicken"
+    "mea": 0,
+    "name": "Cked Chicken",
+    "ex_ype": "cked_chicken"
   },
   {
     "type": 367,
-    "meta": 0,
-    "name": "Rotten Flesh",
-    "text_type": "rotten_flesh"
+    "mea": 0,
+    "name": "Ren Fesh",
+    "ex_ype": "ren_fesh"
   },
   {
     "type": 368,
-    "meta": 0,
-    "name": "Ender Pearl",
-    "text_type": "ender_pearl"
+    "mea": 0,
+    "name": "Ender Pear",
+    "ex_ype": "ender_pear"
   },
   {
     "type": 369,
-    "meta": 0,
-    "name": "Blaze Rod",
-    "text_type": "blaze_rod"
+    "mea": 0,
+    "name": "Baze Rd",
+    "ex_ype": "baze_rd"
   },
   {
     "type": 370,
-    "meta": 0,
-    "name": "Ghast Tear",
-    "text_type": "ghast_tear"
+    "mea": 0,
+    "name": "GhasTear",
+    "ex_ype": "ghas_ear"
   },
   {
     "type": 371,
-    "meta": 0,
-    "name": "Gold Nugget",
-    "text_type": "gold_nugget"
+    "mea": 0,
+    "name": "Gd gge",
+    "ex_ype": "gd_ngge"
   },
   {
     "type": 372,
-    "meta": 0,
-    "name": "Nether Wart",
-    "text_type": "nether_wart"
+    "mea": 0,
+    "name": "eher War",
+    "ex_ype": "neher_war"
   },
   {
     "type": 373,
-    "meta": 0,
-    "name": "Potion",
-    "text_type": "potion"
+    "mea": 0,
+    "name": "Pin",
+    "ex_ype": "pin"
   },
   {
     "type": 374,
-    "meta": 0,
-    "name": "Glass Bottle",
-    "text_type": "glass_bottle"
+    "mea": 0,
+    "name": "Gass Be",
+    "ex_ype": "gass_be"
   },
   {
     "type": 375,
-    "meta": 0,
+    "mea": 0,
     "name": "Spider Eye",
-    "text_type": "spider_eye"
+    "ex_ype": "spider_eye"
   },
   {
     "type": 376,
-    "meta": 0,
-    "name": "Fermented Spider Eye",
-    "text_type": "fermented_spider_eye"
+    "mea": 0,
+    "name": "Fermened Spider Eye",
+    "ex_ype": "fermened_spider_eye"
   },
   {
     "type": 377,
-    "meta": 0,
-    "name": "Blaze Powder",
-    "text_type": "blaze_powder"
+    "mea": 0,
+    "name": "Baze Pwder",
+    "ex_ype": "baze_pwder"
   },
   {
     "type": 378,
-    "meta": 0,
+    "mea": 0,
     "name": "Magma Cream",
-    "text_type": "magma_cream"
+    "ex_ype": "magma_cream"
   },
   {
     "type": 379,
-    "meta": 0,
-    "name": "Brewing Stand",
-    "text_type": "brewing_stand"
+    "mea": 0,
+    "name": "Brewing Sand",
+    "ex_ype": "brewing_sand"
   },
   {
     "type": 380,
-    "meta": 0,
-    "name": "Cauldron",
-    "text_type": "cauldron"
+    "mea": 0,
+    "name": "Cadrn",
+    "ex_ype": "cadrn"
   },
   {
     "type": 381,
-    "meta": 0,
-    "name": "Eye of Ender",
-    "text_type": "ender_eye"
+    "mea": 0,
+    "name": "Eye f Ender",
+    "ex_ype": "ender_eye"
   },
   {
     "type": 382,
-    "meta": 0,
-    "name": "Glistering Melon",
-    "text_type": "speckled_melon"
+    "mea": 0,
+    "name": "Gisering Men",
+    "ex_ype": "specked_men"
   },
   {
     "type": 383,
-    "meta": 4,
-    "name": "Spawn Elder Guardian",
-    "text_type": "spawn_egg"
+    "mea": 4,
+    "name": "Spawn Eder Gardian",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 5,
-    "name": "Spawn Wither Skeleton",
-    "text_type": "spawn_egg"
+    "mea": 5,
+    "name": "Spawn Wiher Skeen",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 6,
-    "name": "Spawn Stray",
-    "text_type": "spawn_egg"
+    "mea": 6,
+    "name": "Spawn Sray",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 23,
-    "name": "Spawn Husk",
-    "text_type": "spawn_egg"
+    "mea": 23,
+    "name": "Spawn Hsk",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 27,
-    "name": "Spawn Zombie Villager",
-    "text_type": "spawn_egg"
+    "mea": 27,
+    "name": "Spawn Zmbie Viager",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 28,
-    "name": "Spawn Skeleton Horse",
-    "text_type": "spawn_egg"
+    "mea": 28,
+    "name": "Spawn Skeen Hrse",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 29,
-    "name": "Spawn Zombie Horse",
-    "text_type": "spawn_egg"
+    "mea": 29,
+    "name": "Spawn Zmbie Hrse",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 31,
-    "name": "Spawn Donkey",
-    "text_type": "spawn_egg"
+    "mea": 31,
+    "name": "Spawn Dnkey",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 32,
-    "name": "Spawn Mule",
-    "text_type": "spawn_egg"
+    "mea": 32,
+    "name": "Spawn Me",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 34,
-    "name": "Spawn Evoker",
-    "text_type": "spawn_egg"
+    "mea": 34,
+    "name": "Spawn Evker",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 35,
+    "mea": 35,
     "name": "Spawn Vex",
-    "text_type": "spawn_egg"
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 36,
-    "name": "Spawn Vindicator",
-    "text_type": "spawn_egg"
+    "mea": 36,
+    "name": "Spawn Vindicar",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 50,
+    "mea": 50,
     "name": "Spawn Creeper",
-    "text_type": "spawn_egg"
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 51,
-    "name": "Spawn Skeleton",
-    "text_type": "spawn_egg"
+    "mea": 51,
+    "name": "Spawn Skeen",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 52,
+    "mea": 52,
     "name": "Spawn Spider",
-    "text_type": "spawn_egg"
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 54,
-    "name": "Spawn Zombie",
-    "text_type": "spawn_egg"
+    "mea": 54,
+    "name": "Spawn Zmbie",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 55,
-    "name": "Spawn Slime",
-    "text_type": "spawn_egg"
+    "mea": 55,
+    "name": "Spawn Sime",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 56,
-    "name": "Spawn Ghast",
-    "text_type": "spawn_egg"
+    "mea": 56,
+    "name": "Spawn Ghas",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 57,
-    "name": "Spawn Zombie Pigman",
-    "text_type": "spawn_egg"
+    "mea": 57,
+    "name": "Spawn Zmbie Pigman",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 58,
+    "mea": 58,
     "name": "Spawn Enderman",
-    "text_type": "spawn_egg"
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 59,
+    "mea": 59,
     "name": "Spawn Cave Spider",
-    "text_type": "spawn_egg"
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 60,
-    "name": "Spawn Silverfish",
-    "text_type": "spawn_egg"
+    "mea": 60,
+    "name": "Spawn Siverfish",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 61,
-    "name": "Spawn Blaze",
-    "text_type": "spawn_egg"
+    "mea": 61,
+    "name": "Spawn Baze",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 62,
-    "name": "Spawn Magma Cube",
-    "text_type": "spawn_egg"
+    "mea": 62,
+    "name": "Spawn Magma Cbe",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 65,
-    "name": "Spawn Bat",
-    "text_type": "spawn_egg"
+    "mea": 65,
+    "name": "Spawn Ba",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 66,
-    "name": "Spawn Witch",
-    "text_type": "spawn_egg"
+    "mea": 66,
+    "name": "Spawn Wich",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 67,
-    "name": "Spawn Endermite",
-    "text_type": "spawn_egg"
+    "mea": 67,
+    "name": "Spawn Endermie",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 68,
-    "name": "Spawn Guardian",
-    "text_type": "spawn_egg"
+    "mea": 68,
+    "name": "Spawn Gardian",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 69,
-    "name": "Spawn Shulker",
-    "text_type": "spawn_egg"
+    "mea": 69,
+    "name": "Spawn Shker",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 90,
+    "mea": 90,
     "name": "Spawn Pig",
-    "text_type": "spawn_egg"
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 91,
+    "mea": 91,
     "name": "Spawn Sheep",
-    "text_type": "spawn_egg"
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 92,
-    "name": "Spawn Cow",
-    "text_type": "spawn_egg"
+    "mea": 92,
+    "name": "Spawn Cw",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 93,
+    "mea": 93,
     "name": "Spawn Chicken",
-    "text_type": "spawn_egg"
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 94,
-    "name": "Spawn Squid",
-    "text_type": "spawn_egg"
+    "mea": 94,
+    "name": "Spawn Sqid",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 95,
-    "name": "Spawn Wolf",
-    "text_type": "spawn_egg"
+    "mea": 95,
+    "name": "Spawn Wf",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 96,
-    "name": "Spawn Mooshroom",
-    "text_type": "spawn_egg"
+    "mea": 96,
+    "name": "Spawn Mshrm",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 98,
-    "name": "Spawn Ocelot",
-    "text_type": "spawn_egg"
+    "mea": 98,
+    "name": "Spawn Oce",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 100,
-    "name": "Spawn Horse",
-    "text_type": "spawn_egg"
+    "mea": 100,
+    "name": "Spawn Hrse",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 101,
-    "name": "Spawn Rabbit",
-    "text_type": "spawn_egg"
+    "mea": 101,
+    "name": "Spawn Rabbi",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 102,
-    "name": "Spawn Polar Bear",
-    "text_type": "spawn_egg"
+    "mea": 102,
+    "name": "Spawn Par Bear",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 103,
-    "name": "Spawn Llama",
-    "text_type": "spawn_egg"
+    "mea": 103,
+    "name": "Spawn Lama",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 105,
-    "name": "Spawn Parrot",
-    "text_type": "spawn_egg"
+    "mea": 105,
+    "name": "Spawn Parr",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 383,
-    "meta": 120,
-    "name": "Spawn Villager",
-    "text_type": "spawn_egg"
+    "mea": 120,
+    "name": "Spawn Viager",
+    "ex_ype": "spawn_egg"
   },
   {
     "type": 384,
-    "meta": 0,
-    "name": "Bottle o' Enchanting",
-    "text_type": "experience_bottle"
+    "mea": 0,
+    "name": "Be ' Enchaning",
+    "ex_ype": "experience_be"
   },
   {
     "type": 385,
-    "meta": 0,
+    "mea": 0,
     "name": "Fire Charge",
-    "text_type": "fire_charge"
+    "ex_ype": "fire_charge"
   },
   {
     "type": 386,
-    "meta": 0,
-    "name": "Book and Quill",
-    "text_type": "writable_book"
+    "mea": 0,
+    "name": "Bk and Qi",
+    "ex_ype": "wriabe_bk"
   },
   {
     "type": 387,
-    "meta": 0,
-    "name": "Written Book",
-    "text_type": "written_book"
+    "mea": 0,
+    "name": "Wrien Bk",
+    "ex_ype": "wrien_bk"
   },
   {
     "type": 388,
-    "meta": 0,
-    "name": "Emerald",
-    "text_type": "emerald"
+    "mea": 0,
+    "name": "Emerad",
+    "ex_ype": "emerad"
   },
   {
     "type": 389,
-    "meta": 0,
-    "name": "Item Frame",
-    "text_type": "item_frame"
+    "mea": 0,
+    "name": "Iem Frame",
+    "ex_ype": "iem_frame"
   },
   {
     "type": 390,
-    "meta": 0,
-    "name": "Flower Pot",
-    "text_type": "flower_pot"
+    "mea": 0,
+    "name": "Fwer P",
+    "ex_ype": "fwer_p"
   },
   {
     "type": 391,
-    "meta": 0,
-    "name": "Carrot",
-    "text_type": "carrot"
+    "mea": 0,
+    "name": "Carr",
+    "ex_ype": "carr"
   },
   {
     "type": 392,
-    "meta": 0,
-    "name": "Potato",
-    "text_type": "potato"
+    "mea": 0,
+    "name": "Pa",
+    "ex_ype": "pa"
   },
   {
     "type": 393,
-    "meta": 0,
-    "name": "Baked Potato",
-    "text_type": "baked_potato"
+    "mea": 0,
+    "name": "Baked Pa",
+    "ex_ype": "baked_pa"
   },
   {
     "type": 394,
-    "meta": 0,
-    "name": "Poisonous Potato",
-    "text_type": "poisonous_potato"
+    "mea": 0,
+    "name": "Pisns Pa",
+    "ex_ype": "pisns_pa"
   },
   {
     "type": 395,
-    "meta": 0,
-    "name": "Empty Map",
-    "text_type": "map"
+    "mea": 0,
+    "name": "Empy Map",
+    "ex_ype": "map"
   },
   {
     "type": 396,
-    "meta": 0,
-    "name": "Golden Carrot",
-    "text_type": "golden_carrot"
+    "mea": 0,
+    "name": "Gden Carr",
+    "ex_ype": "gden_carr"
   },
   {
     "type": 397,
-    "meta": 0,
-    "name": "Mob Head (Skeleton)",
-    "text_type": "skull"
+    "mea": 0,
+    "name": "Mb Head (Skeen)",
+    "ex_ype": "sk"
   },
   {
     "type": 397,
-    "meta": 1,
-    "name": "Mob Head (Wither Skeleton)",
-    "text_type": "skull"
+    "mea": 1,
+    "name": "Mb Head (Wiher Skeen)",
+    "ex_ype": "sk"
   },
   {
     "type": 397,
-    "meta": 2,
-    "name": "Mob Head (Zombie)",
-    "text_type": "skull"
+    "mea": 2,
+    "name": "Mb Head (Zmbie)",
+    "ex_ype": "sk"
   },
   {
     "type": 397,
-    "meta": 3,
-    "name": "Mob Head (Human)",
-    "text_type": "skull"
+    "mea": 3,
+    "name": "Mb Head (Hman)",
+    "ex_ype": "sk"
   },
   {
     "type": 397,
-    "meta": 4,
-    "name": "Mob Head (Creeper)",
-    "text_type": "skull"
+    "mea": 4,
+    "name": "Mb Head (Creeper)",
+    "ex_ype": "sk"
   },
   {
     "type": 397,
-    "meta": 5,
-    "name": "Mob Head (Dragon)",
-    "text_type": "skull"
+    "mea": 5,
+    "name": "Mb Head (Dragn)",
+    "ex_ype": "sk"
   },
   {
     "type": 398,
-    "meta": 0,
-    "name": "Carrot on a Stick",
-    "text_type": "carrot_on_a_stick"
+    "mea": 0,
+    "name": "Carrn a Sick",
+    "ex_ype": "carr_n_a_sick"
   },
   {
     "type": 399,
-    "meta": 0,
-    "name": "Nether Star",
-    "text_type": "nether_star"
+    "mea": 0,
+    "name": "eher Sar",
+    "ex_ype": "neher_sar"
   },
   {
     "type": 400,
-    "meta": 0,
-    "name": "Pumpkin Pie",
-    "text_type": "pumpkin_pie"
+    "mea": 0,
+    "name": "Pmpkin Pie",
+    "ex_ype": "pmpkin_pie"
   },
   {
     "type": 401,
-    "meta": 0,
-    "name": "Firework Rocket",
-    "text_type": "fireworks"
+    "mea": 0,
+    "name": "Firewrk Rcke",
+    "ex_ype": "firewrks"
   },
   {
     "type": 402,
-    "meta": 0,
-    "name": "Firework Star",
-    "text_type": "firework_charge"
+    "mea": 0,
+    "name": "Firewrk Sar",
+    "ex_ype": "firewrk_charge"
   },
   {
     "type": 403,
-    "meta": 0,
-    "name": "Enchanted Book",
-    "text_type": "enchanted_book"
+    "mea": 0,
+    "name": "Enchaned Bk",
+    "ex_ype": "enchaned_bk"
   },
   {
     "type": 404,
-    "meta": 0,
-    "name": "Redstone Comparator",
-    "text_type": "comparator"
+    "mea": 0,
+    "name": "Redsne Cmparar",
+    "ex_ype": "cmparar"
   },
   {
     "type": 405,
-    "meta": 0,
-    "name": "Nether Brick",
-    "text_type": "netherbrick"
+    "mea": 0,
+    "name": "eher Brick",
+    "ex_ype": "neherbrick"
   },
   {
     "type": 406,
-    "meta": 0,
-    "name": "Nether Quartz",
-    "text_type": "quartz"
+    "mea": 0,
+    "name": "eher Qarz",
+    "ex_ype": "qarz"
   },
   {
     "type": 407,
-    "meta": 0,
-    "name": "Minecart with TNT",
-    "text_type": "tnt_minecart"
+    "mea": 0,
+    "name": "Minecarwih TT",
+    "ex_ype": "n_minecar"
   },
   {
     "type": 408,
-    "meta": 0,
-    "name": "Minecart with Hopper",
-    "text_type": "hopper_minecart"
+    "mea": 0,
+    "name": "Minecarwih Hpper",
+    "ex_ype": "hpper_minecar"
   },
   {
     "type": 409,
-    "meta": 0,
+    "mea": 0,
     "name": "Prismarine Shard",
-    "text_type": "prismarine_shard"
+    "ex_ype": "prismarine_shard"
   },
   {
     "type": 410,
-    "meta": 0,
-    "name": "Prismarine Crystals",
-    "text_type": "prismarine_crystals"
+    "mea": 0,
+    "name": "Prismarine Crysas",
+    "ex_ype": "prismarine_crysas"
   },
   {
     "type": 411,
-    "meta": 0,
-    "name": "Raw Rabbit",
-    "text_type": "rabbit"
+    "mea": 0,
+    "name": "Raw Rabbi",
+    "ex_ype": "rabbi"
   },
   {
     "type": 412,
-    "meta": 0,
-    "name": "Cooked Rabbit",
-    "text_type": "cooked_rabbit"
+    "mea": 0,
+    "name": "Cked Rabbi",
+    "ex_ype": "cked_rabbi"
   },
   {
     "type": 413,
-    "meta": 0,
-    "name": "Rabbit Stew",
-    "text_type": "rabbit_stew"
+    "mea": 0,
+    "name": "RabbiSew",
+    "ex_ype": "rabbi_sew"
   },
   {
     "type": 414,
-    "meta": 0,
-    "name": "Rabbit's Foot",
-    "text_type": "rabbit_foot"
+    "mea": 0,
+    "name": "Rabbi's F",
+    "ex_ype": "rabbi_f"
   },
   {
     "type": 415,
-    "meta": 0,
-    "name": "Rabbit Hide",
-    "text_type": "rabbit_hide"
+    "mea": 0,
+    "name": "RabbiHide",
+    "ex_ype": "rabbi_hide"
   },
   {
     "type": 416,
-    "meta": 0,
-    "name": "Armor Stand",
-    "text_type": "armor_stand"
+    "mea": 0,
+    "name": "Armr Sand",
+    "ex_ype": "armr_sand"
   },
   {
     "type": 417,
-    "meta": 0,
-    "name": "Iron Horse Armor",
-    "text_type": "iron_horse_armor"
+    "mea": 0,
+    "name": "Irn Hrse Armr",
+    "ex_ype": "irn_hrse_armr"
   },
   {
     "type": 418,
-    "meta": 0,
-    "name": "Golden Horse Armor",
-    "text_type": "golden_horse_armor"
+    "mea": 0,
+    "name": "Gden Hrse Armr",
+    "ex_ype": "gden_hrse_armr"
   },
   {
     "type": 419,
-    "meta": 0,
-    "name": "Diamond Horse Armor",
-    "text_type": "diamond_horse_armor"
+    "mea": 0,
+    "name": "Diamnd Hrse Armr",
+    "ex_ype": "diamnd_hrse_armr"
   },
   {
     "type": 420,
-    "meta": 0,
+    "mea": 0,
     "name": "Lead",
-    "text_type": "lead"
+    "ex_ype": "ead"
   },
   {
     "type": 421,
-    "meta": 0,
-    "name": "Name Tag",
-    "text_type": "name_tag"
+    "mea": 0,
+    "name": "ame Tag",
+    "ex_ype": "name_ag"
   },
   {
     "type": 422,
-    "meta": 0,
-    "name": "Minecart with Command Block",
-    "text_type": "command_block_minecart"
+    "mea": 0,
+    "name": "Minecarwih Cmmand Bck",
+    "ex_ype": "cmmand_bck_minecar"
   },
   {
     "type": 423,
-    "meta": 0,
-    "name": "Raw Mutton",
-    "text_type": "mutton"
+    "mea": 0,
+    "name": "Raw Mn",
+    "ex_ype": "mn"
   },
   {
     "type": 424,
-    "meta": 0,
-    "name": "Cooked Mutton",
-    "text_type": "cooked_mutton"
+    "mea": 0,
+    "name": "Cked Mn",
+    "ex_ype": "cked_mn"
   },
   {
     "type": 425,
-    "meta": 0,
+    "mea": 0,
     "name": "Banner",
-    "text_type": "banner"
+    "ex_ype": "banner"
   },
   {
     "type": 426,
-    "meta": 0,
-    "name": "End Crystal",
-    "text_type": "end_crystal"
+    "mea": 0,
+    "name": "End Crysa",
+    "ex_ype": "end_crysa"
   },
   {
     "type": 427,
-    "meta": 0,
-    "name": "Spruce Door",
-    "text_type": "spruce_door"
+    "mea": 0,
+    "name": "Sprce Dr",
+    "ex_ype": "sprce_dr"
   },
   {
     "type": 428,
-    "meta": 0,
-    "name": "Birch Door",
-    "text_type": "birch_door"
+    "mea": 0,
+    "name": "Birch Dr",
+    "ex_ype": "birch_dr"
   },
   {
     "type": 429,
-    "meta": 0,
-    "name": "Jungle Door",
-    "text_type": "jungle_door"
+    "mea": 0,
+    "name": "Jnge Dr",
+    "ex_ype": "jnge_dr"
   },
   {
     "type": 430,
-    "meta": 0,
-    "name": "Acacia Door",
-    "text_type": "acacia_door"
+    "mea": 0,
+    "name": "Acacia Dr",
+    "ex_ype": "acacia_dr"
   },
   {
     "type": 431,
-    "meta": 0,
-    "name": "Dark Oak Door",
-    "text_type": "dark_oak_door"
+    "mea": 0,
+    "name": "Dark Oak Dr",
+    "ex_ype": "dark_ak_dr"
   },
   {
     "type": 432,
-    "meta": 0,
-    "name": "Chorus Fruit",
-    "text_type": "chorus_fruit"
+    "mea": 0,
+    "name": "Chrs Fri",
+    "ex_ype": "chrs_fri"
   },
   {
     "type": 433,
-    "meta": 0,
-    "name": "Popped Chorus Fruit",
-    "text_type": "popped_chorus_fruit"
+    "mea": 0,
+    "name": "Ppped Chrs Fri",
+    "ex_ype": "ppped_chrs_fri"
   },
   {
     "type": 434,
-    "meta": 0,
-    "name": "Beetroot",
-    "text_type": "beetroot"
+    "mea": 0,
+    "name": "Beer",
+    "ex_ype": "beer"
   },
   {
     "type": 435,
-    "meta": 0,
-    "name": "Beetroot Seeds",
-    "text_type": "beetroot_seeds"
+    "mea": 0,
+    "name": "BeerSeeds",
+    "ex_ype": "beer_seeds"
   },
   {
     "type": 436,
-    "meta": 0,
-    "name": "Beetroot Soup",
-    "text_type": "beetroot_soup"
+    "mea": 0,
+    "name": "BeerSp",
+    "ex_ype": "beer_sp"
   },
   {
     "type": 437,
-    "meta": 0,
-    "name": "Dragon's Breath",
-    "text_type": "dragon_breath"
+    "mea": 0,
+    "name": "Dragn's Breah",
+    "ex_ype": "dragn_breah"
   },
   {
     "type": 438,
-    "meta": 0,
-    "name": "Splash Potion",
-    "text_type": "splash_potion"
+    "mea": 0,
+    "name": "Spash Pin",
+    "ex_ype": "spash_pin"
   },
   {
     "type": 439,
-    "meta": 0,
-    "name": "Spectral Arrow",
-    "text_type": "spectral_arrow"
+    "mea": 0,
+    "name": "SpecraArrw",
+    "ex_ype": "specra_arrw"
   },
   {
     "type": 440,
-    "meta": 0,
-    "name": "Tipped Arrow",
-    "text_type": "tipped_arrow"
+    "mea": 0,
+    "name": "Tipped Arrw",
+    "ex_ype": "ipped_arrw"
   },
   {
     "type": 441,
-    "meta": 0,
-    "name": "Lingering Potion",
-    "text_type": "lingering_potion"
+    "mea": 0,
+    "name": "Lingering Pin",
+    "ex_ype": "ingering_pin"
   },
   {
     "type": 442,
-    "meta": 0,
-    "name": "Shield",
-    "text_type": "shield"
+    "mea": 0,
+    "name": "Shied",
+    "ex_ype": "shied"
   },
   {
     "type": 443,
-    "meta": 0,
-    "name": "Elytra",
-    "text_type": "elytra"
+    "mea": 0,
+    "name": "Eyra",
+    "ex_ype": "eyra"
   },
   {
     "type": 444,
-    "meta": 0,
-    "name": "Spruce Boat",
-    "text_type": "spruce_boat"
+    "mea": 0,
+    "name": "Sprce Ba",
+    "ex_ype": "sprce_ba"
   },
   {
     "type": 445,
-    "meta": 0,
-    "name": "Birch Boat",
-    "text_type": "birch_boat"
+    "mea": 0,
+    "name": "Birch Ba",
+    "ex_ype": "birch_ba"
   },
   {
     "type": 446,
-    "meta": 0,
-    "name": "Jungle Boat",
-    "text_type": "jungle_boat"
+    "mea": 0,
+    "name": "Jnge Ba",
+    "ex_ype": "jnge_ba"
   },
   {
     "type": 447,
-    "meta": 0,
-    "name": "Acacia Boat",
-    "text_type": "acacia_boat"
+    "mea": 0,
+    "name": "Acacia Ba",
+    "ex_ype": "acacia_ba"
   },
   {
     "type": 448,
-    "meta": 0,
-    "name": "Dark Oak Boat",
-    "text_type": "dark_oak_boat"
+    "mea": 0,
+    "name": "Dark Oak Ba",
+    "ex_ype": "dark_ak_ba"
   },
   {
     "type": 449,
-    "meta": 0,
-    "name": "Totem of Undying",
-    "text_type": "totem_of_undying"
+    "mea": 0,
+    "name": "Tem f Undying",
+    "ex_ype": "em_f_ndying"
   },
   {
     "type": 450,
-    "meta": 0,
-    "name": "Shulker Shell",
-    "text_type": "shulker_shell"
+    "mea": 0,
+    "name": "Shker She",
+    "ex_ype": "shker_she"
   },
   {
     "type": 452,
-    "meta": 0,
-    "name": "Iron Nugget",
-    "text_type": "iron_nugget"
+    "mea": 0,
+    "name": "Irn gge",
+    "ex_ype": "irn_ngge"
   },
   {
     "type": 453,
-    "meta": 0,
-    "name": "Knowledge Book",
-    "text_type": "knowledge_book"
+    "mea": 0,
+    "name": "Knwedge Bk",
+    "ex_ype": "knwedge_bk"
   },
   {
     "type": 2256,
-    "meta": 0,
+    "mea": 0,
     "name": "13 Disc",
-    "text_type": "record_13"
+    "ex_ype": "recrd_13"
   },
   {
     "type": 2257,
-    "meta": 0,
-    "name": "Cat Disc",
-    "text_type": "record_cat"
+    "mea": 0,
+    "name": "CaDisc",
+    "ex_ype": "recrd_ca"
   },
   {
     "type": 2258,
-    "meta": 0,
-    "name": "Blocks Disc",
-    "text_type": "record_blocks"
+    "mea": 0,
+    "name": "Bcks Disc",
+    "ex_ype": "recrd_bcks"
   },
   {
     "type": 2259,
-    "meta": 0,
+    "mea": 0,
     "name": "Chirp Disc",
-    "text_type": "record_chirp"
+    "ex_ype": "recrd_chirp"
   },
   {
     "type": 2260,
-    "meta": 0,
+    "mea": 0,
     "name": "Far Disc",
-    "text_type": "record_far"
+    "ex_ype": "recrd_far"
   },
   {
     "type": 2261,
-    "meta": 0,
-    "name": "Mall Disc",
-    "text_type": "record_mall"
+    "mea": 0,
+    "name": "MaDisc",
+    "ex_ype": "recrd_ma"
   },
   {
     "type": 2262,
-    "meta": 0,
-    "name": "Mellohi Disc",
-    "text_type": "record_mellohi"
+    "mea": 0,
+    "name": "Mehi Disc",
+    "ex_ype": "recrd_mehi"
   },
   {
     "type": 2263,
-    "meta": 0,
-    "name": "Stal Disc",
-    "text_type": "record_stal"
+    "mea": 0,
+    "name": "SaDisc",
+    "ex_ype": "recrd_sa"
   },
   {
     "type": 2264,
-    "meta": 0,
-    "name": "Strad Disc",
-    "text_type": "record_strad"
+    "mea": 0,
+    "name": "Srad Disc",
+    "ex_ype": "recrd_srad"
   },
   {
     "type": 2265,
-    "meta": 0,
+    "mea": 0,
     "name": "Ward Disc",
-    "text_type": "record_ward"
+    "ex_ype": "recrd_ward"
   },
   {
     "type": 2266,
-    "meta": 0,
+    "mea": 0,
     "name": "11 Disc",
-    "text_type": "record_11"
+    "ex_ype": "recrd_11"
   },
   {
     "type": 2267,
-    "meta": 0,
-    "name": "Wait Disc",
-    "text_type": "record_wait"
+    "mea": 0,
+    "name": "WaiDisc",
+    "ex_ype": "recrd_wai"
   }
 ]

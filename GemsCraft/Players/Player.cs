@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Net.Sockets;
+using GemBlocks.Worlds;
 using GemsCraft.AppSystem;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
-using GemsCraft.Chat;
+using GemsCraft.ChatSystem;
 using GemsCraft.Entities;
 using GemsCraft.Entities.Metadata;
 using GemsCraft.Network;
@@ -30,6 +32,45 @@ namespace GemsCraft.Players
         public SessionState State;
 
         private byte _slot = 0;
+
+        [JsonProperty("IPBan")]
+        public bool IPBanned { get; set; }
+
+        [JsonProperty("TempBan")]
+        public long TempBanStart { get; set; } = -1;
+
+        [JsonProperty("TempBanLength")]
+        public long TempBanLength { get; set; } = -1;
+
+        [JsonProperty("IP")]
+        public IPAddress IP { get; set; }
+
+        [JsonProperty("Rank")]
+        public string RankID { get; set; }
+        [JsonIgnore]
+        public World World { get; private set; }
+
+        [JsonProperty("Pos")]
+        public Position Position { get; set; }
+
+        public string LastWorld { get; }
+        private bool _regBanned = false;
+        public bool IsTempBanned
+        {
+            get
+            {
+                if (TempBanStart < 0) return false;
+
+                long timeLeft = (long) (DateTime.Now - new DateTime(1970, 1, 1)).TotalMilliseconds;
+                return TempBanLength - timeLeft > 0;
+            }
+        }
+
+        public bool IsBanned
+        {
+            get => IPBanned || IsTempBanned || _regBanned;
+            set => _regBanned = value;
+        }
 
         /// <summary>
         /// Player's current selected slot

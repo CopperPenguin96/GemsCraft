@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using static GemsCraft.Chat.ChatColor;
 
-namespace GemsCraft.Chat
+namespace GemsCraft.ChatSystem
 {
     public sealed class IRCColor
     {
@@ -97,34 +94,34 @@ namespace GemsCraft.Chat
                 switch (char.ToLower(sb[i]))
                 {
                     case 's':
-                        sb[i] = Sys[1];
+                        sb[i] = ChatColor.Sys[1];
                         break;
                     case 'y':
-                        sb[i] = Say[1];
+                        sb[i] = ChatColor.Say[1];
                         break;
                     case 'p':
-                        sb[i] = PM[1];
+                        sb[i] = ChatColor.PM[1];
                         break;
                     case 'r':
-                        sb[i] = Announcement[1];
+                        sb[i] = ChatColor.Announcement[1];
                         break;
                     case 'h':
-                        sb[i] = Help[1];
+                        sb[i] = ChatColor.Help[1];
                         break;
                     case 'w':
-                        sb[i] = Warning[1];
+                        sb[i] = ChatColor.Warning[1];
                         break;
                     case 'm':
-                        sb[i] = Me[1];
+                        sb[i] = ChatColor.Me[1];
                         break;
                     case 'i':
-                        sb[i] = IRC[1];
+                        sb[i] = ChatColor.IRC[1];
                         break;
                     case 'g':
-                        sb[i] = Global[1];
+                        sb[i] = ChatColor.Global[1];
                         break;
                     default:
-                        if (!IsValidColorCode(sb[i]))
+                        if (!ChatColor.IsValidColorCode(sb[i]))
                         {
                             sb.Remove(i - 1, 2);
                         }

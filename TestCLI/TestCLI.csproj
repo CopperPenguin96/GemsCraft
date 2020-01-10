@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GemsCraft\GemsCraft.csproj">
-      <Project>{72881457-1613-40c1-ad2e-143b272eea74}</Project>
+      <Project>{dfdda455-c99c-4885-b6eb-b94a1b25040d}</Project>
       <Name>GemsCraft</Name>
     </ProjectReference>
   </ItemGroup>
