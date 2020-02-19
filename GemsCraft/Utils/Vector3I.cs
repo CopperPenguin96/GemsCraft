@@ -1,13 +1,9 @@
 ﻿// Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
 // With contributions by Conrad "Redshift" Morgan
-// Modified by apotter96 for GemsCraft
 
 using System;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.Drawing;
-using GemsCraft.Players;
-using GemsCraft.Utils;
-
 namespace GemsCraft.Utils
 {
     /// <summary>
@@ -43,13 +39,6 @@ namespace GemsCraft.Utils
             X = x;
             Y = y;
             Z = z;
-        }
-
-        public Vector3I(long x, long y, long z)
-        {
-            X = (int) x;
-            Y = (int) y;
-            Z = (int) z;
         }
 
         public Vector3I(Vector3I other)
@@ -171,7 +160,14 @@ namespace GemsCraft.Utils
 
         public override bool Equals(object obj)
         {
-            return obj is Vector3I i ? Equals(i) : base.Equals(obj);
+            if (obj is Vector3I i)
+            {
+                return Equals(i);
+            }
+            else
+            {
+                return base.Equals(obj);
+            }
         }
 
         public bool Equals(Vector3I other)

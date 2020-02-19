@@ -9,9 +9,30 @@ namespace GemsCraft.Configuration.Categories
 {
     public sealed class ChatConfig
     {
+        [ConfigDescriptor("Showing the rank with its respective color in the chat")]
         public bool RankColorsInChat { get; internal set; } = true;
+
+        [ConfigDescriptor("Showing the rank with its respective prefix in the chat")]
         public bool RankPrefixesInChat { get; internal set; } = false;
+
+        [IntDescriptor("Max caps the average player can type.",
+            MinValue = 1, MaxValue = 12)]
         public int MaxCaps { get; internal set; } = 5;
+
+        [ConfigDescriptor("Enable/Disable the custom chat channel")]
+        public bool EnableCustomChat { get; internal set; } = false;
+
+        [StringDescriptor("The name of the custom chat channel.",
+            MinLength = 1, MaxLength = 12)]
+        public string CustomChatChannel { get; internal set; } = "GemChat";
+
+        [StringDescriptor("The name of the chat alias.",
+            MinLength = 1, MaxLength = 12)]
+        public string CustomChatAlias { get; internal set; } = "GC";
+
+        [StringDescriptor("What to replace no-no's with.",
+            MinLength = 1, MaxLength = 12)]
+        public string SwearName { get; internal set; } = "&cDonkey";
 
         #region Colors
 

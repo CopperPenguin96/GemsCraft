@@ -1,17 +1,16 @@
 ﻿// Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
 // With contributions by Conrad "Redshift" Morgan
-// Modified by apotter96 for GemsCraft
 
 using System;
 using GemsCraft.AppSystem.Types;
+using GemsCraft.Drawing;
 using GemsCraft.Players;
 
 namespace GemsCraft.Utils
 {
     /// <summary>
-    /// Floating-point (single precision)
-    /// 3D vector. </summary>
-    // ReSharper disable once InheritdocConsiderUsage
+    /// Floating-point (single precision) 3D vector.
+    /// </summary>
     public struct Vector3F : IEquatable<Vector3F>, IComparable<Vector3I>, IComparable<Vector3F>
     {
         public static readonly Vector3F Zero = new Vector3F(0, 0, 0);
@@ -153,7 +152,14 @@ namespace GemsCraft.Utils
 
         public override bool Equals(object obj)
         {
-            return obj is Vector3F f ? Equals(f) : base.Equals(obj);
+            if (obj is Vector3F f)
+            {
+                return Equals(f);
+            }
+            else
+            {
+                return base.Equals(obj);
+            }
         }
 
         public bool Equals(Vector3F other)
@@ -259,8 +265,7 @@ namespace GemsCraft.Utils
             {
                 float minVal = Math.Min(Math.Abs(X), Math.Min(Math.Abs(Y), Math.Abs(Z)));
                 if (minVal == Math.Abs(X)) return Axis.X;
-                if (minVal == Math.Abs(Y)) return Axis.Y;
-                return Axis.Z;
+                return minVal == Math.Abs(Y) ? Axis.Y : Axis.Z;
             }
         }
 

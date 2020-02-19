@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GemsCraft.AppSystem.Types
 {
-    internal class Identifier
+    public sealed class Identifier
     {
         public string Namespace { get; set; }
         public string Name { get; set; }

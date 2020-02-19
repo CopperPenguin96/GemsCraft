@@ -32,6 +32,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEBUG_EVENTS|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DEBUG_EVENTS\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>..\..\Libraries\BouncyCastle.Crypto.dll</HintPath>
@@ -59,6 +69,18 @@
     <Reference Include="LightJson">
       <HintPath>..\..\Libraries\LightJson.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libraries\Newtonsoft.Json.dll</HintPath>
@@ -66,6 +88,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -75,37 +98,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSystem\ArgKey.cs" />
     <Compile Include="AppSystem\Crypto.cs" />
-    <Compile Include="AppSystem\Events.cs" />
+    <Compile Include="AppSystem\Events\CrashedEventArgs.cs" />
+    <Compile Include="AppSystem\Events\LogEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerBeingKickedEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerClickedEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerClickingEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerConnectedEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerConnectingEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerDisconnectedEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerJoinedWorldEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerJoiningWorldEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerKickedEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerMovedEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerMovingEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerPlacedBlockEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\PlayerPlacingBlockEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\SessionConnectingEventArgs.cs" />
+    <Compile Include="AppSystem\Events\Players\SessionDisconnectedEventArgs.cs" />
+    <Compile Include="AppSystem\Events\SearchingForPlayerEventArgs.cs" />
+    <Compile Include="AppSystem\Events\ShutdownEventArgs.cs" />
     <Compile Include="AppSystem\Exceptions\ChatBuilderException.cs" />
-    <Compile Include="AppSystem\Exceptions\PlayerOpException.cs" />
     <Compile Include="AppSystem\Exceptions\RankDefinitionException.cs" />
     <Compile Include="AppSystem\Files.cs" />
     <Compile Include="AppSystem\Logging\Logger.cs" />
+    <Compile Include="AppSystem\Logging\LogSplittingType.cs" />
     <Compile Include="AppSystem\Logging\LogType.cs" />
+    <Compile Include="AppSystem\Paths.cs" />
     <Compile Include="AppSystem\Scheduler\Scheduler.cs" />
     <Compile Include="AppSystem\Scheduler\SchedulerTask.cs" />
+    <Compile Include="AppSystem\ShutdownParams.cs" />
+    <Compile Include="AppSystem\ShutdownReason.cs" />
     <Compile Include="AppSystem\Types\Identifier.cs" />
     <Compile Include="AppSystem\Types\OptLocation.cs" />
     <Compile Include="AppSystem\Types\OptUuid.cs" />
     <Compile Include="AppSystem\Types\Position.cs" />
+    <Compile Include="AppSystem\Types\Recipe.cs" />
     <Compile Include="AppSystem\Types\Rotation.cs" />
     <Compile Include="AppSystem\Types\Slot.cs" />
     <Compile Include="AppSystem\Types\VarInt.cs" />
     <Compile Include="AppSystem\Version.cs" />
-    <Compile Include="ChatSystem\Chat.cs" />
     <Compile Include="ChatSystem\ChatBuilder.cs" />
     <Compile Include="ChatSystem\ChatColor.cs" />
+    <Compile Include="ChatSystem\ChatMessageType.cs" />
     <Compile Include="ChatSystem\ChatMode.cs" />
     <Compile Include="ChatSystem\Emotes\Emote.cs" />
     <Compile Include="ChatSystem\Emotes\EmoteHandler.cs" />
     <Compile Include="ChatSystem\IRCColor.cs" />
     <Compile Include="ChatSystem\OptChat.cs" />
-    <Compile Include="Commands\Categories\BuildingCommands.cs" />
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\CommandCategory.cs" />
-    <Compile Include="Commands\CommandDescriptor.cs" />
-    <Compile Include="Commands\CommandManager.cs" />
+    <Compile Include="ChatSystem\RawMessageType.cs" />
     <Compile Include="Configuration\Categories\AdvancedConfig.cs" />
     <Compile Include="Configuration\Categories\BasicConfig.cs" />
     <Compile Include="Configuration\Categories\ChatConfig.cs" />
@@ -116,7 +159,9 @@
     <Compile Include="Configuration\Categories\SecurityConfig.cs" />
     <Compile Include="Configuration\Categories\WorldConfig.cs" />
     <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\ConfigDescriptorAttribute.cs" />
     <Compile Include="Configuration\ServerIcon.cs" />
+    <Compile Include="Drawing\Axis.cs" />
     <Compile Include="Entities\AbstractFireball.cs" />
     <Compile Include="Entities\AbstractFish.cs" />
     <Compile Include="Entities\AbstractHorse.cs" />
@@ -244,6 +289,12 @@
     <Compile Include="Entities\Zombie.cs" />
     <Compile Include="Entities\ZombieHorse.cs" />
     <Compile Include="Entities\ZombieVillager.cs" />
+    <Compile Include="GUI\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Network\AesStream.cs" />
     <Compile Include="Network\GameStream.cs" />
     <Compile Include="Network\Packets\HandshakePackets.cs" />
@@ -258,12 +309,16 @@
     <Compile Include="Network\Tools.cs" />
     <Compile Include="Players\Ability.cs" />
     <Compile Include="Players\Animation.cs" />
+    <Compile Include="Players\CanPlaceResult.cs" />
+    <Compile Include="Players\ClickAction.cs" />
+    <Compile Include="Players\LeaveReason.cs" />
     <Compile Include="Players\Permission.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PlayerDatabase.cs" />
     <Compile Include="Players\PlayerList.cs" />
-    <Compile Include="Players\Rank.cs" />
+    <Compile Include="Players\Player.Events.cs" />
     <Compile Include="Players\SkinPart.cs" />
+    <Compile Include="Worlds\WorldChangeReason.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -271,17 +326,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="AppSystem\Server.cs" />
+    <Compile Include="Utils\EventInterfaces.cs" />
     <Compile Include="Utils\ExtensionMethods.cs" />
-    <Compile Include="Utils\IClassy.cs" />
     <Compile Include="Utils\JavaUUID.cs" />
     <Compile Include="Utils\MonoCompat.cs" />
     <Compile Include="Utils\Randomizer.cs" />
     <Compile Include="Utils\ResponseData.cs" />
-    <Compile Include="Utils\RWLSExtension.cs" />
     <Compile Include="Utils\VariableValueArray.cs" />
     <Compile Include="Utils\Vector3F.cs" />
     <Compile Include="Utils\Vector3I.cs" />
-    <Compile Include="Utils\YesNoAuto.cs" />
     <Compile Include="Worlds\BlockChangeContext.cs" />
     <Compile Include="Worlds\Coordinates3D.cs" />
     <Compile Include="Worlds\Difficulty.cs" />
@@ -291,16 +344,30 @@
     <Compile Include="Worlds\Velocity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GUI\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSystem\Server.Events.cs" />
+    <None Include="packages.config" />
     <None Include="Resources\blocks.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\server-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="MetroFramework.txt" />
+    <None Include="Resources\Spinner.gif" />
+    <None Include="Resources\main.png" />
+    <None Include="Resources\icon.main.png" />
+    <None Include="Resources\Splash.png" />
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

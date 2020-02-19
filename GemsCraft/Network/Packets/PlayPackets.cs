@@ -1,36 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
-using fNbt;
+using GemBlocks.Levels;
+using GemBlocks.Worlds;
 using GemsCraft.AppSystem.Logging;
 using GemsCraft.AppSystem.Types;
 using GemsCraft.ChatSystem;
 using GemsCraft.Configuration;
-using GemsCraft.Entities.Metadata;
 using GemsCraft.Players;
 using GemsCraft.Utils;
 using GemsCraft.Worlds;
-using minecraft.level;
-using minecraft.world;
 using Position = GemsCraft.AppSystem.Types.Position;
 
 namespace GemsCraft.Network.Packets
 {
     internal class PlayPackets
     {
+        #region Client bound
+
         private static int _lastIdentifier = -1;
         public static void JoinGame(Player player, GameStream stream)
         {
             int eid = _lastIdentifier += 1;
             player.Eid = eid;
-            string mode = minecraft.level.GameType.CREATIVE.name();
+            string mode = GameType.CREATIVE.name();
             string dim = Dimension.Overworld.ToString();
-            byte max = (byte)Config.Current.MaxPerWorld;
+            byte max = (byte)Config.Worlds.MaxPerWorld;
             string levelType = "survival";
             VarInt viewDistance = 2;
-            bool reducedInfo = Config.Current.ShowAdvancedDebugInfo;
+            bool reducedInfo = Config.Advanced.ShowAdvancedDebugInfo;
 
             Protocol.Send(player, stream, Packet.JoinGame,
                 new List<object>
@@ -44,36 +43,8 @@ namespace GemsCraft.Network.Packets
                     reducedInfo
                 });
             // TODO: implement brand? (SendPluginMessage)
-            SendServerDifficulty(player, stream, Config.Current.Difficulty, true);
-        }
-
-        public static void SpawnPosition(Player player, GameStream stream,
-            Position pos)
-        {
-            Protocol.Send(player, stream, Packet.SpawnPosition,
-                pos.Get());
-        }
-
-        public static void SendChunkData(Player player, GameStream stream,
-            Chunk chunk)
-        {
-
-        }
-
-        /// <summary>
-        /// Mods and plugins can use this to send their data.
-        /// Minecraft itself uses several plugin channels. These
-        /// internal channels are in the minecraft namespace.
-        /// </summary>
-        /// <param name="player"></param>
-        /// <param name="stream"></param>
-        /// <param name="channel"></param>
-        /// <param name="data"></param>
-        public static void SendPluginMessage(Player player, GameStream stream,
-            Identifier channel, byte[] data)
-        {
-            Protocol.Send(player, stream, Packet.PluginMessage,
-                channel.ToString(), data);
+            SendServerDifficulty(player, stream, Config.Basic.Difficulty, true);
+            DeclareRecipes(player, stream, 0, new RecipeArray { });
         }
 
         public static void SendServerDifficulty(Player player, GameStream stream,
@@ -106,7 +77,43 @@ namespace GemsCraft.Network.Packets
             byte abilityList = abilities.Aggregate<Ability, byte>(0, (current, ab) => current.SetBitOn(ab, true));
             Protocol.Send(player, stream, Packet.PlayerAbilities,
                 abilityList, flyingSpeed, fieldOfViewModifier);
+            SendHeldItemChange(player, stream, 0);
+
         }
+        
+        /// <summary>
+        /// Sent to change the player's slot selection.
+        /// </summary>
+        /// <param name="slot">The slot which the player has selected 0-8</param>
+        public static void SendPlayerSlot(Player player, GameStream stream,
+            byte slot)
+        {
+            if (slot > 8) throw new ArgumentOutOfRangeException(nameof(slot));
+            Protocol.Send(player, stream, Packet.HeldItemChange, slot);
+        }
+
+        /// <summary>
+        /// Sent to change the player's slot selection.
+        /// </summary>
+        /// <param name="slot">The slot which the player has selected (0-8)</param>
+        public static void SendHeldItemChange(Player player, GameStream stream,
+            byte slot)
+        {
+            Packet packet = Packet.HeldItemChange;
+            if (slot > 8) throw new ArgumentOutOfRangeException(nameof(slot));
+            Protocol.Send(player, stream, packet, slot);
+        }
+
+        public static void DeclareRecipes(Player player, GameStream stream,
+            VarInt numberOf, RecipeArray recipes)
+        {
+            Protocol.Send(player, stream, Packet.DeclareRecipes,
+                recipes);
+        }
+
+        #endregion
+
+        #region Server bound
 
         public static void ReceivePluginMessage(Player player, GameStream stream)
         {
@@ -158,15 +165,7 @@ namespace GemsCraft.Network.Packets
 
         }
 
-        /// <summary>
-        /// Sent to change the player's slot selection.
-        /// </summary>
-        /// <param name="slot">The slot which the player has selected 0-8</param>
-        public static void SendPlayerSlot(Player player, GameStream stream,
-            byte slot)
-        {
-            if (slot > 8) throw new ArgumentOutOfRangeException(nameof(slot));
-            Protocol.Send(player, stream, Packet.HeldItemChange, slot);
-        }
+        #endregion
+
     }
 }

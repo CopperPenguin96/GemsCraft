@@ -11,25 +11,99 @@ using GemsCraft.ChatSystem;
 using GemsCraft.Entities;
 using GemsCraft.Entities.Metadata;
 using GemsCraft.Network;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 
 namespace GemsCraft.Players
 {
-    public class Player : Living
+    /// <summary>
+    /// Object representing volatile state ("session") of a connected player via Client object.
+    /// Also contains information about the known player and their info.
+    /// </summary>
+    public partial class Player : Living
     {
-        /// <summary>
-        /// The Minecraft Client
-        /// </summary>
-        internal TcpClient Client;
-        /// <summary>
-        /// Used to identify the player
-        /// </summary>
-        internal int Eid;
+
+        #region Properties
+
         /// <summary>
         /// Used by the server to determine which state it is at when
         /// communicating with the client
         /// </summary>
         public SessionState State;
+
+        /// <summary>
+        /// The world that the player is currently on. May be null.
+        /// Use .JoinWorld() to make players teleport to another world.
+        /// </summary>
+        [JsonIgnore]
+        public World World { get; private set; }
+
+        /// <summary>
+        /// Player's position in the current world.
+        /// </summary>
+        [JsonIgnore]
+        public Position Position { get; set; }
+
+        /// <summary>
+        /// Time when the session connected.
+        /// </summary>
+        public DateTime LoginTime { get; private set; }
+
+        /// <summary>
+        /// Last time when the player was active (moving/messaging). UTC.
+        /// </summary>
+        public DateTime LastActiveTime { get; private set; }
+
+        /// <summary>
+        /// Last command called by the player.
+        /// </summary>
+        [CanBeNull]
+       // public Command LastCommand { get; private set; }
+
+        /// <summary>
+        /// The unchanging username of the player
+        /// </summary>
+        [JsonProperty("Username")]
+        public string Username { get; internal set; }
+
+        #endregion
+
+        #region Constructors
+
+        internal Player(TcpClient client)
+        {
+            Client = client;
+            Stream = new GameStream(client.GetStream());
+        }
+
+        internal Player(TcpClient client, string username, string uuid)
+            : this(client)
+        {
+            Username = username ?? throw new ArgumentNullException(nameof(username));
+            UUID = uuid ?? throw new ArgumentNullException(nameof(uuid));
+            //spamBackLog = new Queue<DateTime>(Rank.AntiGriefBlocks);
+            IP = IPAddress.Loopback;
+            //ResetAllBinds();
+        }
+
+        internal Player(TcpClient client, string username, string uuid, World world)
+            : this(client, username, uuid)
+        {
+            World = world;
+        }
+
+        #endregion
+
+        
+        /// <summary>
+        /// The Minecraft Client
+        /// </summary>
+        internal TcpClient Client;
+
+        /// <summary>
+        /// Used to identify the player
+        /// </summary>
+        internal int Eid;
 
         private byte _slot = 0;
 
@@ -47,11 +121,6 @@ namespace GemsCraft.Players
 
         [JsonProperty("Rank")]
         public string RankID { get; set; }
-        [JsonIgnore]
-        public World World { get; private set; }
-
-        [JsonProperty("Pos")]
-        public Position Position { get; set; }
 
         public string LastWorld { get; }
         private bool _regBanned = false;
@@ -163,11 +232,7 @@ namespace GemsCraft.Players
         /// </summary>
         internal bool EncryptionEnabled = false;
 
-        /// <summary>
-        /// The unchanging username of the player
-        /// </summary>
-        [JsonProperty("Username")]
-        public string Username { get; internal set; }
+        
 
         /// <summary>
         /// The fixed identifier of the player, used to id them
@@ -182,17 +247,7 @@ namespace GemsCraft.Players
         /// </summary>
         internal GameStream Stream;
 
-        public Player(TcpClient client)
-        {
-            Client = client;
-            Stream = new GameStream(client.GetStream());
-        }
-
-        public Player(string username, string uuid)
-        {
-            Username = username;
-            UUID = uuid;
-        }
+        
 
         public void Save()
         {

@@ -22,6 +22,8 @@ namespace GemsCraft.Configuration.Categories
             }
         }
 
+        [IntDescriptor("Max amount of players per world.",
+            MinValue = 1, MaxValue = 3000)]
         public int MaxPerWorld
         {
             get => _mWorld;

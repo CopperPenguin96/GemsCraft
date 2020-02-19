@@ -230,20 +230,6 @@ namespace GemsCraft.AppSystem
                 Logger.Write(e.ToString());
             }
         }
-
-        public static void LoadMainWorld(Player player, GameStream stream)
-        {
-            IGenerator gen = SimpleGenerator.DEFAULT;
-            Level level = new Level("MainWorld", gen);
-            level.setGameType(GameType.SURVIVAL);
-            level.setAllowCommands(true);
-            level.setMapFeatures(true);
-            level.setSpawnPoint(0, 0, 0);
-            World w = new World(level);
-            Chunk chunk = w.getRegion(0, 0, true).getChunk(0, 0, true);
-            PlayPackets.SendChunkData(player, stream,
-                chunk);
-            w.save();
-        }
+        
     }
 }
